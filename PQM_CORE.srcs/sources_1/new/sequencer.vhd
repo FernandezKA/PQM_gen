@@ -3,12 +3,15 @@ LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
 USE ieee.numeric_std.ALL;
 
+library work;
+use work.main_pkg.all;
+
 ENTITY Sequencer IS
     GENERIC (
         freq_widgt : INTEGER := 32;
         phase_widgt : INTEGER := 32;
-        carrier_widgt : INTEGER := 32;
-        rotation_widgt : INTEGER := 32;
+        carrier_widgt : INTEGER := 14;
+        rotation_widgt : INTEGER := 14;
         int_widgt : INTEGER := 32
     );
     PORT (
@@ -25,63 +28,20 @@ ENTITY Sequencer IS
 END ENTITY Sequencer;
 
 ARCHITECTURE Behavioral OF Sequencer IS
-    --for instantiate dds_mode_fi_add
-    SIGNAL mod_add_A : unsigned (31 DOWNTO 0) := (OTHERS => '0');
-    SIGNAL mod_add_B : unsigned (31 DOWNTO 0) := (OTHERS => '0');
-    SIGNAL mod_add_en : STD_LOGIC := '0';
-    SIGNAL mod_sclr : STD_LOGIC := '0';
-    SIGNAL phase_0 : unsigned (15 DOWNTO 0);
-    SIGNAL data_0 : unsigned (15 DOWNTO 0);
-    SIGNAL phase_inc_0 : unsigned (15 DOWNTO 0);
 
-    --for inst dds_mod_fi_add 
-    SIGNAL mod_fi_add_a : STD_LOGIC_VECTOR(31 DOWNTO 0) := (OTHERS => '0');
-    SIGNAL mod_fi_add_b : STD_LOGIC_VECTOR(31 DOWNTO 0) := (OTHERS => '0');
-    SIGNAL mod_fi_add_ce : STD_LOGIC := '0';
-    SIGNAL mod_fi_add_s : STD_LOGIC_VECTOR(31 DOWNTO 0) := (OTHERS => '0');
-    SIGNAL mod_fi_add_sclr : STD_LOGIC := '0';
-
-    --for inst dds8_mod_fi_partial 
-    SIGNAL mod_fi_partial_ce : STD_LOGIC := '0';
-    SIGNAL mod_fi_partial_sclr : STD_LOGIC := '0';
-    SIGNAL mod_fi_partial_a : STD_LOGIC_VECTOR(31 DOWNTO 0) := (OTHERS => '0');
-    SIGNAL mod_fi_partial_b : STD_LOGIC_VECTOR(3 DOWNTO 0) := (OTHERS => '0');
-    SIGNAL mod_fi_partial_c : STD_LOGIC_VECTOR(31 DOWNTO 0) := (OTHERS => '0');
-    SIGNAL mod_fi_partial_subtract : STD_LOGIC := '0';
-    SIGNAL mod_fi_partial_p : STD_LOGIC_VECTOR(31 DOWNTO 0) := (OTHERS => '0');
-    SIGNAL mod_fi_partial_pcout : STD_LOGIC_VECTOR(47 DOWNTO 0) := (OTHERS => '0');
-
-    --for inst dds8_mod_group_accum 
-    SIGNAL mod_group_accum_b : STD_LOGIC_VECTOR(34 DOWNTO 0) := (OTHERS => '0');
-    SIGNAL mod_group_accum_sclr : STD_LOGIC := '0';
-    SIGNAL mod_group_accum_q : STD_LOGIC_VECTOR (47 DOWNTO 0) := (OTHERS => '0');
+type Tdac_bus is array(7 downto 0)  of std_logic_vector(13 downto 0);
+    signal cos_carrier : Tdac_bus:= (others=>(others=>'0'));
+    signal cos_rotation : Tdac_bus:= (others=>(others=>'0'));
 BEGIN
-
-    mod_fi_add : ENTITY work.dds8_mod_fi_add PORT MAP(
-        A => mod_fi_add_a,
-        B => mod_fi_add_b,
-        CLK => clk_seq,
-        CE => mod_fi_add_ce,
-        SCLR => mod_fi_add_sclr,
-        S => mod_fi_add_s
-        );
-
-    mod_fi_partial : ENTITY work.dds8_mod_fi_partial PORT MAP(
-        CLK => clk_seq,
-        CE => mod_fi_partial_ce,
-        SCLR => mod_fi_partial_sclr,
-        A => mod_fi_partial_a,
-        B => mod_fi_partial_b,
-        C => mod_fi_partial_c,
-        SUBTRACT => mod_fi_partial_subtract,
-        P => mod_fi_partial_p,
-        PCOUT => mod_fi_partial_pcout
-        );
-
-    mod_group_accum : ENTITY work.dds8_mod_group_accum PORT MAP(
-        B => mod_group_accum_b,
-        CLK => clk_seq,
-        SCLR => mod_group_accum_sclr,
-        Q => mod_group_accum_q
-        );
+  
+  inst_dds8_m_carrier: entity work.dds8_mod port map(
+  clk_i => clk_seq, 
+  f_we_i => '1', 
+  rst_i => '0', 
+  freq_i => Fc, 
+  phase_i => Pc,
+  cos14_o => cos_carrier,
+  sin14_o => open
+  );      
+        
 END ARCHITECTURE Behavioral;

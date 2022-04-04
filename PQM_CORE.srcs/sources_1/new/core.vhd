@@ -45,8 +45,8 @@ ENTITY CORE IS
         Finc_widgt : INTEGER := 32;
         Pc_widgt : INTEGER := 32;
         Pr_widgt : INTEGER := 32;
-        Car_widgt : INTEGER := 32;
-        Rot_widgt : INTEGER := 32;
+        Car_widgt : INTEGER := 14;
+        Rot_widgt : INTEGER := 14;
 
         TIM1_widgt : INTEGER := 32
     );

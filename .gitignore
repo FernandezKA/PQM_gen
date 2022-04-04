@@ -511,8 +511,10 @@ PQM_CORE.sim/sim_1/behav/xsim/xsim.dir/xil_defaultlib/xil_defaultlib.rlx
 PQM_CORE.sim/sim_1/behav/xsim/xsim.ini
 PQM_CORE.sim/sim_1/behav/xsim/xsim.ini.bak
 PQM_CORE.sim/sim_1/behav/xsim/xvhdl.log
+PQM_CORE.sim/sim_1/behav/xsim/xvhdl.pb
 PQM_CORE.sim/sim_1/behav/xsim/xvlog.log
 PQM_CORE.sim/sim_1/behav/xsim/xvlog.pb
+PQM_CORE.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0.xci
 PQM_CORE.xpr
 PQM_Core/README.md
 vivado.jou
