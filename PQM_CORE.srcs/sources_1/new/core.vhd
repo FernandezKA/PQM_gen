@@ -43,8 +43,8 @@ ENTITY CORE IS
         Fcar_widgt : INTEGER := 32;
         Frot_widgt : INTEGER := 32;
         Finc_widgt : INTEGER := 32;
-        Pc_widgt : INTEGER := 32;
-        Pr_widgt : INTEGER := 32;
+        Pc_widgt : INTEGER := 16;
+        Pr_widgt : INTEGER := 16;
         Car_widgt : INTEGER := 14;
         Rot_widgt : INTEGER := 14;
 
@@ -112,6 +112,7 @@ ARCHITECTURE Behavioral OF CORE IS
     SIGNAL Pc : unsigned(Pc_widgt - 1 DOWNTO 0);
     SIGNAL Pr : unsigned (Pr_widgt - 1 DOWNTO 0);
     SIGNAL Fr_inc : unsigned(Finc_widgt - 1 DOWNTO 0);
+    signal Fc_inc : unsigned(Finc_widgt - 1 downto 0);
     SIGNAL Carrier : STD_LOGIC_VECTOR(Car_widgt - 1 DOWNTO 0);
     SIGNAL Rotation : STD_LOGIC_VECTOR (Rot_widgt - 1 DOWNTO 0);
 
@@ -171,6 +172,7 @@ BEGIN
         Pc => STD_LOGIC_VECTOR(Pc),
         Pr => STD_LOGIC_VECTOR(Pr),
         Fr_inc => STD_LOGIC_VECTOR(Fr_inc),
+        Fc_inc => std_logic_vector(Fc_inc),
         Carrier => Carrier,
         Rotation => Rotation
         );
@@ -236,10 +238,10 @@ BEGIN
                     Fr_inc <= ARG_reg;
                     --Set phase carrier
                 WHEN SET_P_CARR => -- replace p - > ph
-                    Pc <= ARG_reg;
+                    Pc <= ARG_reg(Pc_widgt - 1 downto 0);
                     --Set phase rotation 
                 WHEN SET_P_ROT =>
-                    Pr <= ARG_reg;
+                    Pr <= ARG_reg(Pr_widgt - 1 downto 0);
                 when NOP => 
                     
                 
