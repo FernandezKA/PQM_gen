@@ -87,7 +87,8 @@ ARCHITECTURE Behavioral OF CORE IS
     SIGNAL readed_BRAM : STD_LOGIC_VECTOR (BRAM_widgt - 1 DOWNTO 0) := (OTHERS => '0');
     SIGNAL ptrBRAM : unsigned (ADDR_widgt - 1 DOWNTO 0) := (OTHERS => '0');
 
-    SIGNAL jmp_last : STD_LOGIC := '0';
+    SIGNAL jmp_flag : STD_LOGIC := '0';
+    SIGNAL nop_flag : STD_LOGIC := '0';
 
     --signals for BRAM instntiation     
     SIGNAL enb : STD_LOGIC := '1';
@@ -124,9 +125,9 @@ ARCHITECTURE Behavioral OF CORE IS
 
     TYPE CNT_STATE IS (edge, decrement);
     SIGNAL TIM1_SR : CNT_STATE := edge;
-    
-    signal cmd_reg : std_logic_vector(31 downto 0) := (others => '0');
-    signal arg_reg : std_logic_vector(31 downto 0) := (others => '0');
+
+    SIGNAL cmd_reg : STD_LOGIC_VECTOR(31 DOWNTO 0) := (OTHERS => '0');
+    SIGNAL arg_reg : STD_LOGIC_VECTOR(31 DOWNTO 0) := (OTHERS => '0');
 
 BEGIN
     -------------------------------------------------------------------
@@ -182,53 +183,80 @@ BEGIN
     --End of instantiation 
     --------------------------------------------------------------------------
     -------------------------------------------------------------------
-    cmd_parser : PROCESS (clk_core) BEGIN
+    future_parser : PROCESS (clk_core) BEGIN
         IF rising_edge(clk_core) THEN
-            IF jmp_last = '1' THEN
-                jmp_last <= '0';
-            ELSE
+            IF jmp_flag = '1' THEN
+                jmp_flag <= '0'; --this flag for delay at 1 clock 
                 ptrBRAM <= ptrBRAM + 1;
-                cmd_reg <= readed_BRAM(BRAM_widgt - 1 DOWNTO CMD_widgt);
-                arg_reg <= readed_BRAM(CMD_widgt - 1 DOWNTO 0);
-                CASE readed_BRAM(CMD_widgt - 1 DOWNTO 0) IS
-                        --GPIO set command
-                    WHEN GPIO_WRITE =>
-                        gpioa_reg <= readed_BRAM(BRAM_widgt - 1 DOWNTO CMD_widgt);
-                        --Set GPIO bits
-                    WHEN GPIO_SET =>
-                        gpioa_reg <= (gpioa_reg) OR readed_BRAM(BRAM_widgt - 1 DOWNTO CMD_widgt);
-                        --Reset GPIO bits
-                    WHEN GPIO_RESET =>
-                        gpioa_reg <= (gpioa_reg) AND readed_BRAM(BRAM_widgt - 1 DOWNTO CMD_widgt);
-                        --Set amplitude I
-                    WHEN SET_AMP_1 =>
-                        Amp_CTRL_Amp_1 <= readed_BRAM(CMD_widgt + AMP_CTRL_widgt - 1 DOWNTO CMD_widgt);
-                        --Set amplitude Q
-                    WHEN SET_AMP_2 =>
-                        Amp_CTRL_Amp_2 <= readed_BRAM(CMD_widgt + AMP_CTRL_widgt - 1 DOWNTO CMD_widgt);
-                        --Set F0 carrier
-                    WHEN SET_F0_CARR =>
-                        Fc <= readed_BRAM(BRAM_widgt - 1 DOWNTO CMD_widgt);
-                        --Set F0 rotation 
-                    WHEN SET_F0_ROT => -- add f_inc_carr
-                        Fr <= readed_BRAM(BRAM_widgt - 1 DOWNTO CMD_widgt);
-                        --Set Fr_inc
-                    WHEN SET_F_INC => --rotation 
-                        Fr_inc <= readed_BRAM(BRAM_widgt - 1 DOWNTO CMD_widgt);
-                        --Set phase carrier
-                    WHEN SET_P_CARR => -- replace p - > ph
-                        Pc <= readed_BRAM(CMD_widgt + Pc_widgt - 1 DOWNTO CMD_widgt);
-                        --Set phase rotation 
-                    WHEN SET_P_ROT =>
-                        Pr <= readed_BRAM(CMD_widgt + Pr_widgt - 1 DOWNTO CMD_widgt);
-                    WHEN NOP =>
-
+            elsif nop_flag = '1' then 
+                TIM1_EN_STR <= '0';
+                IF TIM1_CEN = '1' THEN 
+                    
+                ELSE 
+                    nop_flag <= '0';
+                    enb <= '1';
+                END IF;
+                --nop_flag <= '0';
+                --enb <= '1';
+            ELSE
+                CASE (readed_BRAM(CMD_widgt - 1 DOWNTO 0)) IS
                     WHEN JMP =>
                         ptrBRAM <= unsigned(readed_BRAM(CMD_widgt + ADDR_widgt - 1 DOWNTO CMD_widgt));
-                        jmp_last <= '1';
+                        jmp_flag <= '1';
+                    WHEN NOP =>
+                        nop_flag <= '1';
+                        enb <= '0';
+                        TIM1_ARR <= unsigned(readed_BRAM(BRAM_widgt - 1 downto CMD_widgt));
+                        TIM1_EN_STR <= '1';
                     WHEN OTHERS =>
+                        ptrBRAM <= ptrBRAM + 1;
                 END CASE;
+
+                cmd_reg <= readed_BRAM(BRAM_widgt - 1 DOWNTO CMD_widgt); -- this data delayed at 1 clock
+                arg_reg <= readed_BRAM(CMD_widgt - 1 DOWNTO 0);
             END IF;
+        END IF;
+    END PROCESS future_parser;
+
+    cmd_parser : PROCESS (clk_core) BEGIN
+        IF rising_edge(clk_core) THEN
+            CASE readed_BRAM(CMD_widgt - 1 DOWNTO 0) IS
+                    --GPIO set command
+                WHEN GPIO_WRITE =>
+                    gpioa_reg <= readed_BRAM(BRAM_widgt - 1 DOWNTO CMD_widgt);
+                    --Set GPIO bits
+                WHEN GPIO_SET =>
+                    gpioa_reg <= (gpioa_reg) OR readed_BRAM(BRAM_widgt - 1 DOWNTO CMD_widgt);
+                    --Reset GPIO bits
+                WHEN GPIO_RESET =>
+                    gpioa_reg <= (gpioa_reg) AND readed_BRAM(BRAM_widgt - 1 DOWNTO CMD_widgt);
+                    --Set amplitude I
+                WHEN SET_AMP_1 =>
+                    Amp_CTRL_Amp_1 <= readed_BRAM(CMD_widgt + AMP_CTRL_widgt - 1 DOWNTO CMD_widgt);
+                    --Set amplitude Q
+                WHEN SET_AMP_2 =>
+                    Amp_CTRL_Amp_2 <= readed_BRAM(CMD_widgt + AMP_CTRL_widgt - 1 DOWNTO CMD_widgt);
+                    --Set F0 carrier
+                WHEN SET_F0_CARR =>
+                    Fc <= readed_BRAM(BRAM_widgt - 1 DOWNTO CMD_widgt);
+                    --Set F0 rotation 
+                WHEN SET_F0_ROT => -- add f_inc_carr
+                    Fr <= readed_BRAM(BRAM_widgt - 1 DOWNTO CMD_widgt);
+                    --Set Fr_inc
+                WHEN SET_F_INC => --rotation 
+                    Fr_inc <= readed_BRAM(BRAM_widgt - 1 DOWNTO CMD_widgt);
+                    --Set phase carrier
+                WHEN SET_P_CARR => -- replace p - > ph
+                    Pc <= readed_BRAM(CMD_widgt + Pc_widgt - 1 DOWNTO CMD_widgt);
+                    --Set phase rotation 
+                WHEN SET_P_ROT =>
+                    Pr <= readed_BRAM(CMD_widgt + Pr_widgt - 1 DOWNTO CMD_widgt);
+                WHEN NOP =>
+
+                WHEN JMP =>
+
+                WHEN OTHERS =>
+            END CASE;
         END IF;
     END PROCESS cmd_parser;
 
