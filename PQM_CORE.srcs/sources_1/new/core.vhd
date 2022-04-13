@@ -47,7 +47,6 @@ ENTITY CORE IS
         Pr_widgt : INTEGER := 16;
         Car_widgt : INTEGER := 14;
         Rot_widgt : INTEGER := 14;
-
         TIM1_widgt : INTEGER := 32
     );
     PORT (
@@ -62,7 +61,8 @@ ENTITY CORE IS
         trig_core : IN STD_LOGIC;
         en_core : IN STD_LOGIC;
         --implement gpio  
-        GPIOA : OUT STD_LOGIC_VECTOR (GPIO_widgt - 1 DOWNTO 0)
+        GPIOA : OUT STD_LOGIC_VECTOR (GPIO_widgt - 1 DOWNTO 0);
+        sig_out : OUT STD_LOGIC_VECTOR(13 DOWNTO 0)
     );
 END CORE;
 -------------------------------------------------------------------
@@ -70,27 +70,26 @@ END CORE;
 -------------------------------------------------------------------
 ARCHITECTURE Behavioral OF CORE IS
 
-    CONSTANT GPIO_WRITE : unsigned(CMD_widgt - 1 DOWNTO 0) := X"00000001";
-    CONSTANT GPIO_SET : unsigned(CMD_widgt - 1 DOWNTO 0) := X"00000002";
-    CONSTANT GPIO_RESET : unsigned(CMD_widgt - 1 DOWNTO 0) := X"00000003";
-    CONSTANT SET_AMP_1 : unsigned(CMD_widgt - 1 DOWNTO 0) := X"00000004";
-    CONSTANT SET_AMP_2 : unsigned(CMD_widgt - 1 DOWNTO 0) := X"00000005";
-    CONSTANT SET_F0_CARR : unsigned(CMD_widgt - 1 DOWNTO 0) := X"00000006";
-    CONSTANT SET_F0_ROT : unsigned(CMD_widgt - 1 DOWNTO 0) := X"00000007";
-    CONSTANT SET_F_INC : unsigned(CMD_widgt - 1 DOWNTO 0) := X"00000008";
-    CONSTANT SET_P_CARR : unsigned(CMD_widgt - 1 DOWNTO 0) := X"00000009";
-    CONSTANT SET_P_ROT : unsigned(CMD_widgt - 1 DOWNTO 0) := X"0000000A";
-    CONSTANT JMP : unsigned(CMD_widgt - 1 DOWNTO 0) := X"0000000B";
-    CONSTANT NOP : unsigned(CMD_widgt - 1 DOWNTO 0) := X"0000000C";
+    CONSTANT GPIO_WRITE : STD_LOGIC_VECTOR(CMD_widgt - 1 DOWNTO 0) := X"00000001";
+    CONSTANT GPIO_SET : STD_LOGIC_VECTOR(CMD_widgt - 1 DOWNTO 0) := X"00000002";
+    CONSTANT GPIO_RESET : STD_LOGIC_VECTOR(CMD_widgt - 1 DOWNTO 0) := X"00000003";
+    CONSTANT SET_AMP_1 : STD_LOGIC_VECTOR(CMD_widgt - 1 DOWNTO 0) := X"00000004";
+    CONSTANT SET_AMP_2 : STD_LOGIC_VECTOR(CMD_widgt - 1 DOWNTO 0) := X"00000005";
+    CONSTANT SET_F0_CARR : STD_LOGIC_VECTOR(CMD_widgt - 1 DOWNTO 0) := X"00000006";
+    CONSTANT SET_F0_ROT : STD_LOGIC_VECTOR(CMD_widgt - 1 DOWNTO 0) := X"00000007";
+    CONSTANT SET_F_INC : STD_LOGIC_VECTOR(CMD_widgt - 1 DOWNTO 0) := X"00000008";
+    CONSTANT SET_P_CARR : STD_LOGIC_VECTOR(CMD_widgt - 1 DOWNTO 0) := X"00000009";
+    CONSTANT SET_P_ROT : STD_LOGIC_VECTOR(CMD_widgt - 1 DOWNTO 0) := X"0000000A";
+    CONSTANT JMP : STD_LOGIC_VECTOR(CMD_widgt - 1 DOWNTO 0) := X"0000000B";
+    CONSTANT NOP : STD_LOGIC_VECTOR(CMD_widgt - 1 DOWNTO 0) := X"0000000C";
 
     --For read new data from BRAM
     SIGNAL readed_BRAM : STD_LOGIC_VECTOR (BRAM_widgt - 1 DOWNTO 0) := (OTHERS => '0');
     SIGNAL ptrBRAM : unsigned (ADDR_widgt - 1 DOWNTO 0) := (OTHERS => '0');
 
-    SIGNAL CMD_reg : unsigned (CMD_widgt - 1 DOWNTO 0);
-    SIGNAL ARG_reg : unsigned (ARG_widgt - 1 DOWNTO 0);
+    SIGNAL jmp_last : STD_LOGIC := '0';
 
-    --signals for BRAM instntiation  
+    --signals for BRAM instntiation     
     SIGNAL enb : STD_LOGIC := '1';
 
     --signals for GPIO instantioaton  
@@ -107,13 +106,13 @@ ARCHITECTURE Behavioral OF CORE IS
     SIGNAL AmpCTRL_OUT_2 : STD_LOGIC_VECTOR(AMP_CTRL_Sig_widgt - 1 DOWNTO 0);
     --signals for sequencer 
     SIGNAL en_seq : STD_LOGIC := '1';
-    SIGNAL Fc : unsigned(Fcar_widgt - 1 DOWNTO 0);
-    SIGNAL Fr : unsigned(Frot_widgt - 1 DOWNTO 0);
-    SIGNAL Pc : unsigned(Pc_widgt - 1 DOWNTO 0);
-    SIGNAL Pr : unsigned (Pr_widgt - 1 DOWNTO 0);
-    SIGNAL Fr_inc : unsigned(Finc_widgt - 1 DOWNTO 0);
-    signal Fc_inc : unsigned(Finc_widgt - 1 downto 0);
-    SIGNAL Carrier : STD_LOGIC_VECTOR(Car_widgt - 1 DOWNTO 0);
+    SIGNAL Fc : STD_LOGIC_VECTOR(Fcar_widgt - 1 DOWNTO 0);
+    SIGNAL Fr : STD_LOGIC_VECTOR(Frot_widgt - 1 DOWNTO 0);
+    SIGNAL Pc : STD_LOGIC_VECTOR(Pc_widgt - 1 DOWNTO 0);
+    SIGNAL Pr : STD_LOGIC_VECTOR (Pr_widgt - 1 DOWNTO 0);
+    SIGNAL Fr_inc : STD_LOGIC_VECTOR(Finc_widgt - 1 DOWNTO 0);
+    SIGNAL Fc_inc : STD_LOGIC_VECTOR(Finc_widgt - 1 DOWNTO 0);
+    SIGNAL Carrier : STD_LOGIC_VECTOR(Car_widgt - 1 DOWNTO 0); --tDAC bus type 
     SIGNAL Rotation : STD_LOGIC_VECTOR (Rot_widgt - 1 DOWNTO 0);
 
     --for delay command
@@ -125,6 +124,9 @@ ARCHITECTURE Behavioral OF CORE IS
 
     TYPE CNT_STATE IS (edge, decrement);
     SIGNAL TIM1_SR : CNT_STATE := edge;
+    
+    signal cmd_reg : std_logic_vector(31 downto 0) := (others => '0');
+    signal arg_reg : std_logic_vector(31 downto 0) := (others => '0');
 
 BEGIN
     -------------------------------------------------------------------
@@ -167,12 +169,12 @@ BEGIN
     Seq_mod : ENTITY work.Sequencer PORT MAP(
         clk_seq => clk_core,
         en_seq => en_seq,
-        Fc => STD_LOGIC_VECTOR(Fc),
-        Fr => STD_LOGIC_VECTOR(Fr),
-        Pc => STD_LOGIC_VECTOR(Pc),
-        Pr => STD_LOGIC_VECTOR(Pr),
-        Fr_inc => STD_LOGIC_VECTOR(Fr_inc),
-        Fc_inc => std_logic_vector(Fc_inc),
+        Fc => Fc,
+        Fr => Fr,
+        Pc => Pc,
+        Pr => Pr,
+        Fr_inc => Fr_inc,
+        Fc_inc => Fc_inc,
         Carrier => Carrier,
         Rotation => Rotation
         );
@@ -180,76 +182,56 @@ BEGIN
     --End of instantiation 
     --------------------------------------------------------------------------
     -------------------------------------------------------------------
-
-    next_cmd : PROCESS (clk_core) BEGIN
+    cmd_parser : PROCESS (clk_core) BEGIN
         IF rising_edge(clk_core) THEN
-            CASE unsigned(readed_BRAM(ARG_widgt - 1 DOWNTO 0)) IS
-                WHEN JMP =>
-                    ptrBRAM <= ARG_reg(ADDR_widgt - 1 DOWNTO 0);
-                WHEN NOP =>
-                    IF TIM1_DIS_STR = '1' THEN 
-                        ptrBRAM <= ptrBRAM + 1;
-                    ELSE 
-                        TIM1_EN_STR <= '1';
-                        TIM1_ARR <= unsigned(readed_BRAM(BRAM_widgt - 1 downto ARG_widgt));                    
-                    END IF;
+            IF jmp_last = '1' THEN
+                jmp_last <= '0';
+            ELSE
+                ptrBRAM <= ptrBRAM + 1;
+                cmd_reg <= readed_BRAM(BRAM_widgt - 1 DOWNTO CMD_widgt);
+                arg_reg <= readed_BRAM(CMD_widgt - 1 DOWNTO 0);
+                CASE readed_BRAM(CMD_widgt - 1 DOWNTO 0) IS
+                        --GPIO set command
+                    WHEN GPIO_WRITE =>
+                        gpioa_reg <= readed_BRAM(BRAM_widgt - 1 DOWNTO CMD_widgt);
+                        --Set GPIO bits
+                    WHEN GPIO_SET =>
+                        gpioa_reg <= (gpioa_reg) OR readed_BRAM(BRAM_widgt - 1 DOWNTO CMD_widgt);
+                        --Reset GPIO bits
+                    WHEN GPIO_RESET =>
+                        gpioa_reg <= (gpioa_reg) AND readed_BRAM(BRAM_widgt - 1 DOWNTO CMD_widgt);
+                        --Set amplitude I
+                    WHEN SET_AMP_1 =>
+                        Amp_CTRL_Amp_1 <= readed_BRAM(CMD_widgt + AMP_CTRL_widgt - 1 DOWNTO CMD_widgt);
+                        --Set amplitude Q
+                    WHEN SET_AMP_2 =>
+                        Amp_CTRL_Amp_2 <= readed_BRAM(CMD_widgt + AMP_CTRL_widgt - 1 DOWNTO CMD_widgt);
+                        --Set F0 carrier
+                    WHEN SET_F0_CARR =>
+                        Fc <= readed_BRAM(BRAM_widgt - 1 DOWNTO CMD_widgt);
+                        --Set F0 rotation 
+                    WHEN SET_F0_ROT => -- add f_inc_carr
+                        Fr <= readed_BRAM(BRAM_widgt - 1 DOWNTO CMD_widgt);
+                        --Set Fr_inc
+                    WHEN SET_F_INC => --rotation 
+                        Fr_inc <= readed_BRAM(BRAM_widgt - 1 DOWNTO CMD_widgt);
+                        --Set phase carrier
+                    WHEN SET_P_CARR => -- replace p - > ph
+                        Pc <= readed_BRAM(CMD_widgt + Pc_widgt - 1 DOWNTO CMD_widgt);
+                        --Set phase rotation 
+                    WHEN SET_P_ROT =>
+                        Pr <= readed_BRAM(CMD_widgt + Pr_widgt - 1 DOWNTO CMD_widgt);
+                    WHEN NOP =>
 
-                WHEN OTHERS =>
-                    ARG_reg <= unsigned(readed_BRAM(BRAM_widgt - 1 DOWNTO ARG_widgt));
-                    CMD_reg <= unsigned(readed_BRAM(ARG_widgt - 1 DOWNTO 0));
-                
-                    IF TIM1_CEN = '0' THEN
-                        ptrBRAM <= ptrBRAM + 1;
-                    ELSE
-                        ptrBRAM <= ptrBRAM;
-                    END IF;
-                    
-                    TIM1_EN_STR <= '0';
-            END CASE;
+                    WHEN JMP =>
+                        ptrBRAM <= unsigned(readed_BRAM(CMD_widgt + ADDR_widgt - 1 DOWNTO CMD_widgt));
+                        jmp_last <= '1';
+                    WHEN OTHERS =>
+                END CASE;
+            END IF;
         END IF;
-    END PROCESS next_cmd;
-    -------------------------------------------------------------------
-    curr_cmd : PROCESS (clk_core) BEGIN
-        IF rising_edge(clk_core) THEN
-            CASE CMD_reg IS
-                    --GPIO set command
-                WHEN GPIO_WRITE =>
-                    gpioa_reg <= STD_LOGIC_VECTOR(ARG_reg);
-                    --Set GPIO bits
-                WHEN GPIO_SET =>
-                    gpioa_reg <= STD_LOGIC_VECTOR(unsigned(gpioa_reg) OR unsigned(ARG_reg));
-                    --Reset GPIO bits
-                WHEN GPIO_RESET =>
-                    gpioa_reg <= STD_LOGIC_VECTOR(unsigned(gpioa_reg) AND unsigned(ARG_reg));
-                    --Set amplitude I
-                WHEN SET_AMP_1 =>
-                    Amp_CTRL_Amp_1 <= STD_LOGIC_VECTOR(ARG_reg(15 DOWNTO 0));
-                    --Set amplitude Q
-                WHEN SET_AMP_2 =>
-                    Amp_CTRL_Amp_2 <= STD_LOGIC_VECTOR(ARG_reg(15 DOWNTO 0));
-                    --Set F0 carrier
-                WHEN SET_F0_CARR =>
-                    Fc <= ARG_reg;
-                    --Set F0 rotation 
-                WHEN SET_F0_ROT => -- add f_inc_carr
-                    Fr <= ARG_reg;
-                    --Set Fr_inc
-                WHEN SET_F_INC => --rotation 
-                    Fr_inc <= ARG_reg;
-                    --Set phase carrier
-                WHEN SET_P_CARR => -- replace p - > ph
-                    Pc <= ARG_reg(Pc_widgt - 1 downto 0);
-                    --Set phase rotation 
-                WHEN SET_P_ROT =>
-                    Pr <= ARG_reg(Pr_widgt - 1 downto 0);
-                when NOP => 
-                    
-                
-                WHEN OTHERS =>
+    END PROCESS cmd_parser;
 
-            END CASE;
-        END IF;
-    END PROCESS curr_cmd;
     --THIS TIMER FOR DELAY ORGANIZATION FOR COMMAND NOP
     tim1 : PROCESS (clk_core) BEGIN
         IF rising_edge(clk_core) THEN

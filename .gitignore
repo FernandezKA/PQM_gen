@@ -519,3 +519,9 @@ PQM_CORE.xpr
 PQM_Core/README.md
 vivado.jou
 vivado.log
+*.txt
+*.xml
+*.do
+*.veo
+pg_freq_acc_32to40plus/hdl/dsp_macro_v1_0_rfs.vhd
+pg_freq_acc_32to40plus/hdl/xbip_dsp48_wrapper_v3_0_vh_rfs.vhd
