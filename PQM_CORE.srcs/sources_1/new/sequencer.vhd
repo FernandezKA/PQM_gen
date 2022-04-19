@@ -17,7 +17,7 @@ ENTITY Sequencer IS
 	PORT (
 		clk_seq : IN STD_LOGIC := '0';
 		en_seq : IN STD_LOGIC := '1';
-		rst_i : IN STD_LOGIC := '0';
+		rst_seq : IN STD_LOGIC := '0';
 		Fc : IN STD_LOGIC_VECTOR(freq_widgt - 1 DOWNTO 0);
 		Fr : IN STD_LOGIC_VECTOR(freq_widgt - 1 DOWNTO 0);
 		Pc : IN STD_LOGIC_VECTOR(phase_widgt - 1 DOWNTO 0);

@@ -188,11 +188,11 @@ BEGIN
             IF jmp_flag = '1' THEN
                 jmp_flag <= '0'; --this flag for delay at 1 clock 
                 ptrBRAM <= ptrBRAM + 1;
-            elsif nop_flag = '1' then 
+            ELSIF nop_flag = '1' THEN
                 TIM1_EN_STR <= '0';
-                IF TIM1_CEN = '1' THEN 
-                    
-                ELSE 
+                IF TIM1_CEN = '1' THEN
+
+                ELSE
                     nop_flag <= '0';
                     enb <= '1';
                 END IF;
@@ -206,7 +206,7 @@ BEGIN
                     WHEN NOP =>
                         nop_flag <= '1';
                         enb <= '0';
-                        TIM1_ARR <= unsigned(readed_BRAM(BRAM_widgt - 1 downto CMD_widgt));
+                        TIM1_ARR <= unsigned(readed_BRAM(BRAM_widgt - 1 DOWNTO CMD_widgt));
                         TIM1_EN_STR <= '1';
                     WHEN OTHERS =>
                         ptrBRAM <= ptrBRAM + 1;
