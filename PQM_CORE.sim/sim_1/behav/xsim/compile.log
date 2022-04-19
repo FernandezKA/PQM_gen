@@ -1,10 +1,6 @@
 INFO: [VRFC 10-163] Analyzing VHDL file "C:/dev/FPGA/PQM_gen/PQM_CORE.srcs/sources_1/new/sequencer.vhd" into library xil_defaultlib
 INFO: [VRFC 10-3107] analyzing entity 'Sequencer'
-WARNING: [VRFC 10-3093] actual for formal port 'c' is neither a static name nor a globally static expression [C:/dev/FPGA/PQM_gen/PQM_CORE.srcs/sources_1/new/sequencer.vhd:99]
-WARNING: [VRFC 10-3093] actual for formal port 'concat' is neither a static name nor a globally static expression [C:/dev/FPGA/PQM_gen/PQM_CORE.srcs/sources_1/new/sequencer.vhd:100]
-WARNING: [VRFC 10-3093] actual for formal port 'c' is neither a static name nor a globally static expression [C:/dev/FPGA/PQM_gen/PQM_CORE.srcs/sources_1/new/sequencer.vhd:114]
-WARNING: [VRFC 10-3093] actual for formal port 'concat' is neither a static name nor a globally static expression [C:/dev/FPGA/PQM_gen/PQM_CORE.srcs/sources_1/new/sequencer.vhd:115]
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/dev/FPGA/PQM_gen/PQM_CORE.srcs/sources_1/new/core.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'CORE'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/dev/FPGA/PQM_gen/PQM_CORE.srcs/sim_1/new/Core_tb.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'Core_tb'
+WARNING: [VRFC 10-3093] actual for formal port 'c' is neither a static name nor a globally static expression [C:/dev/FPGA/PQM_gen/PQM_CORE.srcs/sources_1/new/sequencer.vhd:103]
+WARNING: [VRFC 10-3093] actual for formal port 'concat' is neither a static name nor a globally static expression [C:/dev/FPGA/PQM_gen/PQM_CORE.srcs/sources_1/new/sequencer.vhd:104]
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/dev/FPGA/PQM_gen/PQM_CORE.srcs/sim_1/new/sequencer_tb.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'seq_tb'

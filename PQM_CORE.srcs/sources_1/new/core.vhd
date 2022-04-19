@@ -170,6 +170,7 @@ BEGIN
     Seq_mod : ENTITY work.Sequencer PORT MAP(
         clk_seq => clk_core,
         en_seq => en_seq,
+        trig_init => open,
         Fc => Fc,
         Fr => Fr,
         Pc => Pc,
