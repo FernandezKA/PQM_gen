@@ -2,6 +2,9 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
+LIBRARY work;
+USE work.main_pkg.ALL;
+
 entity seq_tb is 
 -- port();
 end seq_tb;
@@ -18,8 +21,8 @@ signal f_car_inc_tb : std_logic_vector (31 downto 0) := (others => '0');
 signal f_rot_inc_tb : std_logic_vector (31 downto 0) := (others => '0');
 signal p_c_tb : std_logic_vector(15 downto 0) := (others => '0');
 signal p_r_tb : std_logic_vector(15 downto 0) := (others => '0');
-signal carrier_tb : std_logic_vector (13 downto 0) := (others => '0');
-signal rotation_tb : std_logic_vector (13 downto 0) := (others => '0');
+signal carrier_tb : tDAC_bus := (others => (others => '0'));
+signal rotation_tb : tDAC_bus := (others => (others => '0'));
 signal done_o_tb : std_logic := '0';
 begin
 
@@ -36,7 +39,7 @@ inst_seq_tb: entity work.Sequencer port map(
     Pc => p_c_tb, 
     Pr => p_r_tb,
     carrier => carrier_tb, 
-    rotation => rotation_tb,
+    rotator => rotation_tb,
     done_o => done_o_tb 
 );
 
@@ -46,10 +49,14 @@ clk_proc: process begin
     clk_seq_tb <= not clk_seq_tb; 
 end process clk_proc;
 
-main_log: process begin 
+main_log: process begin
     wait for 100 ns;
+    rst_seq_tb <= '1';
+    wait for 20 ns;
+    rst_seq_tb <= '0';
+    wait for 200 ns;
     trig_init <= '1';
-    wait for 40 ns; 
+    wait for 30 ns; 
     trig_init <= '0';
     wait for 1 ms;
 end process main_log;

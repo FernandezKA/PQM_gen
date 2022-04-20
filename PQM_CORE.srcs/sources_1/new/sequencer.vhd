@@ -47,7 +47,7 @@ ARCHITECTURE Behavioral OF Sequencer IS
 
 	--for FSM accum 
 	TYPE fsm_state IS (reset, idle, load, generation);
-	SIGNAL curr_state, next_state : fsm_state := reset;
+	SIGNAL curr_state : fsm_state := idle;
 
 	SIGNAL rst_counter : unsigned(2 DOWNTO 0) := (OTHERS => '0');
 
@@ -101,31 +101,23 @@ BEGIN
 			SCLRP => p_clr
 		);
 
-	--This FSM for rule frequency accumulator   
-	FSM_ACCUM_SWITCHER : PROCESS (clk_seq) BEGIN
-		IF rising_edge(clk_seq) THEN
-			IF rst_seq = '1' THEN
-				next_state <= reset;
-				curr_state <= reset;
-				rst_counter <= b"011";
-			ELSE
-				curr_state <= next_state;
-			END IF;
-		END IF;
-	END PROCESS FSM_ACCUM_SWITCHER;
 
-	FSM_ACCUM : PROCESS (clk_seq) BEGIN
+
+	FSM_ACCUM : PROCESS (clk_seq, curr_state) BEGIN
 		IF rising_edge(clk_seq) THEN
+		  if rst_seq = '1' then 
+		      curr_state <= reset; 
+		      rst_counter <= b"011";
+		  else 
 			CASE (curr_state) IS
 				WHEN reset =>
 					IF rst_counter = b"000" THEN
-						next_state <= idle;
+						curr_state <= idle;
 					ELSE
 						rst_counter <= rst_counter - 1;
 						done_o <= '1';
 						carrier_reg <= (OTHERS => '0');
 						rotator_reg <= (OTHERS => '0');
-						next_state <= curr_state;
 					END IF;
 				WHEN idle =>
 					IF trig_init = '1' THEN
@@ -140,7 +132,7 @@ BEGIN
 						f_clr <= '0';
 						f_inc_clr <= '1';
 						p_clr <= '1';
-						next_state <= load;
+						curr_state <= load;
 					ELSE
 						done_o <= '1';
 						-- current frequency generator
@@ -150,7 +142,6 @@ BEGIN
 						f_clr <= '1';
 						f_inc_clr <= '1';
 						p_clr <= '1';
-						next_state <= curr_state;
 					END IF;
 				WHEN load =>
 					--This we sum init frequency and clear our register, load increment value
@@ -160,7 +151,7 @@ BEGIN
 					f_clr <= '1';
 					f_inc_clr <= '1';
 					p_clr <= '0';
-					next_state <= generation;
+					curr_state <= generation;
 				WHEN generation =>
 					--current frequency generator : added with f_inc
 					f_ce <= '0';
@@ -171,5 +162,6 @@ BEGIN
 					p_clr <= '0';
 			END CASE;
 		END IF;
+		end if;
 	END PROCESS FSM_ACCUM;
 END ARCHITECTURE Behavioral;

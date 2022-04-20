@@ -1,4 +1,4 @@
-Running: xsim.dir/seq_tb_behav/xsimk.exe -simmode gui -wdb seq_tb_behav.wdb -simrunnum 0 -socket 63060
+Running: xsim.dir/seq_tb_behav/xsimk.exe -simmode gui -wdb seq_tb_behav.wdb -simrunnum 0 -socket 64582
 Design successfully loaded
-Design Loading Memory Usage: 23072 KB (Peak: 23072 KB)
-Design Loading CPU Usage: 61 ms
+Design Loading Memory Usage: 23344 KB (Peak: 23344 KB)
+Design Loading CPU Usage: 62 ms
