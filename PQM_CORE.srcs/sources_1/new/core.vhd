@@ -27,6 +27,9 @@ USE IEEE.NUMERIC_STD.ALL;
 LIBRARY UNISIM;
 USE UNISIM.VComponents.ALL;
 
+LIBRARY work;
+USE work.main_pkg.ALL;
+
 ENTITY CORE IS
     GENERIC (
         BRAM_widgt : INTEGER := 64;
@@ -113,8 +116,8 @@ ARCHITECTURE Behavioral OF CORE IS
     SIGNAL Pr : STD_LOGIC_VECTOR (Pr_widgt - 1 DOWNTO 0);
     SIGNAL Fr_inc : STD_LOGIC_VECTOR(Finc_widgt - 1 DOWNTO 0);
     SIGNAL Fc_inc : STD_LOGIC_VECTOR(Finc_widgt - 1 DOWNTO 0);
-    SIGNAL Carrier : STD_LOGIC_VECTOR(Car_widgt - 1 DOWNTO 0); --tDAC bus type 
-    SIGNAL Rotation : STD_LOGIC_VECTOR (Rot_widgt - 1 DOWNTO 0);
+    SIGNAL Carrier : TDAc_bus := (others => (others => '0')); --tDAC bus type 
+    SIGNAL Rotator : TDAc_bus := (others => (others => '0'));
 
     --for delay command
     SIGNAL TIM1_CNT : unsigned(TIM1_widgt - 1 DOWNTO 0) := (OTHERS => '0');
@@ -178,7 +181,7 @@ BEGIN
         Fr_inc => Fr_inc,
         Fc_inc => Fc_inc,
         Carrier => Carrier,
-        Rotation => Rotation
+        Rotator => Rotator
         );
     --------------------------------------------------------------------------
     --End of instantiation 
