@@ -101,67 +101,65 @@ BEGIN
 			SCLRP => p_clr
 		);
 
-
-
 	FSM_ACCUM : PROCESS (clk_seq, curr_state) BEGIN
 		IF rising_edge(clk_seq) THEN
-		  if rst_seq = '1' then 
-		      curr_state <= reset; 
-		      rst_counter <= b"011";
-		  else 
-			CASE (curr_state) IS
-				WHEN reset =>
-					IF rst_counter = b"000" THEN
-						curr_state <= idle;
-					ELSE
-						rst_counter <= rst_counter - 1;
-						done_o <= '1';
-						carrier_reg <= (OTHERS => '0');
-						rotator_reg <= (OTHERS => '0');
-					END IF;
-				WHEN idle =>
-					IF trig_init = '1' THEN
-						carrier_reg <= Fc;
-						rotator_reg <= Fr;
-						carrier_inc_reg <= Fc_inc;
-						rotator_inc_reg <= Fr_inc;
-						--prepare frequency generator: load init freq into registers
-						f_ce <= '1';
-						f_inc_ce <= '0';
-						p_ce <= '0';
-						f_clr <= '0';
+			IF rst_seq = '1' THEN
+				curr_state <= reset;
+				rst_counter <= b"011";
+			ELSE
+				CASE (curr_state) IS
+					WHEN reset =>
+						IF rst_counter = b"000" THEN
+							curr_state <= idle;
+						ELSE
+							rst_counter <= rst_counter - 1;
+							done_o <= '1';
+							--carrier_reg <= (OTHERS => '0');
+							--rotator_reg <= (OTHERS => '0');
+						END IF;
+					WHEN idle =>
+						IF trig_init = '1' THEN
+							carrier_freq_init <= Fc;
+							rotator_freq_init <= Fr;
+							carrier_inc_reg <= Fc_inc;
+							rotator_inc_reg <= Fr_inc;
+							--prepare frequency generator: load init freq into registers
+							f_ce <= '1';
+							f_inc_ce <= '0';
+							p_ce <= '0';
+							f_clr <= '0';
+							f_inc_clr <= '1';
+							p_clr <= '1';
+							curr_state <= load;
+						ELSE
+							done_o <= '1';
+							-- current frequency generator
+							f_ce <= '0';
+							f_inc_ce <= '0';
+							p_ce <= '0';
+							f_clr <= '1';
+							f_inc_clr <= '1';
+							p_clr <= '1';
+						END IF;
+					WHEN load =>
+						--This we sum init frequency and clear our register, load increment value
+						f_ce <= '0';
+						f_inc_ce <= '1';
+						p_ce <= '1';
+						f_clr <= '1';
 						f_inc_clr <= '1';
-						p_clr <= '1';
-						curr_state <= load;
-					ELSE
-						done_o <= '1';
-						-- current frequency generator
+						p_clr <= '0';
+						curr_state <= generation;
+					WHEN generation =>
+						--current frequency generator : added with f_inc
 						f_ce <= '0';
 						f_inc_ce <= '0';
 						p_ce <= '0';
 						f_clr <= '1';
-						f_inc_clr <= '1';
-						p_clr <= '1';
-					END IF;
-				WHEN load =>
-					--This we sum init frequency and clear our register, load increment value
-					f_ce <= '0';
-					f_inc_ce <= '1';
-					p_ce <= '1';
-					f_clr <= '1';
-					f_inc_clr <= '1';
-					p_clr <= '0';
-					curr_state <= generation;
-				WHEN generation =>
-					--current frequency generator : added with f_inc
-					f_ce <= '0';
-					f_inc_ce <= '0';
-					p_ce <= '0';
-					f_clr <= '1';
-					f_inc_clr <= '0';
-					p_clr <= '0';
-			END CASE;
+						f_inc_clr <= '0';
+						p_clr <= '0';
+				END CASE;
+			END IF;
 		END IF;
-		end if;
 	END PROCESS FSM_ACCUM;
 END ARCHITECTURE Behavioral;
