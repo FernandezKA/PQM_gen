@@ -80,11 +80,13 @@ ARCHITECTURE Behavioral OF CORE IS
     CONSTANT SET_AMP_2 : STD_LOGIC_VECTOR(CMD_widgt - 1 DOWNTO 0) := X"00000005";
     CONSTANT SET_F0_CARR : STD_LOGIC_VECTOR(CMD_widgt - 1 DOWNTO 0) := X"00000006";
     CONSTANT SET_F0_ROT : STD_LOGIC_VECTOR(CMD_widgt - 1 DOWNTO 0) := X"00000007";
-    CONSTANT SET_F_INC : STD_LOGIC_VECTOR(CMD_widgt - 1 DOWNTO 0) := X"00000008";
-    CONSTANT SET_P_CARR : STD_LOGIC_VECTOR(CMD_widgt - 1 DOWNTO 0) := X"00000009";
-    CONSTANT SET_P_ROT : STD_LOGIC_VECTOR(CMD_widgt - 1 DOWNTO 0) := X"0000000A";
-    CONSTANT JMP : STD_LOGIC_VECTOR(CMD_widgt - 1 DOWNTO 0) := X"0000000B";
-    CONSTANT NOP : STD_LOGIC_VECTOR(CMD_widgt - 1 DOWNTO 0) := X"0000000C";
+    CONSTANT SET_F_CARR_INC : STD_LOGIC_VECTOR(CMD_widgt - 1 DOWNTO 0) := X"00000008";
+    CONSTANT SET_F_ROT_INC : std_logic_vector(CMD_widgt - 1 downto 0) := X"00000009";
+    CONSTANT SET_P_CARR : STD_LOGIC_VECTOR(CMD_widgt - 1 DOWNTO 0) := X"0000000A";
+    CONSTANT SET_P_ROT : STD_LOGIC_VECTOR(CMD_widgt - 1 DOWNTO 0) := X"0000000B";
+    CONSTANT JMP : STD_LOGIC_VECTOR(CMD_widgt - 1 DOWNTO 0) := X"0000000C";
+    CONSTANT NOP : STD_LOGIC_VECTOR(CMD_widgt - 1 DOWNTO 0) := X"0000000D";
+    constant TRIG_SEQUENCER : STD_LOGIC_VECTOR(CMD_widgt - 1 downto 0) := X"0000000E";
 
     --For read new data from BRAM
     SIGNAL readed_BRAM : STD_LOGIC_VECTOR (BRAM_widgt - 1 DOWNTO 0) := (OTHERS => '0');
@@ -110,6 +112,7 @@ ARCHITECTURE Behavioral OF CORE IS
     SIGNAL AmpCTRL_OUT_2 : STD_LOGIC_VECTOR(AMP_CTRL_Sig_widgt - 1 DOWNTO 0);
     --signals for sequencer 
     SIGNAL en_seq : STD_LOGIC := '1';
+    signal trig_seq : std_logic := '0';
     SIGNAL Fc : STD_LOGIC_VECTOR(Fcar_widgt - 1 DOWNTO 0);
     SIGNAL Fr : STD_LOGIC_VECTOR(Frot_widgt - 1 DOWNTO 0);
     SIGNAL Pc : STD_LOGIC_VECTOR(Pc_widgt - 1 DOWNTO 0);
@@ -131,6 +134,8 @@ ARCHITECTURE Behavioral OF CORE IS
 
     SIGNAL cmd_reg : STD_LOGIC_VECTOR(31 DOWNTO 0) := (OTHERS => '0');
     SIGNAL arg_reg : STD_LOGIC_VECTOR(31 DOWNTO 0) := (OTHERS => '0');
+    
+    
 
 BEGIN
     -------------------------------------------------------------------
@@ -173,7 +178,7 @@ BEGIN
     Seq_mod : ENTITY work.Sequencer PORT MAP(
         clk_seq => clk_core,
         en_seq => en_seq,
-        trig_init => open,
+        trig_init => trig_seq,
         Fc => Fc,
         Fr => Fr,
         Pc => Pc,
@@ -224,6 +229,9 @@ BEGIN
 
     cmd_parser : PROCESS (clk_core) BEGIN
         IF rising_edge(clk_core) THEN
+            --reset strobs
+            trig_seq <= '0';
+        
             CASE readed_BRAM(CMD_widgt - 1 DOWNTO 0) IS
                     --GPIO set command
                 WHEN GPIO_WRITE =>
@@ -247,8 +255,10 @@ BEGIN
                 WHEN SET_F0_ROT => -- add f_inc_carr
                     Fr <= readed_BRAM(BRAM_widgt - 1 DOWNTO CMD_widgt);
                     --Set Fr_inc
-                WHEN SET_F_INC => --rotation 
-                    Fr_inc <= readed_BRAM(BRAM_widgt - 1 DOWNTO CMD_widgt);
+                WHEN SET_F_CARR_INC => --carrier frequency increment 
+                    Fc_inc <= readed_BRAM(BRAM_widgt - 1 DOWNTO CMD_widgt);
+                WHEN SET_F_ROT_INC => 
+                    Fr_inc <= readed_BRAM(BRAM_widgt - 1 downto CMD_widgt);
                     --Set phase carrier
                 WHEN SET_P_CARR => -- replace p - > ph
                     Pc <= readed_BRAM(CMD_widgt + Pc_widgt - 1 DOWNTO CMD_widgt);
@@ -258,6 +268,9 @@ BEGIN
                 WHEN NOP =>
 
                 WHEN JMP =>
+                
+                WHEN TRIG_SEQUENCER =>  
+                    trig_seq <= '1';
 
                 WHEN OTHERS =>
             END CASE;
