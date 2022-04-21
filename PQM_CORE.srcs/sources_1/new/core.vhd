@@ -131,9 +131,13 @@ ARCHITECTURE Behavioral OF CORE IS
 
     TYPE CNT_STATE IS (edge, decrement);
     SIGNAL TIM1_SR : CNT_STATE := edge;
-
+    --This signals for degug, after synthesis they are removed as unused
     SIGNAL cmd_reg : STD_LOGIC_VECTOR(31 DOWNTO 0) := (OTHERS => '0');
     SIGNAL arg_reg : STD_LOGIC_VECTOR(31 DOWNTO 0) := (OTHERS => '0');
+    
+    --For modulator instantiation 
+    signal modulator_mod_reg : std_logic_vector(1 downto 0) := b"00";
+    signal res_modulator : Tdac_bus := (others => (others => '0')); 
     
     
 
@@ -188,6 +192,15 @@ BEGIN
         Carrier => Carrier,
         Rotator => Rotator
         );
+        
+     modulator_mod: entity work.modulator port map(
+        clk_mod => clk_core, 
+        srst_i => rst_core, 
+        mode_mod_i => modulator_mod_reg, 
+        CARR_i => Carrier, 
+        ROT_i => Rotator, 
+        RES_o => res_modulator
+     );
     --------------------------------------------------------------------------
     --End of instantiation 
     --------------------------------------------------------------------------

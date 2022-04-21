@@ -1,0 +1,4 @@
+vhdl xil_defaultlib  \
+"../../../../mult_14_14/sim/mult_14_14.vhd" \
+
+nosort

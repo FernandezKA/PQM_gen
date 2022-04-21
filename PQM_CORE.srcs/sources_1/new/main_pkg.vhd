@@ -13,44 +13,47 @@
 -- Revision History:
 --
 --=============================================================================
-	
-library IEEE;
-use IEEE.std_logic_1164.all;
 
-package main_pkg is
-    
-    constant C_DSP_WIDTH    : integer := 16; 
-    constant C_ADC_WIDTH    : integer := 12;
-	constant C_DAC_WIDTH    : integer := 14;
-	constant one : std_logic := '1';
-	constant gnd : std_logic := '0';
+LIBRARY IEEE;
+USE IEEE.std_logic_1164.ALL;
 
-	type Tadc_bus   is array(1 downto 0) of std_logic_vector(C_ADC_WIDTH-1 downto 0);
-	type Tdac_bus   is array(7 downto 0) of std_logic_vector(C_DAC_WIDTH-1 downto 0);
-	type Tdac_bus_plus is array(7 downto 0) of std_logic_vector(C_DAC_WIDTH downto 0);
-	type Tdata_bus  is array(1 downto 0) of std_logic_vector(C_DSP_WIDTH-1 downto 0);
-	type Tdata32_bus8  is array(7 downto 0) of std_logic_vector(31 downto 0);
-    type Tdata4_bus is array(3 downto 0) of std_logic_vector(C_DSP_WIDTH-1 downto 0);
-    type Tdds_bus   is array(1 downto 0) of std_logic_vector(C_DSP_WIDTH-1 downto 0);
-    type Tdds4_bus  is array(3 downto 0) of std_logic_vector(C_DSP_WIDTH-1 downto 0);
-    type Tdds8_bus  is array(7 downto 0) of std_logic_vector(C_DSP_WIDTH-1 downto 0);
-    
-    type TStr10 is array (0 to 9) of string(1 to 1);
-    constant Str10: TStr10 := ("0","1","2","3","4","5","6","7","8","9");
-    
-    function itoa( x : integer ) return string;
+PACKAGE main_pkg IS
 
-end package;
+    CONSTANT C_DSP_WIDTH : INTEGER := 16;
+    CONSTANT C_ADC_WIDTH : INTEGER := 12;
+    CONSTANT C_DAC_WIDTH : INTEGER := 14;
+    CONSTANT one : STD_LOGIC := '1';
+    CONSTANT gnd : STD_LOGIC := '0';
 
-package body main_pkg is
-    
-    function itoa( x : integer ) return string is
-        variable n: integer := x; -- needed by some compilers
-    begin
-        if n < 0 then return "-" & itoa(-n);
-        elsif n < 10 then return Str10(n);
-        else return itoa(n/10) & Str10(n rem 10);
-        end if;
-    end function itoa;    
-    
-end main_pkg; 
+    TYPE Tadc_bus IS ARRAY(1 DOWNTO 0) OF STD_LOGIC_VECTOR(C_ADC_WIDTH - 1 DOWNTO 0);
+    TYPE Tdac_bus IS ARRAY(7 DOWNTO 0) OF STD_LOGIC_VECTOR(C_DAC_WIDTH - 1 DOWNTO 0);
+    TYPE Tdac_bus_plus IS ARRAY(7 DOWNTO 0) OF STD_LOGIC_VECTOR(C_DAC_WIDTH DOWNTO 0);
+    TYPE Tdata_bus IS ARRAY(1 DOWNTO 0) OF STD_LOGIC_VECTOR(C_DSP_WIDTH - 1 DOWNTO 0);
+    TYPE Tdata32_bus8 IS ARRAY(7 DOWNTO 0) OF STD_LOGIC_VECTOR(31 DOWNTO 0);
+    TYPE Tdata4_bus IS ARRAY(3 DOWNTO 0) OF STD_LOGIC_VECTOR(C_DSP_WIDTH - 1 DOWNTO 0);
+    TYPE Tdds_bus IS ARRAY(1 DOWNTO 0) OF STD_LOGIC_VECTOR(C_DSP_WIDTH - 1 DOWNTO 0);
+    TYPE Tdds4_bus IS ARRAY(3 DOWNTO 0) OF STD_LOGIC_VECTOR(C_DSP_WIDTH - 1 DOWNTO 0);
+    TYPE Tdds8_bus IS ARRAY(7 DOWNTO 0) OF STD_LOGIC_VECTOR(C_DSP_WIDTH - 1 DOWNTO 0);
+
+    TYPE TStr10 IS ARRAY (0 TO 9) OF STRING(1 TO 1);
+    CONSTANT Str10 : TStr10 := ("0", "1", "2", "3", "4", "5", "6", "7", "8", "9");
+
+    FUNCTION itoa(x : INTEGER) RETURN STRING;
+
+END PACKAGE;
+
+PACKAGE BODY main_pkg IS
+
+    FUNCTION itoa(x : INTEGER) RETURN STRING IS
+        VARIABLE n : INTEGER := x; -- needed by some compilers
+    BEGIN
+        IF n < 0 THEN
+            RETURN "-" & itoa(-n);
+        ELSIF n < 10 THEN
+            RETURN Str10(n);
+        ELSE
+            RETURN itoa(n/10) & Str10(n REM 10);
+        END IF;
+    END FUNCTION itoa;
+
+END main_pkg;

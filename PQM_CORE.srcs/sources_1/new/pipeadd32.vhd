@@ -2,67 +2,67 @@
 --
 -- Description : 
 --
--- Сумматор-вычитатор 32-битных чисел.
--- Операция разбивается на 2 по 16 бит.
--- Задержка 4 такта.
+-- пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ-пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ 32-пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ.
+-- пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ 2 пїЅпїЅ 16 пїЅпїЅпїЅ.
+-- пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ 4 пїЅпїЅпїЅпїЅпїЅ.
 --
 -------------------------------------------------------------------------------
 
-library IEEE;
-use IEEE.STD_LOGIC_1164.all;
-use IEEE.std_logic_unsigned.all;
+LIBRARY IEEE;
+USE IEEE.STD_LOGIC_1164.ALL;
+USE IEEE.std_logic_unsigned.ALL;
 
 --library WORK;
 --use WORK.pkg.all;
 
-library unisim;
-use unisim.VCOMPONENTS.all;
+LIBRARY unisim;
+USE unisim.VCOMPONENTS.ALL;
 
-entity pipeadd32 is
-	generic(a_minus_b:boolean := false);
-	port(
-		clk : in STD_LOGIC;
-		a_in : in STD_LOGIC_VECTOR(31 downto 0) := (others => '0');
-		b_in : in STD_LOGIC_VECTOR(31 downto 0) := (others => '0');
-		c_out : out STD_LOGIC_VECTOR(31 downto 0) := (others => '0')
-	    );
-end pipeadd32;
+ENTITY pipeadd32 IS
+	GENERIC (a_minus_b : BOOLEAN := false);
+	PORT (
+		clk : IN STD_LOGIC;
+		a_in : IN STD_LOGIC_VECTOR(31 DOWNTO 0) := (OTHERS => '0');
+		b_in : IN STD_LOGIC_VECTOR(31 DOWNTO 0) := (OTHERS => '0');
+		c_out : OUT STD_LOGIC_VECTOR(31 DOWNTO 0) := (OTHERS => '0')
+	);
+END pipeadd32;
 
-architecture ku of pipeadd32 is
+ARCHITECTURE ku OF pipeadd32 IS
 
-signal stage0a: std_logic_vector(31 downto 0) := (others => '0');
-signal stage0b: std_logic_vector(31 downto 0) := (others => '0');
+	SIGNAL stage0a : STD_LOGIC_VECTOR(31 DOWNTO 0) := (OTHERS => '0');
+	SIGNAL stage0b : STD_LOGIC_VECTOR(31 DOWNTO 0) := (OTHERS => '0');
 
-signal stage1a: std_logic_vector(15 downto 0) := (others => '0');
-signal stage1b: std_logic_vector(15 downto 0) := (others => '0');
-signal stage1c: std_logic_vector(16 downto 0) := (others => '0');
+	SIGNAL stage1a : STD_LOGIC_VECTOR(15 DOWNTO 0) := (OTHERS => '0');
+	SIGNAL stage1b : STD_LOGIC_VECTOR(15 DOWNTO 0) := (OTHERS => '0');
+	SIGNAL stage1c : STD_LOGIC_VECTOR(16 DOWNTO 0) := (OTHERS => '0');
 
-signal stage2c0: std_logic_vector(15 downto 0) := (others => '0');
-signal stage2c1: std_logic_vector(15 downto 0) := (others => '0');
+	SIGNAL stage2c0 : STD_LOGIC_VECTOR(15 DOWNTO 0) := (OTHERS => '0');
+	SIGNAL stage2c1 : STD_LOGIC_VECTOR(15 DOWNTO 0) := (OTHERS => '0');
 
-begin-----------------------------------------------
+BEGIN-----------------------------------------------
 
-process (clk)
-begin
-	if rising_edge(clk) then
-		stage0a <= a_in;
-		stage0b <= b_in;
-		
-		stage1a <= stage0a(31 downto 16);
-		stage1b <= stage0b(31 downto 16);
-		
-		stage2c0 <= stage1c(15 downto 0);
+	PROCESS (clk)
+	BEGIN
+		IF rising_edge(clk) THEN
+			stage0a <= a_in;
+			stage0b <= b_in;
 
-		if a_minus_b then
-			stage1c <= ('0' & stage0a(15 downto 0)) - stage0b(15 downto 0);
-			stage2c1 <= stage1a - stage1b - stage1c(16);
-		else
-			stage1c <= ('0' & stage0a(15 downto 0)) + stage0b(15 downto 0);
-			stage2c1 <= stage1a + stage1b + stage1c(16);
-		end if;
-		
-		c_out <= stage2c1 & stage2c0;
-	end if;
-end process;
+			stage1a <= stage0a(31 DOWNTO 16);
+			stage1b <= stage0b(31 DOWNTO 16);
 
-end ku;
+			stage2c0 <= stage1c(15 DOWNTO 0);
+
+			IF a_minus_b THEN
+				stage1c <= ('0' & stage0a(15 DOWNTO 0)) - stage0b(15 DOWNTO 0);
+				stage2c1 <= stage1a - stage1b - stage1c(16);
+			ELSE
+				stage1c <= ('0' & stage0a(15 DOWNTO 0)) + stage0b(15 DOWNTO 0);
+				stage2c1 <= stage1a + stage1b + stage1c(16);
+			END IF;
+
+			c_out <= stage2c1 & stage2c0;
+		END IF;
+	END PROCESS;
+
+END ku;

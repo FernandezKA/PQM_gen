@@ -16,77 +16,77 @@
 --
 --=============================================================================
 
-library IEEE;
-use IEEE.std_logic_1164.all;
-use IEEE.numeric_std.all;
+LIBRARY IEEE;
+USE IEEE.std_logic_1164.ALL;
+USE IEEE.numeric_std.ALL;
 
-library WORK;
-use WORK.main_pkg.all;
+LIBRARY WORK;
+USE WORK.main_pkg.ALL;
 
-entity dds8_pacc is
+ENTITY dds8_pacc IS
 
-    port (
-        rst_i   : in  std_logic;
-        clk_i   : in  std_logic;
-        phase_i : in  std_logic_vector(15 downto 0) := (others => '0');
-        freq_i  : in  std_logic_vector(31 downto 0);
-        fi_o    : out tDATA32_BUS8 := (others=>(others=>'0'))
+    PORT (
+        rst_i : IN STD_LOGIC;
+        clk_i : IN STD_LOGIC;
+        phase_i : IN STD_LOGIC_VECTOR(15 DOWNTO 0) := (OTHERS => '0');
+        freq_i : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+        fi_o : OUT tDATA32_BUS8 := (OTHERS => (OTHERS => '0'))
     );
 
-end entity;
+END ENTITY;
 
-architecture ku of dds8_pacc is
+ARCHITECTURE ku OF dds8_pacc IS
 
-    signal fi_group : std_logic_vector(47 downto 0) := (others=>'0'); 
-    signal fi_group_fi0 : std_logic_vector(31 downto 0); -- fi_group + phase_i
+    SIGNAL fi_group : STD_LOGIC_VECTOR(47 DOWNTO 0) := (OTHERS => '0');
+    SIGNAL fi_group_fi0 : STD_LOGIC_VECTOR(31 DOWNTO 0); -- fi_group + phase_i
 
-    type tRST_PIPE is array (2 downto 0) of std_logic;
-    signal rst_pipe : tRST_PIPE := (others=>'0');
+    TYPE tRST_PIPE IS ARRAY (2 DOWNTO 0) OF STD_LOGIC;
+    SIGNAL rst_pipe : tRST_PIPE := (OTHERS => '0');
 
-begin
+BEGIN
 
-    xRST_PIPE : process(clk_i)
-    begin
-        if rising_edge(clk_i) then
-            if rst_i = '1' then
-                rst_pipe <= (others=>'1');
-            else
-                rst_pipe <= rst_pipe(rst_pipe'left-1 downto 0) & '0';
-            end if;
-        end if;
-    end process;
+    xRST_PIPE : PROCESS (clk_i)
+    BEGIN
+        IF rising_edge(clk_i) THEN
+            IF rst_i = '1' THEN
+                rst_pipe <= (OTHERS => '1');
+            ELSE
+                rst_pipe <= rst_pipe(rst_pipe'left - 1 DOWNTO 0) & '0';
+            END IF;
+        END IF;
+    END PROCESS;
 
-    xMACC_GROUP : entity work.dds8_mod_group_accum
-    port map (
-        B       => freq_i & "000",
-        CLK     => clk_i,
-        SCLR    => rst_pipe(0),
-        Q       => fi_group
-    );
-
-    xFI_ADD : entity work.dds8_mod_fi_add
-    port map (
-        A       => fi_group(31 downto 0),
-        B       => phase_i & x"0000",
-        CLK     => clk_i,
-        CE      => '1',
-        SCLR    => rst_pipe(1),
-        S       => fi_group_fi0
-    );
-
-    xGEN_MADD : for i in 0 to 7 generate
-        xMADD_PARTIAL : entity work.dds8_mod_fi_partial
-        port map (
-            CLK         => clk_i,
-            CE          => '1',
-            SCLR        => rst_pipe(2),
-            A           => freq_i,
-            B           => std_logic_vector(to_unsigned(i, 4)),
-            C           => fi_group_fi0,
-            SUBTRACT    => '0',
-            P           => fi_o(i),
-            PCOUT       => open
+    xMACC_GROUP : ENTITY work.dds8_mod_group_accum
+        PORT MAP(
+            B => freq_i & "000",
+            CLK => clk_i,
+            SCLR => rst_pipe(0),
+            Q => fi_group
         );
-    end generate;
 
-end architecture;
+    xFI_ADD : ENTITY work.dds8_mod_fi_add
+        PORT MAP(
+            A => fi_group(31 DOWNTO 0),
+            B => phase_i & x"0000",
+            CLK => clk_i,
+            CE => '1',
+            SCLR => rst_pipe(1),
+            S => fi_group_fi0
+        );
+
+    xGEN_MADD : FOR i IN 0 TO 7 GENERATE
+        xMADD_PARTIAL : ENTITY work.dds8_mod_fi_partial
+            PORT MAP(
+                CLK => clk_i,
+                CE => '1',
+                SCLR => rst_pipe(2),
+                A => freq_i,
+                B => STD_LOGIC_VECTOR(to_unsigned(i, 4)),
+                C => fi_group_fi0,
+                SUBTRACT => '0',
+                P => fi_o(i),
+                PCOUT => OPEN
+            );
+    END GENERATE;
+
+END ARCHITECTURE;

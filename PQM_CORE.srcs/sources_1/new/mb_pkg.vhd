@@ -13,28 +13,28 @@
 -- Revision History:
 --
 --=============================================================================
-	
-library IEEE;
-use IEEE.std_logic_1164.all;
 
-package mb_pkg is
-    
-    constant REGARRAY_NUM_REG    : integer := 64;
-    constant REGARRAY_REG_SIZE   : integer := 32;
-    constant REGARRAY_ADDR_SIZE  : integer := 32;
-    
-    type TRegArray is array (REGARRAY_NUM_REG-1 downto 0) of std_logic_vector(REGARRAY_REG_SIZE-1 downto 0);
-  
-    constant ARM_AXI0_BASEADDR : std_logic_vector(REGARRAY_ADDR_SIZE-1 downto 0) := x"00000000";
-    constant ARM_AXI1_BASEADDR : std_logic_vector(REGARRAY_ADDR_SIZE-1 downto 0) := x"00000000";
-    constant ARM_AXI2_BASEADDR : std_logic_vector(REGARRAY_ADDR_SIZE-1 downto 0) := x"00000000";
-    
-    constant ARM_AXI0_HI_ADDR_MASK  : std_logic_vector(REGARRAY_ADDR_SIZE-1 downto 0) := x"FFFC0000";
-    constant ARM_AXI0_LO_ADDR_MASK  : std_logic_vector(REGARRAY_ADDR_SIZE-1 downto 0) := x"0003FFFF";
-    constant ARM_AXI1_HI_ADDR_MASK  : std_logic_vector(REGARRAY_ADDR_SIZE-1 downto 0) := x"FFFC0000";
-    constant ARM_AXI1_LO_ADDR_MASK  : std_logic_vector(REGARRAY_ADDR_SIZE-1 downto 0) := x"0003FFFF";
-    
-	constant ARM_AXI1_SIZE          : integer := 128*1024*2;
-    constant ARM_AXI2_SIZE          : integer := 128*1024*2;
+LIBRARY IEEE;
+USE IEEE.std_logic_1164.ALL;
 
-end package;
+PACKAGE mb_pkg IS
+
+    CONSTANT REGARRAY_NUM_REG : INTEGER := 64;
+    CONSTANT REGARRAY_REG_SIZE : INTEGER := 32;
+    CONSTANT REGARRAY_ADDR_SIZE : INTEGER := 32;
+
+    TYPE TRegArray IS ARRAY (REGARRAY_NUM_REG - 1 DOWNTO 0) OF STD_LOGIC_VECTOR(REGARRAY_REG_SIZE - 1 DOWNTO 0);
+
+    CONSTANT ARM_AXI0_BASEADDR : STD_LOGIC_VECTOR(REGARRAY_ADDR_SIZE - 1 DOWNTO 0) := x"00000000";
+    CONSTANT ARM_AXI1_BASEADDR : STD_LOGIC_VECTOR(REGARRAY_ADDR_SIZE - 1 DOWNTO 0) := x"00000000";
+    CONSTANT ARM_AXI2_BASEADDR : STD_LOGIC_VECTOR(REGARRAY_ADDR_SIZE - 1 DOWNTO 0) := x"00000000";
+
+    CONSTANT ARM_AXI0_HI_ADDR_MASK : STD_LOGIC_VECTOR(REGARRAY_ADDR_SIZE - 1 DOWNTO 0) := x"FFFC0000";
+    CONSTANT ARM_AXI0_LO_ADDR_MASK : STD_LOGIC_VECTOR(REGARRAY_ADDR_SIZE - 1 DOWNTO 0) := x"0003FFFF";
+    CONSTANT ARM_AXI1_HI_ADDR_MASK : STD_LOGIC_VECTOR(REGARRAY_ADDR_SIZE - 1 DOWNTO 0) := x"FFFC0000";
+    CONSTANT ARM_AXI1_LO_ADDR_MASK : STD_LOGIC_VECTOR(REGARRAY_ADDR_SIZE - 1 DOWNTO 0) := x"0003FFFF";
+
+    CONSTANT ARM_AXI1_SIZE : INTEGER := 128 * 1024 * 2;
+    CONSTANT ARM_AXI2_SIZE : INTEGER := 128 * 1024 * 2;
+
+END PACKAGE;
