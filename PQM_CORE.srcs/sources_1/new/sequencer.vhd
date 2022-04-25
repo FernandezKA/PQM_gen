@@ -41,7 +41,7 @@ ARCHITECTURE Behavioral OF Sequencer IS
 	SIGNAL carrier_freq_init, rotator_freq_init : STD_LOGIC_VECTOR(31 DOWNTO 0) := (OTHERS => '0');
 	SIGNAL carrier_inc_reg, rotator_inc_reg : STD_LOGIC_VECTOR(31 DOWNTO 0) := (OTHERS => '0'); --value in format s24.8 
 	SIGNAL carrier_phase_init, rotator_phase_init : STD_LOGIC_VECTOR(15 DOWNTO 0) := (OTHERS => '0');
-	
+
 	--signal carrier_reg_mod, rotator_reg_mod : 
 
 	--flags for rule freq accumulator

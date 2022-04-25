@@ -1,6 +1,6 @@
 ----------------------------------------------------------------------------------
 -- Company: Home
--- Engineer: Fernandez K. A.
+-- Engineer: FernandezKA
 -- 
 -- Create Date: 06.02.2022 23:40:47
 -- Design Name: PQM_CORE
@@ -65,7 +65,9 @@ ENTITY CORE IS
         en_core : IN STD_LOGIC;
         --implement gpio  
         GPIOA : OUT STD_LOGIC_VECTOR (GPIO_widgt - 1 DOWNTO 0);
-        sig_out : OUT STD_LOGIC_VECTOR(13 DOWNTO 0)
+        sig_out : OUT STD_LOGIC_VECTOR(13 DOWNTO 0);
+        
+        to_DAC : out Tdac_bus := (others => (others => '0'))
     );
 END CORE;
 -------------------------------------------------------------------
@@ -105,12 +107,8 @@ ARCHITECTURE Behavioral OF CORE IS
 
     --signals for AMP_CTRL instatiaton  
     SIGNAL en_amp_ctrl : STD_LOGIC := '1';
-    SIGNAL AmpCTRL_IN_1 : STD_LOGIC_VECTOR(AMP_CTRL_Sig_widgt - 1 DOWNTO 0);
-    SIGNAL AmpCTRL_IN_2 : STD_LOGIC_VECTOR(AMP_CTRL_Sig_widgt - 1 DOWNTO 0);
-    SIGNAL Amp_CTRL_Amp_1 : STD_LOGIC_VECTOR(AMP_CTRL_widgt - 1 DOWNTO 0);
-    SIGNAL Amp_CTRL_Amp_2 : STD_LOGIC_VECTOR(AMP_CTRL_widgt - 1 DOWNTO 0);
-    SIGNAL AmpCTRL_OUT_1 : STD_LOGIC_VECTOR(AMP_CTRL_Sig_widgt - 1 DOWNTO 0);
-    SIGNAL AmpCTRL_OUT_2 : STD_LOGIC_VECTOR(AMP_CTRL_Sig_widgt - 1 DOWNTO 0);
+    signal amp_val : std_logic_vector(15 downto 0) := (others => '0');
+    signal after_amp : Tdac_bus := (others => (others => '0'));
     --signals for sequencer 
     SIGNAL en_seq : STD_LOGIC := '1';
     signal trig_seq : std_logic := '0';
@@ -139,6 +137,10 @@ ARCHITECTURE Behavioral OF CORE IS
     --For modulator instantiation 
     signal modulator_mod_reg : std_logic_vector(1 downto 0) := b"00";
     signal res_modulator : Tdac_bus := (others => (others => '0')); 
+    
+    signal envelope_shaper_rule : std_logic := '1';
+    signal envelope_shaper_rst : std_logic := '0';
+    signal shaper_out : Tdac_bus := (others => (others => '0'));
     
     
 
@@ -171,12 +173,9 @@ BEGIN
     Amp_ctrl_mod : ENTITY work.AMP_CTRL PORT MAP(
         clk_amp_ctrl => clk_core,
         en_amp_ctrl => en_amp_ctrl,
-        A_1 => AmpCTRL_IN_1,
-        A_2 => AmpCTRL_IN_2,
-        Amp_1 => Amp_CTRL_Amp_1,
-        Amp_2 => Amp_CTRL_Amp_2,
-        Out_1 => AmpCTRL_OUT_1,
-        Out_2 => AmpCTRL_OUT_2
+        Amp_val => amp_val, 
+        amp_in => shaper_out, 
+        amp_out => to_DAC
         );
 
     --Sequenser instantiation 
@@ -201,6 +200,14 @@ BEGIN
         CARR_i => Carrier, 
         ROT_i => Rotator, 
         RES_o => res_modulator
+     );
+     
+     env_shaper: entity work.envelope_shaper port map(
+        clk_env => clk_core, 
+        rst_env => envelope_shaper_rst, 
+        env_shape => envelope_shaper_rule, 
+        sig_i => res_modulator, 
+        sig_o => shaper_out 
      );
     --------------------------------------------------------------------------
     --End of instantiation 
@@ -258,10 +265,10 @@ BEGIN
                     gpioa_reg <= (gpioa_reg) AND readed_BRAM(BRAM_widgt - 1 DOWNTO CMD_widgt);
                     --Set amplitude I
                 WHEN SET_AMP_1 =>
-                    Amp_CTRL_Amp_1 <= readed_BRAM(CMD_widgt + AMP_CTRL_widgt - 1 DOWNTO CMD_widgt);
+                    amp_val <= readed_BRAM(CMD_widgt + AMP_CTRL_widgt - 1 DOWNTO CMD_widgt);
                     --Set amplitude Q
                 WHEN SET_AMP_2 =>
-                    Amp_CTRL_Amp_2 <= readed_BRAM(CMD_widgt + AMP_CTRL_widgt - 1 DOWNTO CMD_widgt);
+                    amp_val <= readed_BRAM(CMD_widgt + AMP_CTRL_widgt - 1 DOWNTO CMD_widgt);
                     --Set F0 carrier
                 WHEN SET_F0_CARR =>
                     Fc <= readed_BRAM(BRAM_widgt - 1 DOWNTO CMD_widgt);
