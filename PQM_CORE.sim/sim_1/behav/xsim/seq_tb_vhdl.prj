@@ -1,0 +1,15 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../pg_freq_acc_32to40plus/sim/pg_freq_acc_32to40plus.vhd" \
+"../../../../dds_lut_25x16/sim/dds_lut_25x16.vhd" \
+"../../../../../../Examples/VHDL/IP/dds8_mod_fi_partial/sim/dds8_mod_fi_partial.vhd" \
+"../../../../../../Examples/VHDL/IP/dds8_mod_fi_add/sim/dds8_mod_fi_add.vhd" \
+"../../../../../../Examples/VHDL/IP/dds8_mod_group_accum/sim/dds8_mod_group_accum.vhd" \
+"../../../../PQM_CORE.srcs/sources_1/new/main_pkg.vhd" \
+"../../../../PQM_CORE.srcs/sources_1/new/dds8_pacc.vhd" \
+"../../../../PQM_CORE.srcs/sources_1/new/dds8_mod.vhd" \
+"../../../../PQM_CORE.srcs/sources_1/new/sequencer.vhd" \
+"../../../../PQM_CORE.srcs/sim_1/new/sequencer_tb.vhd" \
+
+# Do not sort compile order
+nosort

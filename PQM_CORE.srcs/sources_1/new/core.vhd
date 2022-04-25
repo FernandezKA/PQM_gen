@@ -87,6 +87,7 @@ ARCHITECTURE Behavioral OF CORE IS
     CONSTANT JMP : STD_LOGIC_VECTOR(CMD_widgt - 1 DOWNTO 0) := X"0000000C";
     CONSTANT NOP : STD_LOGIC_VECTOR(CMD_widgt - 1 DOWNTO 0) := X"0000000D";
     constant TRIG_SEQUENCER : STD_LOGIC_VECTOR(CMD_widgt - 1 downto 0) := X"0000000E";
+    constant select_modulation : std_logic_vector(CMD_widgt - 1 downto 0) := X"0000000F";
 
     --For read new data from BRAM
     SIGNAL readed_BRAM : STD_LOGIC_VECTOR (BRAM_widgt - 1 DOWNTO 0) := (OTHERS => '0');
@@ -284,7 +285,9 @@ BEGIN
                 
                 WHEN TRIG_SEQUENCER =>  
                     trig_seq <= '1';
-
+                    
+                when select_modulation => 
+                    modulator_mod_reg <= readed_BRAM(1 downto 0);
                 WHEN OTHERS =>
             END CASE;
         END IF;

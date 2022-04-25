@@ -19,6 +19,7 @@ ENTITY Sequencer IS
 		en_seq : IN STD_LOGIC := '1';
 		rst_seq : IN STD_LOGIC := '0';
 		trig_init : IN STD_LOGIC := '0';
+		mode_seq : IN STD_LOGIC_VECTOR(3 DOWNTO 0) := (OTHERS => '0');
 		Fc : IN STD_LOGIC_VECTOR(freq_widgt - 1 DOWNTO 0);
 		Fr : IN STD_LOGIC_VECTOR(freq_widgt - 1 DOWNTO 0);
 		Pc : IN STD_LOGIC_VECTOR(phase_widgt - 1 DOWNTO 0);
@@ -40,6 +41,8 @@ ARCHITECTURE Behavioral OF Sequencer IS
 	SIGNAL carrier_freq_init, rotator_freq_init : STD_LOGIC_VECTOR(31 DOWNTO 0) := (OTHERS => '0');
 	SIGNAL carrier_inc_reg, rotator_inc_reg : STD_LOGIC_VECTOR(31 DOWNTO 0) := (OTHERS => '0'); --value in format s24.8 
 	SIGNAL carrier_phase_init, rotator_phase_init : STD_LOGIC_VECTOR(15 DOWNTO 0) := (OTHERS => '0');
+	
+	--signal carrier_reg_mod, rotator_reg_mod : 
 
 	--flags for rule freq accumulator
 	SIGNAL f_ce, f_inc_ce, p_ce : STD_LOGIC := '0'; -- acception for enable sum of frequency 
