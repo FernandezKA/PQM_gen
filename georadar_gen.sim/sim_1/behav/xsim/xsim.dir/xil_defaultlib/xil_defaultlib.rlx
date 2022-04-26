@@ -10,7 +10,7 @@ C:/dev/FPGA/PQM_gen/IP/mult_14_14/sim/mult_14_14.vhd,1650720821,vhdl,,,,mult_14_
 C:/dev/FPGA/PQM_gen/IP/mult_16_14/sim/mult_16_14.vhd,1650720835,vhdl,,,,mult_16_14,,,,,,,,
 C:/dev/FPGA/PQM_gen/IP/pg_freq_acc_32to40plus/sim/pg_freq_acc_32to40plus.vhd,1650720623,vhdl,,,,pg_freq_acc_32to40plus,,,,,,,,
 C:/dev/FPGA/PQM_gen/SRC/amp_ctrl.vhd,1650982350,vhdl,C:/dev/FPGA/PQM_gen/SRC/core.vhd,,,amp_ctrl,,,,,,,,
-C:/dev/FPGA/PQM_gen/SRC/core.vhd,1650982822,vhdl,C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sim_1/new/core_tb.vhd,,,core,,,,,,,,
+C:/dev/FPGA/PQM_gen/SRC/core.vhd,1650992797,vhdl,C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sim_1/new/core_tb.vhd,,,core,,,,,,,,
 C:/dev/FPGA/PQM_gen/SRC/dds8_mod.vhd,1650981352,vhdl2008,C:/dev/FPGA/PQM_gen/SRC/sequencer.vhd,,,dds8_mod,,,,,,,,
 C:/dev/FPGA/PQM_gen/SRC/dds8_pacc.vhd,1650981357,vhdl,C:/dev/FPGA/PQM_gen/SRC/dds8_mod.vhd,,,dds8_pacc,,,,,,,,
 C:/dev/FPGA/PQM_gen/SRC/envelope_shaper.vhd,1650982477,vhdl,C:/dev/FPGA/PQM_gen/SRC/core.vhd,,,envelope_shaper,,,,,,,,

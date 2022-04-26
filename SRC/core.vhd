@@ -66,8 +66,8 @@ ENTITY CORE IS
         --implement gpio  
         GPIOA : OUT STD_LOGIC_VECTOR (GPIO_widgt - 1 DOWNTO 0);
         sig_out : OUT STD_LOGIC_VECTOR(13 DOWNTO 0);
-        
-        to_DAC : out Tdac_bus := (others => (others => '0'))
+
+        to_DAC : OUT Tdac_bus := (OTHERS => (OTHERS => '0'))
     );
 END CORE;
 -------------------------------------------------------------------
@@ -83,18 +83,20 @@ ARCHITECTURE Behavioral OF CORE IS
     CONSTANT SET_F0_CARR : STD_LOGIC_VECTOR(CMD_widgt - 1 DOWNTO 0) := X"00000006";
     CONSTANT SET_F0_ROT : STD_LOGIC_VECTOR(CMD_widgt - 1 DOWNTO 0) := X"00000007";
     CONSTANT SET_F_CARR_INC : STD_LOGIC_VECTOR(CMD_widgt - 1 DOWNTO 0) := X"00000008";
-    CONSTANT SET_F_ROT_INC : std_logic_vector(CMD_widgt - 1 downto 0) := X"00000009";
+    CONSTANT SET_F_ROT_INC : STD_LOGIC_VECTOR(CMD_widgt - 1 DOWNTO 0) := X"00000009";
     CONSTANT SET_P_CARR : STD_LOGIC_VECTOR(CMD_widgt - 1 DOWNTO 0) := X"0000000A";
     CONSTANT SET_P_ROT : STD_LOGIC_VECTOR(CMD_widgt - 1 DOWNTO 0) := X"0000000B";
     CONSTANT JMP : STD_LOGIC_VECTOR(CMD_widgt - 1 DOWNTO 0) := X"0000000C";
     CONSTANT NOP : STD_LOGIC_VECTOR(CMD_widgt - 1 DOWNTO 0) := X"0000000D";
-    constant TRIG_SEQUENCER : STD_LOGIC_VECTOR(CMD_widgt - 1 downto 0) := X"0000000E";
-    constant select_modulation : std_logic_vector(CMD_widgt - 1 downto 0) := X"0000000F";
+    CONSTANT TRIG_SEQUENCER : STD_LOGIC_VECTOR(CMD_widgt - 1 DOWNTO 0) := X"0000000E";
+    CONSTANT select_modulation : STD_LOGIC_VECTOR(CMD_widgt - 1 DOWNTO 0) := X"0000000F";
+    CONSTANT set_env_shape : STD_LOGIC_VECTOR(CMD_widgt - 1 DOWNTO 0) := X"00000010";
 
     --For read new data from BRAM
     SIGNAL readed_BRAM : STD_LOGIC_VECTOR (BRAM_widgt - 1 DOWNTO 0) := (OTHERS => '0');
     SIGNAL ptrBRAM : unsigned (ADDR_widgt - 1 DOWNTO 0) := (OTHERS => '0');
 
+    --Strob for previous parser
     SIGNAL jmp_flag : STD_LOGIC := '0';
     SIGNAL nop_flag : STD_LOGIC := '0';
 
@@ -107,19 +109,19 @@ ARCHITECTURE Behavioral OF CORE IS
 
     --signals for AMP_CTRL instatiaton  
     SIGNAL en_amp_ctrl : STD_LOGIC := '1';
-    signal amp_val : std_logic_vector(15 downto 0) := (others => '0');
-    signal after_amp : Tdac_bus := (others => (others => '0'));
+    SIGNAL amp_val : STD_LOGIC_VECTOR(15 DOWNTO 0) := (OTHERS => '0');
+    SIGNAL after_amp : Tdac_bus := (OTHERS => (OTHERS => '0'));
     --signals for sequencer 
     SIGNAL en_seq : STD_LOGIC := '1';
-    signal trig_seq : std_logic := '0';
+    SIGNAL trig_seq : STD_LOGIC := '0';
     SIGNAL Fc : STD_LOGIC_VECTOR(Fcar_widgt - 1 DOWNTO 0);
     SIGNAL Fr : STD_LOGIC_VECTOR(Frot_widgt - 1 DOWNTO 0);
     SIGNAL Pc : STD_LOGIC_VECTOR(Pc_widgt - 1 DOWNTO 0);
     SIGNAL Pr : STD_LOGIC_VECTOR (Pr_widgt - 1 DOWNTO 0);
     SIGNAL Fr_inc : STD_LOGIC_VECTOR(Finc_widgt - 1 DOWNTO 0);
     SIGNAL Fc_inc : STD_LOGIC_VECTOR(Finc_widgt - 1 DOWNTO 0);
-    SIGNAL Carrier : TDAc_bus := (others => (others => '0')); --tDAC bus type 
-    SIGNAL Rotator : TDAc_bus := (others => (others => '0'));
+    SIGNAL Carrier : TDAc_bus := (OTHERS => (OTHERS => '0')); --tDAC bus type 
+    SIGNAL Rotator : TDAc_bus := (OTHERS => (OTHERS => '0'));
 
     --for delay command
     SIGNAL TIM1_CNT : unsigned(TIM1_widgt - 1 DOWNTO 0) := (OTHERS => '0');
@@ -133,34 +135,34 @@ ARCHITECTURE Behavioral OF CORE IS
     --This signals for degug, after synthesis they are removed as unused
     SIGNAL cmd_reg : STD_LOGIC_VECTOR(31 DOWNTO 0) := (OTHERS => '0');
     SIGNAL arg_reg : STD_LOGIC_VECTOR(31 DOWNTO 0) := (OTHERS => '0');
-    
+
     --For modulator instantiation 
-    signal modulator_mod_reg : std_logic_vector(3 downto 0) := (others => '0');
-    signal res_modulator : Tdac_bus := (others => (others => '0')); 
-    
-    signal envelope_shaper_rule : std_logic := '1';
-    signal envelope_shaper_rst : std_logic := '0';
-    signal shaper_out : Tdac_bus := (others => (others => '0'));
-    
+    SIGNAL modulator_mod_reg : STD_LOGIC_VECTOR(3 DOWNTO 0) := (OTHERS => '0');
+    SIGNAL res_modulator : Tdac_bus := (OTHERS => (OTHERS => '0'));
+
+    SIGNAL envelope_shaper_rule : STD_LOGIC := '1';
+    SIGNAL envelope_shaper_rst : STD_LOGIC := '0';
+    SIGNAL shaper_out : Tdac_bus := (OTHERS => (OTHERS => '0'));
+
     COMPONENT blk_mem_gen_0
-            PORT (
-                clka : IN STD_LOGIC;
-                ena : IN STD_LOGIC;
-                wea : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
-                addra : IN STD_LOGIC_VECTOR(10 DOWNTO 0);
-                dina : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
-                clkb : IN STD_LOGIC;
-                enb : IN STD_LOGIC;
-                addrb : IN STD_LOGIC_VECTOR(9 DOWNTO 0);
-                doutb : OUT STD_LOGIC_VECTOR(63 DOWNTO 0)
-            );
-        END COMPONENT;
+        PORT (
+            clka : IN STD_LOGIC;
+            ena : IN STD_LOGIC;
+            wea : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+            addra : IN STD_LOGIC_VECTOR(10 DOWNTO 0);
+            dina : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+            clkb : IN STD_LOGIC;
+            enb : IN STD_LOGIC;
+            addrb : IN STD_LOGIC_VECTOR(9 DOWNTO 0);
+            doutb : OUT STD_LOGIC_VECTOR(63 DOWNTO 0)
+        );
+    END COMPONENT;
 
 BEGIN
     -------------------------------------------------------------------
     --This part of code for instantiation other modules and IP - cores
     -------------------------------------------------------------------
-    --BRAM implementation   
+    --BRAM instantiation
     BRAM_IP : blk_mem_gen_0 PORT MAP(
         addra => addra,
         clka => clk_core,
@@ -171,7 +173,7 @@ BEGIN
         clkb => clk_core,
         doutb => readed_BRAM,
         enb => enb
-        );
+    );
 
     --GPIO instantiation  
     GPIO_mod : ENTITY work.GPIO PORT MAP(
@@ -185,8 +187,8 @@ BEGIN
     Amp_ctrl_mod : ENTITY work.AMP_CTRL PORT MAP(
         clk_amp_ctrl => clk_core,
         en_amp_ctrl => en_amp_ctrl,
-        Amp_val => amp_val, 
-        amp_in => shaper_out, 
+        Amp_val => amp_val,
+        amp_in => shaper_out,
         amp_out => to_DAC
         );
 
@@ -204,58 +206,70 @@ BEGIN
         Carrier => Carrier,
         Rotator => Rotator
         );
-        
-     modulator_mod: entity work.modulator port map(
-        clk_mod => clk_core, 
-        srst_i => rst_core, 
-        mode_mod_i => modulator_mod_reg, 
-        CARR_i => Carrier, 
-        ROT_i => Rotator, 
+
+    --modulator instantiation
+    modulator_mod : ENTITY work.modulator PORT MAP(
+        clk_mod => clk_core,
+        srst_i => rst_core,
+        mode_mod_i => modulator_mod_reg,
+        CARR_i => Carrier,
+        ROT_i => Rotator,
         RES_o => res_modulator
-     );
-     
-     env_shaper: entity work.envelope_shaper port map(
-        clk_env => clk_core, 
-        rst_env => envelope_shaper_rst, 
-        env_shape => envelope_shaper_rule, 
-        sig_i => res_modulator, 
-        sig_o => shaper_out 
-     );
+        );
+
+    --envelope shaper instantiation
+    env_shaper : ENTITY work.envelope_shaper PORT MAP(
+        clk_env => clk_core,
+        rst_env => envelope_shaper_rst,
+        env_shape => envelope_shaper_rule,
+        sig_i => res_modulator,
+        sig_o => shaper_out
+        );
     --------------------------------------------------------------------------
     --End of instantiation 
     --------------------------------------------------------------------------
     -------------------------------------------------------------------
+    --This process used for parse jmp and nop command
     future_parser : PROCESS (clk_core) BEGIN
         IF rising_edge(clk_core) THEN
-            IF jmp_flag = '1' THEN
-                jmp_flag <= '0'; --this flag for delay at 1 clock 
-                ptrBRAM <= ptrBRAM + 1;
-            ELSIF nop_flag = '1' THEN
-                TIM1_EN_STR <= '0';
-                IF TIM1_CEN = '1' THEN
+            --Clear strobes
+            jmp_flag <= '0';
+            nop_flag <= '0';
+            TIM1_EN_STR <= '0';
 
-                ELSE
-                    nop_flag <= '0';
-                    enb <= '1';
-                END IF;
-                --nop_flag <= '0';
-                --enb <= '1';
+            IF tim1_cen = '1' THEN --only wait reset tim1_cen flag at decrement from arr to bottom
+                if tim1_dis_str = '1' then 
+                    --ptrBRAM <= ptrBRAM + 1;
+                end if;
             ELSE
-                CASE (readed_BRAM(CMD_widgt - 1 DOWNTO 0)) IS
-                    WHEN JMP =>
-                        ptrBRAM <= unsigned(readed_BRAM(CMD_widgt + ADDR_widgt - 1 DOWNTO CMD_widgt));
-                        jmp_flag <= '1';
-                    WHEN NOP =>
-                        nop_flag <= '1';
-                        enb <= '0';
-                        TIM1_ARR <= unsigned(readed_BRAM(BRAM_widgt - 1 DOWNTO CMD_widgt));
-                        TIM1_EN_STR <= '1';
-                    WHEN OTHERS =>
-                        ptrBRAM <= ptrBRAM + 1;
-                END CASE;
+                enb <= '1';
+                IF jmp_flag = '1' THEN
+                    ptrBRAM <= ptrBRAM + 1;--Addr is set at previous clock 
+                ELSIF nop_flag = '1' THEN
+                    IF TIM1_CEN = '1' THEN
+                    ELSE
 
-                cmd_reg <= readed_BRAM(BRAM_widgt - 1 DOWNTO CMD_widgt); -- this data delayed at 1 clock
-                arg_reg <= readed_BRAM(CMD_widgt - 1 DOWNTO 0);
+                    END IF;
+                    --nop_flag <= '0';
+                    --enb <= '1';
+                ELSE
+                    CASE (readed_BRAM(CMD_widgt - 1 DOWNTO 0)) IS
+                        WHEN JMP =>
+                            ptrBRAM <= unsigned(readed_BRAM(CMD_widgt + ADDR_widgt - 1 DOWNTO CMD_widgt));
+                            jmp_flag <= '1';
+                        WHEN NOP =>
+                            nop_flag <= '1';
+                            enb <= '0';
+                            --ptrBRAM <= ptrBRAM - 1;
+                            TIM1_ARR <= unsigned(readed_BRAM(BRAM_widgt - 1 DOWNTO CMD_widgt));
+                            TIM1_EN_STR <= '1';
+                        WHEN OTHERS =>
+                            ptrBRAM <= ptrBRAM + 1;
+                    END CASE;
+
+                    cmd_reg <= readed_BRAM(BRAM_widgt - 1 DOWNTO CMD_widgt); -- this data delayed at 1 clock
+                    arg_reg <= readed_BRAM(CMD_widgt - 1 DOWNTO 0);
+                END IF;
             END IF;
         END IF;
     END PROCESS future_parser;
@@ -264,7 +278,7 @@ BEGIN
         IF rising_edge(clk_core) THEN
             --reset strobs
             trig_seq <= '0';
-        
+
             CASE readed_BRAM(CMD_widgt - 1 DOWNTO 0) IS
                     --GPIO set command
                 WHEN GPIO_WRITE =>
@@ -290,8 +304,8 @@ BEGIN
                     --Set Fr_inc
                 WHEN SET_F_CARR_INC => --carrier frequency increment 
                     Fc_inc <= readed_BRAM(BRAM_widgt - 1 DOWNTO CMD_widgt);
-                WHEN SET_F_ROT_INC => 
-                    Fr_inc <= readed_BRAM(BRAM_widgt - 1 downto CMD_widgt);
+                WHEN SET_F_ROT_INC =>
+                    Fr_inc <= readed_BRAM(BRAM_widgt - 1 DOWNTO CMD_widgt);
                     --Set phase carrier
                 WHEN SET_P_CARR => -- replace p - > ph
                     Pc <= readed_BRAM(CMD_widgt + Pc_widgt - 1 DOWNTO CMD_widgt);
@@ -301,24 +315,29 @@ BEGIN
                 WHEN NOP =>
 
                 WHEN JMP =>
-                
-                WHEN TRIG_SEQUENCER =>  
+
+                WHEN TRIG_SEQUENCER =>
                     trig_seq <= '1';
-                    
-                when select_modulation => 
-                    modulator_mod_reg <= readed_BRAM(3 downto 0);
+
+                WHEN select_modulation =>
+                    modulator_mod_reg <= readed_BRAM(3 DOWNTO 0);
+
+                WHEN set_env_shape =>
+                    envelope_shaper_rule <= readed_BRAM(0);
                 WHEN OTHERS =>
             END CASE;
         END IF;
     END PROCESS cmd_parser;
 
     --THIS TIMER FOR DELAY ORGANIZATION FOR COMMAND NOP
-    tim1 : PROCESS (clk_core) BEGIN
+    tim1 : PROCESS (clk_core, tim1_en_str) BEGIN
         IF rising_edge(clk_core) THEN
+            --Clear strobes
+            TIM1_DIS_STR <= '0';
+
             CASE TIM1_SR IS
                 WHEN edge =>
                     --clear strobes    
-                    TIM1_DIS_STR <= '0';
                     --wait start strob
                     IF tim1_en_str = '1' THEN
                         TIM1_SR <= decrement;
@@ -331,8 +350,8 @@ BEGIN
                 WHEN decrement =>
                     --wait zero into cnt_register
                     IF TIM1_CNT = X"00000000" THEN
-                        TIM1_SR <= edge;
                         TIM1_DIS_STR <= '1';
+                        TIM1_SR <= edge;
                     ELSE
                         TIM1_CNT <= TIM1_CNT - 1;
                     END IF;
