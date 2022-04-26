@@ -1,0 +1,4 @@
+vhdl xil_defaultlib  \
+"../../../../IP/pg_freq_acc_32to40plus/sim/pg_freq_acc_32to40plus.vhd" \
+
+nosort

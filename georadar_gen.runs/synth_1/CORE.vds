@@ -1,0 +1,902 @@
+#-----------------------------------------------------------
+# Vivado v2017.4 (64-bit)
+# SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
+# IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
+# Start of session at: Tue Apr 26 16:54:25 2022
+# Process ID: 612
+# Current directory: C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1
+# Command line: vivado.exe -log CORE.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source CORE.tcl
+# Log file: C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/CORE.vds
+# Journal file: C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source CORE.tcl -notrace
+Command: synth_design -top CORE -part xc7z010clg400-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7z010'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z010'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 12368 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 415.852 ; gain = 102.562
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'CORE' [C:/dev/FPGA/georadar_gen/SRC/core.vhd:74]
+	Parameter BRAM_widgt bound to: 64 - type: integer 
+	Parameter CMD_widgt bound to: 32 - type: integer 
+	Parameter ARG_widgt bound to: 32 - type: integer 
+	Parameter ADDR_widgt bound to: 10 - type: integer 
+	Parameter ptrMaxVal bound to: 10'b1111111111 
+	Parameter GPIO_widgt bound to: 32 - type: integer 
+	Parameter AMP_CTRL_Sig_widgt bound to: 16 - type: integer 
+	Parameter AMP_CTRL_widgt bound to: 16 - type: integer 
+	Parameter Fcar_widgt bound to: 32 - type: integer 
+	Parameter Frot_widgt bound to: 32 - type: integer 
+	Parameter Finc_widgt bound to: 32 - type: integer 
+	Parameter Pc_widgt bound to: 16 - type: integer 
+	Parameter Pr_widgt bound to: 16 - type: integer 
+	Parameter Car_widgt bound to: 14 - type: integer 
+	Parameter Rot_widgt bound to: 14 - type: integer 
+	Parameter TIM1_widgt bound to: 32 - type: integer 
+INFO: [Synth 8-3491] module 'blk_mem_gen_0' declared at 'C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/realtime/blk_mem_gen_0_stub.v:6' bound to instance 'BRAM_IP' of component 'blk_mem_gen_0' [C:/dev/FPGA/georadar_gen/SRC/core.vhd:161]
+INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_0' [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/realtime/blk_mem_gen_0_stub.v:6]
+INFO: [Synth 8-256] done synthesizing module 'blk_mem_gen_0' (1#1) [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/realtime/blk_mem_gen_0_stub.v:6]
+INFO: [Synth 8-638] synthesizing module 'GPIO' [C:/dev/FPGA/georadar_gen/SRC/gpio.vhd:18]
+	Parameter GPIO_widgt bound to: 32 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'GPIO' (2#1) [C:/dev/FPGA/georadar_gen/SRC/gpio.vhd:18]
+INFO: [Synth 8-638] synthesizing module 'AMP_CTRL' [C:/dev/FPGA/georadar_gen/SRC/amp_ctrl.vhd:29]
+	Parameter AMP_1_widgt bound to: 16 - type: integer 
+	Parameter AMP_2_widgt bound to: 16 - type: integer 
+	Parameter A_1_widgt bound to: 16 - type: integer 
+	Parameter A_2_widgt bound to: 16 - type: integer 
+	Parameter S_mode_widgt bound to: 4 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'AMP_CTRL' (3#1) [C:/dev/FPGA/georadar_gen/SRC/amp_ctrl.vhd:29]
+INFO: [Synth 8-638] synthesizing module 'Sequencer' [C:/dev/FPGA/georadar_gen/SRC/sequencer.vhd:34]
+	Parameter freq_widgt bound to: 32 - type: integer 
+	Parameter phase_widgt bound to: 16 - type: integer 
+	Parameter carrier_widgt bound to: 14 - type: integer 
+	Parameter rotation_widgt bound to: 14 - type: integer 
+	Parameter inc_widgt bound to: 32 - type: integer 
+INFO: [Synth 8-638] synthesizing module 'dds8_mod' [C:/dev/FPGA/georadar_gen/SRC/dds8_mod.vhd:51]
+	Parameter C_OUT_UNSIGNED bound to: 1'b1 
+INFO: [Synth 8-638] synthesizing module 'dds8_pacc' [C:/dev/FPGA/georadar_gen/SRC/dds8_pacc.vhd:38]
+INFO: [Synth 8-3491] module 'dds8_mod_group_accum' declared at 'C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/realtime/dds8_mod_group_accum_stub.v:6' bound to instance 'xMACC_GROUP' of component 'dds8_mod_group_accum' [C:/dev/FPGA/georadar_gen/SRC/dds8_pacc.vhd:98]
+INFO: [Synth 8-638] synthesizing module 'dds8_mod_group_accum' [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/realtime/dds8_mod_group_accum_stub.v:6]
+INFO: [Synth 8-256] done synthesizing module 'dds8_mod_group_accum' (4#1) [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/realtime/dds8_mod_group_accum_stub.v:6]
+INFO: [Synth 8-3491] module 'dds8_mod_fi_add' declared at 'C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/realtime/dds8_mod_fi_add_stub.v:6' bound to instance 'xFI_ADD' of component 'dds8_mod_fi_add' [C:/dev/FPGA/georadar_gen/SRC/dds8_pacc.vhd:106]
+INFO: [Synth 8-638] synthesizing module 'dds8_mod_fi_add' [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/realtime/dds8_mod_fi_add_stub.v:6]
+INFO: [Synth 8-256] done synthesizing module 'dds8_mod_fi_add' (5#1) [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/realtime/dds8_mod_fi_add_stub.v:6]
+INFO: [Synth 8-3491] module 'dds8_mod_fi_partial' declared at 'C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/realtime/dds8_mod_fi_partial_stub.v:6' bound to instance 'xMADD_PARTIAL' of component 'dds8_mod_fi_partial' [C:/dev/FPGA/georadar_gen/SRC/dds8_pacc.vhd:117]
+INFO: [Synth 8-638] synthesizing module 'dds8_mod_fi_partial' [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/realtime/dds8_mod_fi_partial_stub.v:6]
+INFO: [Synth 8-256] done synthesizing module 'dds8_mod_fi_partial' (6#1) [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/realtime/dds8_mod_fi_partial_stub.v:6]
+INFO: [Synth 8-3491] module 'dds8_mod_fi_partial' declared at 'C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/realtime/dds8_mod_fi_partial_stub.v:6' bound to instance 'xMADD_PARTIAL' of component 'dds8_mod_fi_partial' [C:/dev/FPGA/georadar_gen/SRC/dds8_pacc.vhd:117]
+INFO: [Synth 8-3491] module 'dds8_mod_fi_partial' declared at 'C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/realtime/dds8_mod_fi_partial_stub.v:6' bound to instance 'xMADD_PARTIAL' of component 'dds8_mod_fi_partial' [C:/dev/FPGA/georadar_gen/SRC/dds8_pacc.vhd:117]
+INFO: [Synth 8-3491] module 'dds8_mod_fi_partial' declared at 'C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/realtime/dds8_mod_fi_partial_stub.v:6' bound to instance 'xMADD_PARTIAL' of component 'dds8_mod_fi_partial' [C:/dev/FPGA/georadar_gen/SRC/dds8_pacc.vhd:117]
+INFO: [Synth 8-3491] module 'dds8_mod_fi_partial' declared at 'C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/realtime/dds8_mod_fi_partial_stub.v:6' bound to instance 'xMADD_PARTIAL' of component 'dds8_mod_fi_partial' [C:/dev/FPGA/georadar_gen/SRC/dds8_pacc.vhd:117]
+INFO: [Synth 8-3491] module 'dds8_mod_fi_partial' declared at 'C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/realtime/dds8_mod_fi_partial_stub.v:6' bound to instance 'xMADD_PARTIAL' of component 'dds8_mod_fi_partial' [C:/dev/FPGA/georadar_gen/SRC/dds8_pacc.vhd:117]
+INFO: [Synth 8-3491] module 'dds8_mod_fi_partial' declared at 'C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/realtime/dds8_mod_fi_partial_stub.v:6' bound to instance 'xMADD_PARTIAL' of component 'dds8_mod_fi_partial' [C:/dev/FPGA/georadar_gen/SRC/dds8_pacc.vhd:117]
+INFO: [Synth 8-3491] module 'dds8_mod_fi_partial' declared at 'C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/realtime/dds8_mod_fi_partial_stub.v:6' bound to instance 'xMADD_PARTIAL' of component 'dds8_mod_fi_partial' [C:/dev/FPGA/georadar_gen/SRC/dds8_pacc.vhd:117]
+INFO: [Synth 8-256] done synthesizing module 'dds8_pacc' (7#1) [C:/dev/FPGA/georadar_gen/SRC/dds8_pacc.vhd:38]
+INFO: [Synth 8-3491] module 'dds_lut_25x16' declared at 'C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/realtime/dds_lut_25x16_stub.v:6' bound to instance 'xSINCOS_LUT' of component 'dds_lut_25x16' [C:/dev/FPGA/georadar_gen/SRC/dds8_mod.vhd:139]
+INFO: [Synth 8-638] synthesizing module 'dds_lut_25x16' [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/realtime/dds_lut_25x16_stub.v:6]
+INFO: [Synth 8-256] done synthesizing module 'dds_lut_25x16' (8#1) [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/realtime/dds_lut_25x16_stub.v:6]
+INFO: [Synth 8-3491] module 'dds_lut_25x16' declared at 'C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/realtime/dds_lut_25x16_stub.v:6' bound to instance 'xSINCOS_LUT' of component 'dds_lut_25x16' [C:/dev/FPGA/georadar_gen/SRC/dds8_mod.vhd:139]
+INFO: [Synth 8-3491] module 'dds_lut_25x16' declared at 'C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/realtime/dds_lut_25x16_stub.v:6' bound to instance 'xSINCOS_LUT' of component 'dds_lut_25x16' [C:/dev/FPGA/georadar_gen/SRC/dds8_mod.vhd:139]
+INFO: [Synth 8-3491] module 'dds_lut_25x16' declared at 'C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/realtime/dds_lut_25x16_stub.v:6' bound to instance 'xSINCOS_LUT' of component 'dds_lut_25x16' [C:/dev/FPGA/georadar_gen/SRC/dds8_mod.vhd:139]
+INFO: [Synth 8-3491] module 'dds_lut_25x16' declared at 'C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/realtime/dds_lut_25x16_stub.v:6' bound to instance 'xSINCOS_LUT' of component 'dds_lut_25x16' [C:/dev/FPGA/georadar_gen/SRC/dds8_mod.vhd:139]
+INFO: [Synth 8-3491] module 'dds_lut_25x16' declared at 'C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/realtime/dds_lut_25x16_stub.v:6' bound to instance 'xSINCOS_LUT' of component 'dds_lut_25x16' [C:/dev/FPGA/georadar_gen/SRC/dds8_mod.vhd:139]
+INFO: [Synth 8-3491] module 'dds_lut_25x16' declared at 'C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/realtime/dds_lut_25x16_stub.v:6' bound to instance 'xSINCOS_LUT' of component 'dds_lut_25x16' [C:/dev/FPGA/georadar_gen/SRC/dds8_mod.vhd:139]
+INFO: [Synth 8-3491] module 'dds_lut_25x16' declared at 'C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/realtime/dds_lut_25x16_stub.v:6' bound to instance 'xSINCOS_LUT' of component 'dds_lut_25x16' [C:/dev/FPGA/georadar_gen/SRC/dds8_mod.vhd:139]
+INFO: [Synth 8-256] done synthesizing module 'dds8_mod' (9#1) [C:/dev/FPGA/georadar_gen/SRC/dds8_mod.vhd:51]
+INFO: [Synth 8-3491] module 'pg_freq_acc_32to40plus' declared at 'C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/realtime/pg_freq_acc_32to40plus_stub.v:6' bound to instance 'CARRIER_ACCUM' of component 'pg_freq_acc_32to40plus' [C:/dev/FPGA/georadar_gen/SRC/sequencer.vhd:104]
+INFO: [Synth 8-638] synthesizing module 'pg_freq_acc_32to40plus' [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/realtime/pg_freq_acc_32to40plus_stub.v:6]
+INFO: [Synth 8-256] done synthesizing module 'pg_freq_acc_32to40plus' (10#1) [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/realtime/pg_freq_acc_32to40plus_stub.v:6]
+INFO: [Synth 8-3491] module 'pg_freq_acc_32to40plus' declared at 'C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/realtime/pg_freq_acc_32to40plus_stub.v:6' bound to instance 'ROTATOR_ACCUM' of component 'pg_freq_acc_32to40plus' [C:/dev/FPGA/georadar_gen/SRC/sequencer.vhd:118]
+INFO: [Synth 8-256] done synthesizing module 'Sequencer' (11#1) [C:/dev/FPGA/georadar_gen/SRC/sequencer.vhd:34]
+INFO: [Synth 8-638] synthesizing module 'modulator' [C:/dev/FPGA/georadar_gen/SRC/mod.vhd:23]
+	Parameter MODE_widgt bound to: 4 - type: integer 
+INFO: [Synth 8-3491] module 'mult_14_14' declared at 'C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/realtime/mult_14_14_stub.v:6' bound to instance 'mix_multQC_14_14_cos' of component 'mult_14_14' [C:/dev/FPGA/georadar_gen/SRC/mod.vhd:47]
+INFO: [Synth 8-638] synthesizing module 'mult_14_14' [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/realtime/mult_14_14_stub.v:6]
+INFO: [Synth 8-256] done synthesizing module 'mult_14_14' (12#1) [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/realtime/mult_14_14_stub.v:6]
+INFO: [Synth 8-3491] module 'mult_14_14' declared at 'C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/realtime/mult_14_14_stub.v:6' bound to instance 'mix_multQC_14_14_cos' of component 'mult_14_14' [C:/dev/FPGA/georadar_gen/SRC/mod.vhd:47]
+INFO: [Synth 8-3491] module 'mult_14_14' declared at 'C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/realtime/mult_14_14_stub.v:6' bound to instance 'mix_multQC_14_14_cos' of component 'mult_14_14' [C:/dev/FPGA/georadar_gen/SRC/mod.vhd:47]
+INFO: [Synth 8-3491] module 'mult_14_14' declared at 'C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/realtime/mult_14_14_stub.v:6' bound to instance 'mix_multQC_14_14_cos' of component 'mult_14_14' [C:/dev/FPGA/georadar_gen/SRC/mod.vhd:47]
+INFO: [Synth 8-3491] module 'mult_14_14' declared at 'C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/realtime/mult_14_14_stub.v:6' bound to instance 'mix_multQC_14_14_cos' of component 'mult_14_14' [C:/dev/FPGA/georadar_gen/SRC/mod.vhd:47]
+INFO: [Synth 8-3491] module 'mult_14_14' declared at 'C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/realtime/mult_14_14_stub.v:6' bound to instance 'mix_multQC_14_14_cos' of component 'mult_14_14' [C:/dev/FPGA/georadar_gen/SRC/mod.vhd:47]
+INFO: [Synth 8-3491] module 'mult_14_14' declared at 'C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/realtime/mult_14_14_stub.v:6' bound to instance 'mix_multQC_14_14_cos' of component 'mult_14_14' [C:/dev/FPGA/georadar_gen/SRC/mod.vhd:47]
+INFO: [Synth 8-3491] module 'mult_14_14' declared at 'C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/realtime/mult_14_14_stub.v:6' bound to instance 'mix_multQC_14_14_cos' of component 'mult_14_14' [C:/dev/FPGA/georadar_gen/SRC/mod.vhd:47]
+WARNING: [Synth 8-6044] Case expression and choice expression width mismatch, Case expression is 4 wide and choice expression is 2 wide [C:/dev/FPGA/georadar_gen/SRC/mod.vhd:72]
+WARNING: [Synth 8-6044] Case expression and choice expression width mismatch, Case expression is 4 wide and choice expression is 2 wide [C:/dev/FPGA/georadar_gen/SRC/mod.vhd:74]
+WARNING: [Synth 8-6044] Case expression and choice expression width mismatch, Case expression is 4 wide and choice expression is 2 wide [C:/dev/FPGA/georadar_gen/SRC/mod.vhd:76]
+WARNING: [Synth 8-6044] Case expression and choice expression width mismatch, Case expression is 4 wide and choice expression is 2 wide [C:/dev/FPGA/georadar_gen/SRC/mod.vhd:78]
+INFO: [Synth 8-256] done synthesizing module 'modulator' (13#1) [C:/dev/FPGA/georadar_gen/SRC/mod.vhd:23]
+WARNING: [Synth 8-6014] Unused sequential element cmd_reg_reg was removed.  [C:/dev/FPGA/georadar_gen/SRC/core.vhd:250]
+WARNING: [Synth 8-6014] Unused sequential element arg_reg_reg was removed.  [C:/dev/FPGA/georadar_gen/SRC/core.vhd:251]
+WARNING: [Synth 8-6014] Unused sequential element TIM1_DIS_STR_reg was removed.  [C:/dev/FPGA/georadar_gen/SRC/core.vhd:312]
+WARNING: [Synth 8-3848] Net sig_out in module/entity CORE does not have driver. [C:/dev/FPGA/georadar_gen/SRC/core.vhd:68]
+WARNING: [Synth 8-3848] Net AmpCTRL_IN_1 in module/entity CORE does not have driver. [C:/dev/FPGA/georadar_gen/SRC/core.vhd:107]
+WARNING: [Synth 8-3848] Net AmpCTRL_IN_2 in module/entity CORE does not have driver. [C:/dev/FPGA/georadar_gen/SRC/core.vhd:108]
+INFO: [Synth 8-256] done synthesizing module 'CORE' (14#1) [C:/dev/FPGA/georadar_gen/SRC/core.vhd:74]
+WARNING: [Synth 8-3331] design dds8_mod has unconnected port a_we_i
+WARNING: [Synth 8-3331] design dds8_mod has unconnected port amp_i[15]
+WARNING: [Synth 8-3331] design dds8_mod has unconnected port amp_i[14]
+WARNING: [Synth 8-3331] design dds8_mod has unconnected port amp_i[13]
+WARNING: [Synth 8-3331] design dds8_mod has unconnected port amp_i[12]
+WARNING: [Synth 8-3331] design dds8_mod has unconnected port amp_i[11]
+WARNING: [Synth 8-3331] design dds8_mod has unconnected port amp_i[10]
+WARNING: [Synth 8-3331] design dds8_mod has unconnected port amp_i[9]
+WARNING: [Synth 8-3331] design dds8_mod has unconnected port amp_i[8]
+WARNING: [Synth 8-3331] design dds8_mod has unconnected port amp_i[7]
+WARNING: [Synth 8-3331] design dds8_mod has unconnected port amp_i[6]
+WARNING: [Synth 8-3331] design dds8_mod has unconnected port amp_i[5]
+WARNING: [Synth 8-3331] design dds8_mod has unconnected port amp_i[4]
+WARNING: [Synth 8-3331] design dds8_mod has unconnected port amp_i[3]
+WARNING: [Synth 8-3331] design dds8_mod has unconnected port amp_i[2]
+WARNING: [Synth 8-3331] design dds8_mod has unconnected port amp_i[1]
+WARNING: [Synth 8-3331] design dds8_mod has unconnected port amp_i[0]
+WARNING: [Synth 8-3331] design Sequencer has unconnected port en_seq
+WARNING: [Synth 8-3331] design Sequencer has unconnected port Pc[15]
+WARNING: [Synth 8-3331] design Sequencer has unconnected port Pc[14]
+WARNING: [Synth 8-3331] design Sequencer has unconnected port Pc[13]
+WARNING: [Synth 8-3331] design Sequencer has unconnected port Pc[12]
+WARNING: [Synth 8-3331] design Sequencer has unconnected port Pc[11]
+WARNING: [Synth 8-3331] design Sequencer has unconnected port Pc[10]
+WARNING: [Synth 8-3331] design Sequencer has unconnected port Pc[9]
+WARNING: [Synth 8-3331] design Sequencer has unconnected port Pc[8]
+WARNING: [Synth 8-3331] design Sequencer has unconnected port Pc[7]
+WARNING: [Synth 8-3331] design Sequencer has unconnected port Pc[6]
+WARNING: [Synth 8-3331] design Sequencer has unconnected port Pc[5]
+WARNING: [Synth 8-3331] design Sequencer has unconnected port Pc[4]
+WARNING: [Synth 8-3331] design Sequencer has unconnected port Pc[3]
+WARNING: [Synth 8-3331] design Sequencer has unconnected port Pc[2]
+WARNING: [Synth 8-3331] design Sequencer has unconnected port Pc[1]
+WARNING: [Synth 8-3331] design Sequencer has unconnected port Pc[0]
+WARNING: [Synth 8-3331] design Sequencer has unconnected port Pr[15]
+WARNING: [Synth 8-3331] design Sequencer has unconnected port Pr[14]
+WARNING: [Synth 8-3331] design Sequencer has unconnected port Pr[13]
+WARNING: [Synth 8-3331] design Sequencer has unconnected port Pr[12]
+WARNING: [Synth 8-3331] design Sequencer has unconnected port Pr[11]
+WARNING: [Synth 8-3331] design Sequencer has unconnected port Pr[10]
+WARNING: [Synth 8-3331] design Sequencer has unconnected port Pr[9]
+WARNING: [Synth 8-3331] design Sequencer has unconnected port Pr[8]
+WARNING: [Synth 8-3331] design Sequencer has unconnected port Pr[7]
+WARNING: [Synth 8-3331] design Sequencer has unconnected port Pr[6]
+WARNING: [Synth 8-3331] design Sequencer has unconnected port Pr[5]
+WARNING: [Synth 8-3331] design Sequencer has unconnected port Pr[4]
+WARNING: [Synth 8-3331] design Sequencer has unconnected port Pr[3]
+WARNING: [Synth 8-3331] design Sequencer has unconnected port Pr[2]
+WARNING: [Synth 8-3331] design Sequencer has unconnected port Pr[1]
+WARNING: [Synth 8-3331] design Sequencer has unconnected port Pr[0]
+WARNING: [Synth 8-3331] design AMP_CTRL has unconnected port clk_amp_ctrl
+WARNING: [Synth 8-3331] design AMP_CTRL has unconnected port en_amp_ctrl
+WARNING: [Synth 8-3331] design AMP_CTRL has unconnected port Amp_1[15]
+WARNING: [Synth 8-3331] design AMP_CTRL has unconnected port Amp_1[14]
+WARNING: [Synth 8-3331] design AMP_CTRL has unconnected port Amp_1[13]
+WARNING: [Synth 8-3331] design AMP_CTRL has unconnected port Amp_1[12]
+WARNING: [Synth 8-3331] design AMP_CTRL has unconnected port Amp_1[11]
+WARNING: [Synth 8-3331] design AMP_CTRL has unconnected port Amp_1[10]
+WARNING: [Synth 8-3331] design AMP_CTRL has unconnected port Amp_1[9]
+WARNING: [Synth 8-3331] design AMP_CTRL has unconnected port Amp_1[8]
+WARNING: [Synth 8-3331] design AMP_CTRL has unconnected port Amp_1[7]
+WARNING: [Synth 8-3331] design AMP_CTRL has unconnected port Amp_1[6]
+WARNING: [Synth 8-3331] design AMP_CTRL has unconnected port Amp_1[5]
+WARNING: [Synth 8-3331] design AMP_CTRL has unconnected port Amp_1[4]
+WARNING: [Synth 8-3331] design AMP_CTRL has unconnected port Amp_1[3]
+WARNING: [Synth 8-3331] design AMP_CTRL has unconnected port Amp_1[2]
+WARNING: [Synth 8-3331] design AMP_CTRL has unconnected port Amp_1[1]
+WARNING: [Synth 8-3331] design AMP_CTRL has unconnected port Amp_1[0]
+WARNING: [Synth 8-3331] design AMP_CTRL has unconnected port Amp_2[15]
+WARNING: [Synth 8-3331] design AMP_CTRL has unconnected port Amp_2[14]
+WARNING: [Synth 8-3331] design AMP_CTRL has unconnected port Amp_2[13]
+WARNING: [Synth 8-3331] design AMP_CTRL has unconnected port Amp_2[12]
+WARNING: [Synth 8-3331] design AMP_CTRL has unconnected port Amp_2[11]
+WARNING: [Synth 8-3331] design AMP_CTRL has unconnected port Amp_2[10]
+WARNING: [Synth 8-3331] design AMP_CTRL has unconnected port Amp_2[9]
+WARNING: [Synth 8-3331] design AMP_CTRL has unconnected port Amp_2[8]
+WARNING: [Synth 8-3331] design AMP_CTRL has unconnected port Amp_2[7]
+WARNING: [Synth 8-3331] design AMP_CTRL has unconnected port Amp_2[6]
+WARNING: [Synth 8-3331] design AMP_CTRL has unconnected port Amp_2[5]
+WARNING: [Synth 8-3331] design AMP_CTRL has unconnected port Amp_2[4]
+WARNING: [Synth 8-3331] design AMP_CTRL has unconnected port Amp_2[3]
+WARNING: [Synth 8-3331] design AMP_CTRL has unconnected port Amp_2[2]
+WARNING: [Synth 8-3331] design AMP_CTRL has unconnected port Amp_2[1]
+WARNING: [Synth 8-3331] design AMP_CTRL has unconnected port Amp_2[0]
+WARNING: [Synth 8-3331] design CORE has unconnected port sig_out[13]
+WARNING: [Synth 8-3331] design CORE has unconnected port sig_out[12]
+WARNING: [Synth 8-3331] design CORE has unconnected port sig_out[11]
+WARNING: [Synth 8-3331] design CORE has unconnected port sig_out[10]
+WARNING: [Synth 8-3331] design CORE has unconnected port sig_out[9]
+WARNING: [Synth 8-3331] design CORE has unconnected port sig_out[8]
+WARNING: [Synth 8-3331] design CORE has unconnected port sig_out[7]
+WARNING: [Synth 8-3331] design CORE has unconnected port sig_out[6]
+WARNING: [Synth 8-3331] design CORE has unconnected port sig_out[5]
+WARNING: [Synth 8-3331] design CORE has unconnected port sig_out[4]
+WARNING: [Synth 8-3331] design CORE has unconnected port sig_out[3]
+WARNING: [Synth 8-3331] design CORE has unconnected port sig_out[2]
+WARNING: [Synth 8-3331] design CORE has unconnected port sig_out[1]
+WARNING: [Synth 8-3331] design CORE has unconnected port sig_out[0]
+WARNING: [Synth 8-3331] design CORE has unconnected port trig_core
+WARNING: [Synth 8-3331] design CORE has unconnected port en_core
+INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 470.277 ; gain = 156.988
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+WARNING: [Synth 8-3295] tying undriven pin Amp_ctrl_mod:A_1[15] to constant 0 [C:/dev/FPGA/georadar_gen/SRC/core.vhd:183]
+WARNING: [Synth 8-3295] tying undriven pin Amp_ctrl_mod:A_1[14] to constant 0 [C:/dev/FPGA/georadar_gen/SRC/core.vhd:183]
+WARNING: [Synth 8-3295] tying undriven pin Amp_ctrl_mod:A_1[13] to constant 0 [C:/dev/FPGA/georadar_gen/SRC/core.vhd:183]
+WARNING: [Synth 8-3295] tying undriven pin Amp_ctrl_mod:A_1[12] to constant 0 [C:/dev/FPGA/georadar_gen/SRC/core.vhd:183]
+WARNING: [Synth 8-3295] tying undriven pin Amp_ctrl_mod:A_1[11] to constant 0 [C:/dev/FPGA/georadar_gen/SRC/core.vhd:183]
+WARNING: [Synth 8-3295] tying undriven pin Amp_ctrl_mod:A_1[10] to constant 0 [C:/dev/FPGA/georadar_gen/SRC/core.vhd:183]
+WARNING: [Synth 8-3295] tying undriven pin Amp_ctrl_mod:A_1[9] to constant 0 [C:/dev/FPGA/georadar_gen/SRC/core.vhd:183]
+WARNING: [Synth 8-3295] tying undriven pin Amp_ctrl_mod:A_1[8] to constant 0 [C:/dev/FPGA/georadar_gen/SRC/core.vhd:183]
+WARNING: [Synth 8-3295] tying undriven pin Amp_ctrl_mod:A_1[7] to constant 0 [C:/dev/FPGA/georadar_gen/SRC/core.vhd:183]
+WARNING: [Synth 8-3295] tying undriven pin Amp_ctrl_mod:A_1[6] to constant 0 [C:/dev/FPGA/georadar_gen/SRC/core.vhd:183]
+WARNING: [Synth 8-3295] tying undriven pin Amp_ctrl_mod:A_1[5] to constant 0 [C:/dev/FPGA/georadar_gen/SRC/core.vhd:183]
+WARNING: [Synth 8-3295] tying undriven pin Amp_ctrl_mod:A_1[4] to constant 0 [C:/dev/FPGA/georadar_gen/SRC/core.vhd:183]
+WARNING: [Synth 8-3295] tying undriven pin Amp_ctrl_mod:A_1[3] to constant 0 [C:/dev/FPGA/georadar_gen/SRC/core.vhd:183]
+WARNING: [Synth 8-3295] tying undriven pin Amp_ctrl_mod:A_1[2] to constant 0 [C:/dev/FPGA/georadar_gen/SRC/core.vhd:183]
+WARNING: [Synth 8-3295] tying undriven pin Amp_ctrl_mod:A_1[1] to constant 0 [C:/dev/FPGA/georadar_gen/SRC/core.vhd:183]
+WARNING: [Synth 8-3295] tying undriven pin Amp_ctrl_mod:A_1[0] to constant 0 [C:/dev/FPGA/georadar_gen/SRC/core.vhd:183]
+WARNING: [Synth 8-3295] tying undriven pin Amp_ctrl_mod:A_2[15] to constant 0 [C:/dev/FPGA/georadar_gen/SRC/core.vhd:183]
+WARNING: [Synth 8-3295] tying undriven pin Amp_ctrl_mod:A_2[14] to constant 0 [C:/dev/FPGA/georadar_gen/SRC/core.vhd:183]
+WARNING: [Synth 8-3295] tying undriven pin Amp_ctrl_mod:A_2[13] to constant 0 [C:/dev/FPGA/georadar_gen/SRC/core.vhd:183]
+WARNING: [Synth 8-3295] tying undriven pin Amp_ctrl_mod:A_2[12] to constant 0 [C:/dev/FPGA/georadar_gen/SRC/core.vhd:183]
+WARNING: [Synth 8-3295] tying undriven pin Amp_ctrl_mod:A_2[11] to constant 0 [C:/dev/FPGA/georadar_gen/SRC/core.vhd:183]
+WARNING: [Synth 8-3295] tying undriven pin Amp_ctrl_mod:A_2[10] to constant 0 [C:/dev/FPGA/georadar_gen/SRC/core.vhd:183]
+WARNING: [Synth 8-3295] tying undriven pin Amp_ctrl_mod:A_2[9] to constant 0 [C:/dev/FPGA/georadar_gen/SRC/core.vhd:183]
+WARNING: [Synth 8-3295] tying undriven pin Amp_ctrl_mod:A_2[8] to constant 0 [C:/dev/FPGA/georadar_gen/SRC/core.vhd:183]
+WARNING: [Synth 8-3295] tying undriven pin Amp_ctrl_mod:A_2[7] to constant 0 [C:/dev/FPGA/georadar_gen/SRC/core.vhd:183]
+WARNING: [Synth 8-3295] tying undriven pin Amp_ctrl_mod:A_2[6] to constant 0 [C:/dev/FPGA/georadar_gen/SRC/core.vhd:183]
+WARNING: [Synth 8-3295] tying undriven pin Amp_ctrl_mod:A_2[5] to constant 0 [C:/dev/FPGA/georadar_gen/SRC/core.vhd:183]
+WARNING: [Synth 8-3295] tying undriven pin Amp_ctrl_mod:A_2[4] to constant 0 [C:/dev/FPGA/georadar_gen/SRC/core.vhd:183]
+WARNING: [Synth 8-3295] tying undriven pin Amp_ctrl_mod:A_2[3] to constant 0 [C:/dev/FPGA/georadar_gen/SRC/core.vhd:183]
+WARNING: [Synth 8-3295] tying undriven pin Amp_ctrl_mod:A_2[2] to constant 0 [C:/dev/FPGA/georadar_gen/SRC/core.vhd:183]
+WARNING: [Synth 8-3295] tying undriven pin Amp_ctrl_mod:A_2[1] to constant 0 [C:/dev/FPGA/georadar_gen/SRC/core.vhd:183]
+WARNING: [Synth 8-3295] tying undriven pin Amp_ctrl_mod:A_2[0] to constant 0 [C:/dev/FPGA/georadar_gen/SRC/core.vhd:183]
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 470.277 ; gain = 156.988
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7z010clg400-1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/dcp7/dds8_mod_group_accum_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xPACC/xMACC_GROUP'
+Finished Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/dcp7/dds8_mod_group_accum_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xPACC/xMACC_GROUP'
+Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/dcp7/dds8_mod_group_accum_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xPACC/xMACC_GROUP'
+Finished Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/dcp7/dds8_mod_group_accum_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xPACC/xMACC_GROUP'
+Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/dcp8/blk_mem_gen_0_in_context.xdc] for cell 'BRAM_IP'
+Finished Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/dcp8/blk_mem_gen_0_in_context.xdc] for cell 'BRAM_IP'
+Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/dcp9/pg_freq_acc_32to40plus_in_context.xdc] for cell 'Seq_mod/CARRIER_ACCUM'
+Finished Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/dcp9/pg_freq_acc_32to40plus_in_context.xdc] for cell 'Seq_mod/CARRIER_ACCUM'
+Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/dcp9/pg_freq_acc_32to40plus_in_context.xdc] for cell 'Seq_mod/ROTATOR_ACCUM'
+Finished Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/dcp9/pg_freq_acc_32to40plus_in_context.xdc] for cell 'Seq_mod/ROTATOR_ACCUM'
+Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/dcp10/dds8_mod_fi_add_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xPACC/xFI_ADD'
+Finished Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/dcp10/dds8_mod_fi_add_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xPACC/xFI_ADD'
+Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/dcp10/dds8_mod_fi_add_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xPACC/xFI_ADD'
+Finished Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/dcp10/dds8_mod_fi_add_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xPACC/xFI_ADD'
+Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/dcp11/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xPACC/xGEN_MADD[0].xMADD_PARTIAL'
+Finished Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/dcp11/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xPACC/xGEN_MADD[0].xMADD_PARTIAL'
+Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/dcp11/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xPACC/xGEN_MADD[1].xMADD_PARTIAL'
+Finished Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/dcp11/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xPACC/xGEN_MADD[1].xMADD_PARTIAL'
+Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/dcp11/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xPACC/xGEN_MADD[2].xMADD_PARTIAL'
+Finished Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/dcp11/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xPACC/xGEN_MADD[2].xMADD_PARTIAL'
+Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/dcp11/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xPACC/xGEN_MADD[3].xMADD_PARTIAL'
+Finished Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/dcp11/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xPACC/xGEN_MADD[3].xMADD_PARTIAL'
+Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/dcp11/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xPACC/xGEN_MADD[4].xMADD_PARTIAL'
+Finished Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/dcp11/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xPACC/xGEN_MADD[4].xMADD_PARTIAL'
+Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/dcp11/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xPACC/xGEN_MADD[5].xMADD_PARTIAL'
+Finished Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/dcp11/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xPACC/xGEN_MADD[5].xMADD_PARTIAL'
+Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/dcp11/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xPACC/xGEN_MADD[6].xMADD_PARTIAL'
+Finished Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/dcp11/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xPACC/xGEN_MADD[6].xMADD_PARTIAL'
+Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/dcp11/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xPACC/xGEN_MADD[7].xMADD_PARTIAL'
+Finished Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/dcp11/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xPACC/xGEN_MADD[7].xMADD_PARTIAL'
+Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/dcp11/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xPACC/xGEN_MADD[0].xMADD_PARTIAL'
+Finished Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/dcp11/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xPACC/xGEN_MADD[0].xMADD_PARTIAL'
+Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/dcp11/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xPACC/xGEN_MADD[1].xMADD_PARTIAL'
+Finished Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/dcp11/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xPACC/xGEN_MADD[1].xMADD_PARTIAL'
+Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/dcp11/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xPACC/xGEN_MADD[2].xMADD_PARTIAL'
+Finished Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/dcp11/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xPACC/xGEN_MADD[2].xMADD_PARTIAL'
+Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/dcp11/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xPACC/xGEN_MADD[3].xMADD_PARTIAL'
+Finished Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/dcp11/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xPACC/xGEN_MADD[3].xMADD_PARTIAL'
+Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/dcp11/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xPACC/xGEN_MADD[4].xMADD_PARTIAL'
+Finished Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/dcp11/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xPACC/xGEN_MADD[4].xMADD_PARTIAL'
+Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/dcp11/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xPACC/xGEN_MADD[5].xMADD_PARTIAL'
+Finished Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/dcp11/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xPACC/xGEN_MADD[5].xMADD_PARTIAL'
+Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/dcp11/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xPACC/xGEN_MADD[6].xMADD_PARTIAL'
+Finished Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/dcp11/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xPACC/xGEN_MADD[6].xMADD_PARTIAL'
+Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/dcp11/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xPACC/xGEN_MADD[7].xMADD_PARTIAL'
+Finished Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/dcp11/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xPACC/xGEN_MADD[7].xMADD_PARTIAL'
+Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/dcp12/mult_14_14_in_context.xdc] for cell 'modulator_mod/mix_multQC[0].mix_multQC_14_14_cos'
+Finished Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/dcp12/mult_14_14_in_context.xdc] for cell 'modulator_mod/mix_multQC[0].mix_multQC_14_14_cos'
+Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/dcp12/mult_14_14_in_context.xdc] for cell 'modulator_mod/mix_multQC[1].mix_multQC_14_14_cos'
+Finished Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/dcp12/mult_14_14_in_context.xdc] for cell 'modulator_mod/mix_multQC[1].mix_multQC_14_14_cos'
+Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/dcp12/mult_14_14_in_context.xdc] for cell 'modulator_mod/mix_multQC[2].mix_multQC_14_14_cos'
+Finished Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/dcp12/mult_14_14_in_context.xdc] for cell 'modulator_mod/mix_multQC[2].mix_multQC_14_14_cos'
+Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/dcp12/mult_14_14_in_context.xdc] for cell 'modulator_mod/mix_multQC[3].mix_multQC_14_14_cos'
+Finished Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/dcp12/mult_14_14_in_context.xdc] for cell 'modulator_mod/mix_multQC[3].mix_multQC_14_14_cos'
+Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/dcp12/mult_14_14_in_context.xdc] for cell 'modulator_mod/mix_multQC[4].mix_multQC_14_14_cos'
+Finished Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/dcp12/mult_14_14_in_context.xdc] for cell 'modulator_mod/mix_multQC[4].mix_multQC_14_14_cos'
+Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/dcp12/mult_14_14_in_context.xdc] for cell 'modulator_mod/mix_multQC[5].mix_multQC_14_14_cos'
+Finished Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/dcp12/mult_14_14_in_context.xdc] for cell 'modulator_mod/mix_multQC[5].mix_multQC_14_14_cos'
+Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/dcp12/mult_14_14_in_context.xdc] for cell 'modulator_mod/mix_multQC[6].mix_multQC_14_14_cos'
+Finished Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/dcp12/mult_14_14_in_context.xdc] for cell 'modulator_mod/mix_multQC[6].mix_multQC_14_14_cos'
+Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/dcp12/mult_14_14_in_context.xdc] for cell 'modulator_mod/mix_multQC[7].mix_multQC_14_14_cos'
+Finished Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/dcp12/mult_14_14_in_context.xdc] for cell 'modulator_mod/mix_multQC[7].mix_multQC_14_14_cos'
+Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/dcp13/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xGEN_LUT[0].xSINCOS_LUT'
+Finished Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/dcp13/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xGEN_LUT[0].xSINCOS_LUT'
+Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/dcp13/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xGEN_LUT[1].xSINCOS_LUT'
+Finished Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/dcp13/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xGEN_LUT[1].xSINCOS_LUT'
+Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/dcp13/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xGEN_LUT[2].xSINCOS_LUT'
+Finished Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/dcp13/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xGEN_LUT[2].xSINCOS_LUT'
+Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/dcp13/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xGEN_LUT[3].xSINCOS_LUT'
+Finished Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/dcp13/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xGEN_LUT[3].xSINCOS_LUT'
+Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/dcp13/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xGEN_LUT[4].xSINCOS_LUT'
+Finished Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/dcp13/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xGEN_LUT[4].xSINCOS_LUT'
+Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/dcp13/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xGEN_LUT[5].xSINCOS_LUT'
+Finished Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/dcp13/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xGEN_LUT[5].xSINCOS_LUT'
+Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/dcp13/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xGEN_LUT[6].xSINCOS_LUT'
+Finished Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/dcp13/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xGEN_LUT[6].xSINCOS_LUT'
+Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/dcp13/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xGEN_LUT[7].xSINCOS_LUT'
+Finished Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/dcp13/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xGEN_LUT[7].xSINCOS_LUT'
+Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/dcp13/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xGEN_LUT[0].xSINCOS_LUT'
+Finished Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/dcp13/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xGEN_LUT[0].xSINCOS_LUT'
+Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/dcp13/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xGEN_LUT[1].xSINCOS_LUT'
+Finished Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/dcp13/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xGEN_LUT[1].xSINCOS_LUT'
+Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/dcp13/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xGEN_LUT[2].xSINCOS_LUT'
+Finished Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/dcp13/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xGEN_LUT[2].xSINCOS_LUT'
+Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/dcp13/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xGEN_LUT[3].xSINCOS_LUT'
+Finished Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/dcp13/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xGEN_LUT[3].xSINCOS_LUT'
+Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/dcp13/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xGEN_LUT[4].xSINCOS_LUT'
+Finished Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/dcp13/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xGEN_LUT[4].xSINCOS_LUT'
+Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/dcp13/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xGEN_LUT[5].xSINCOS_LUT'
+Finished Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/dcp13/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xGEN_LUT[5].xSINCOS_LUT'
+Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/dcp13/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xGEN_LUT[6].xSINCOS_LUT'
+Finished Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/dcp13/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xGEN_LUT[6].xSINCOS_LUT'
+Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/dcp13/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xGEN_LUT[7].xSINCOS_LUT'
+Finished Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/.Xil/Vivado-612-FERNANDEZKA-DT/dcp13/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xGEN_LUT[7].xSINCOS_LUT'
+Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/dont_touch.xdc]
+Finished Parsing XDC File [C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/dont_touch.xdc]
+Completed Processing XDC Constraints
+
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.013 . Memory (MB): peak = 801.098 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:17 ; elapsed = 00:00:19 . Memory (MB): peak = 801.098 ; gain = 487.809
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7z010clg400-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:17 ; elapsed = 00:00:19 . Memory (MB): peak = 801.098 ; gain = 487.809
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property DONT_TOUCH = true for BRAM_IP. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for Seq_mod/CARRIER_ACCUM. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for Seq_mod/ROTATOR_ACCUM. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for Seq_mod/inst_dds8_m_carrier/\xGEN_LUT[0].xSINCOS_LUT . (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for Seq_mod/inst_dds8_m_carrier/\xGEN_LUT[1].xSINCOS_LUT . (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for Seq_mod/inst_dds8_m_carrier/\xGEN_LUT[2].xSINCOS_LUT . (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for Seq_mod/inst_dds8_m_carrier/\xGEN_LUT[3].xSINCOS_LUT . (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for Seq_mod/inst_dds8_m_carrier/\xGEN_LUT[4].xSINCOS_LUT . (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for Seq_mod/inst_dds8_m_carrier/\xGEN_LUT[5].xSINCOS_LUT . (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for Seq_mod/inst_dds8_m_carrier/\xGEN_LUT[6].xSINCOS_LUT . (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for Seq_mod/inst_dds8_m_carrier/\xGEN_LUT[7].xSINCOS_LUT . (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for Seq_mod/inst_dds8_m_carrier/xPACC/xFI_ADD. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for Seq_mod/inst_dds8_m_carrier/xPACC/\xGEN_MADD[0].xMADD_PARTIAL . (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for Seq_mod/inst_dds8_m_carrier/xPACC/\xGEN_MADD[1].xMADD_PARTIAL . (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for Seq_mod/inst_dds8_m_carrier/xPACC/\xGEN_MADD[2].xMADD_PARTIAL . (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for Seq_mod/inst_dds8_m_carrier/xPACC/\xGEN_MADD[3].xMADD_PARTIAL . (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for Seq_mod/inst_dds8_m_carrier/xPACC/\xGEN_MADD[4].xMADD_PARTIAL . (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for Seq_mod/inst_dds8_m_carrier/xPACC/\xGEN_MADD[5].xMADD_PARTIAL . (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for Seq_mod/inst_dds8_m_carrier/xPACC/\xGEN_MADD[6].xMADD_PARTIAL . (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for Seq_mod/inst_dds8_m_carrier/xPACC/\xGEN_MADD[7].xMADD_PARTIAL . (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for Seq_mod/inst_dds8_m_carrier/xPACC/xMACC_GROUP. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for Seq_mod/inst_dds8_m_rotation/\xGEN_LUT[0].xSINCOS_LUT . (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for Seq_mod/inst_dds8_m_rotation/\xGEN_LUT[1].xSINCOS_LUT . (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for Seq_mod/inst_dds8_m_rotation/\xGEN_LUT[2].xSINCOS_LUT . (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for Seq_mod/inst_dds8_m_rotation/\xGEN_LUT[3].xSINCOS_LUT . (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for Seq_mod/inst_dds8_m_rotation/\xGEN_LUT[4].xSINCOS_LUT . (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for Seq_mod/inst_dds8_m_rotation/\xGEN_LUT[5].xSINCOS_LUT . (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for Seq_mod/inst_dds8_m_rotation/\xGEN_LUT[6].xSINCOS_LUT . (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for Seq_mod/inst_dds8_m_rotation/\xGEN_LUT[7].xSINCOS_LUT . (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for Seq_mod/inst_dds8_m_rotation/xPACC/xFI_ADD. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for Seq_mod/inst_dds8_m_rotation/xPACC/\xGEN_MADD[0].xMADD_PARTIAL . (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for Seq_mod/inst_dds8_m_rotation/xPACC/\xGEN_MADD[1].xMADD_PARTIAL . (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for Seq_mod/inst_dds8_m_rotation/xPACC/\xGEN_MADD[2].xMADD_PARTIAL . (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for Seq_mod/inst_dds8_m_rotation/xPACC/\xGEN_MADD[3].xMADD_PARTIAL . (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for Seq_mod/inst_dds8_m_rotation/xPACC/\xGEN_MADD[4].xMADD_PARTIAL . (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for Seq_mod/inst_dds8_m_rotation/xPACC/\xGEN_MADD[5].xMADD_PARTIAL . (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for Seq_mod/inst_dds8_m_rotation/xPACC/\xGEN_MADD[6].xMADD_PARTIAL . (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for Seq_mod/inst_dds8_m_rotation/xPACC/\xGEN_MADD[7].xMADD_PARTIAL . (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for Seq_mod/inst_dds8_m_rotation/xPACC/xMACC_GROUP. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for modulator_mod/\mix_multQC[0].mix_multQC_14_14_cos . (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for modulator_mod/\mix_multQC[1].mix_multQC_14_14_cos . (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for modulator_mod/\mix_multQC[2].mix_multQC_14_14_cos . (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for modulator_mod/\mix_multQC[3].mix_multQC_14_14_cos . (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for modulator_mod/\mix_multQC[4].mix_multQC_14_14_cos . (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for modulator_mod/\mix_multQC[5].mix_multQC_14_14_cos . (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for modulator_mod/\mix_multQC[6].mix_multQC_14_14_cos . (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for modulator_mod/\mix_multQC[7].mix_multQC_14_14_cos . (constraint file  auto generated constraint, line ).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:17 ; elapsed = 00:00:19 . Memory (MB): peak = 801.098 ; gain = 487.809
+---------------------------------------------------------------------------------
+INFO: [Synth 8-4471] merging register 'p_ce_reg' into 'f_inc_ce_reg' [C:/dev/FPGA/georadar_gen/SRC/sequencer.vhd:112]
+WARNING: [Synth 8-6014] Unused sequential element p_ce_reg was removed.  [C:/dev/FPGA/georadar_gen/SRC/sequencer.vhd:112]
+INFO: [Synth 8-5544] ROM "curr_state" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "rst_counter" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5545] ROM "jmp_flag" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "ptrBRAM" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "TIM1_EN_STR" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "trig_seq" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "gpioa_reg" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "Amp_CTRL_Amp_1" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "Amp_CTRL_Amp_2" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "Fc" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "Fr" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "Fc_inc" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "Fr_inc" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "Pc" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "Pr" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "TIM1_SR" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "TIM1_CNT" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+WARNING: [Synth 8-6014] Unused sequential element ptrBRAM_reg was removed.  [C:/dev/FPGA/georadar_gen/SRC/core.vhd:168]
+WARNING: [Synth 8-6014] Unused sequential element TIM1_CNT_reg was removed.  [C:/dev/FPGA/georadar_gen/SRC/core.vhd:316]
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:18 ; elapsed = 00:00:20 . Memory (MB): peak = 801.098 ; gain = 487.809
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     10 Bit       Adders := 2     
+	   2 Input      3 Bit       Adders := 1     
++---XORs : 
+	   2 Input      1 Bit         XORs := 32    
++---Registers : 
+	               32 Bit    Registers := 13    
+	               16 Bit    Registers := 4     
+	               14 Bit    Registers := 40    
+	               10 Bit    Registers := 1     
+	                4 Bit    Registers := 1     
+	                3 Bit    Registers := 3     
+	                2 Bit    Registers := 5     
+	                1 Bit    Registers := 13    
++---Muxes : 
+	   4 Input     14 Bit        Muxes := 8     
+	   2 Input     10 Bit        Muxes := 3     
+	   4 Input      2 Bit        Muxes := 1     
+	   9 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 22    
+	   4 Input      1 Bit        Muxes := 11    
+	   5 Input      1 Bit        Muxes := 1     
+	  15 Input      1 Bit        Muxes := 10    
+	   3 Input      1 Bit        Muxes := 2     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module CORE 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     10 Bit       Adders := 2     
++---Registers : 
+	               32 Bit    Registers := 6     
+	               16 Bit    Registers := 4     
+	               10 Bit    Registers := 1     
+	                1 Bit    Registers := 7     
++---Muxes : 
+	   2 Input     10 Bit        Muxes := 3     
+	   2 Input      1 Bit        Muxes := 21    
+	  15 Input      1 Bit        Muxes := 10    
+	   3 Input      1 Bit        Muxes := 2     
+Module GPIO 
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 1     
+Module dds8_pacc__xdcDup__1 
+Detailed RTL Component Info : 
++---Registers : 
+	                3 Bit    Registers := 1     
+Module dds8_mod__xdcDup__1 
+Detailed RTL Component Info : 
++---XORs : 
+	   2 Input      1 Bit         XORs := 16    
++---Registers : 
+	               32 Bit    Registers := 1     
+	               14 Bit    Registers := 16    
+	                2 Bit    Registers := 1     
+Module dds8_pacc 
+Detailed RTL Component Info : 
++---Registers : 
+	                3 Bit    Registers := 1     
+Module dds8_mod 
+Detailed RTL Component Info : 
++---XORs : 
+	   2 Input      1 Bit         XORs := 16    
++---Registers : 
+	               32 Bit    Registers := 1     
+	               14 Bit    Registers := 16    
+	                2 Bit    Registers := 1     
+Module Sequencer 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      3 Bit       Adders := 1     
++---Registers : 
+	               32 Bit    Registers := 4     
+	                3 Bit    Registers := 1     
+	                2 Bit    Registers := 1     
+	                1 Bit    Registers := 6     
++---Muxes : 
+	   4 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 1     
+	   4 Input      1 Bit        Muxes := 9     
+	   5 Input      1 Bit        Muxes := 1     
+Module modulator 
+Detailed RTL Component Info : 
++---Registers : 
+	               14 Bit    Registers := 8     
+	                4 Bit    Registers := 1     
+	                2 Bit    Registers := 2     
++---Muxes : 
+	   4 Input     14 Bit        Muxes := 8     
+	   9 Input      2 Bit        Muxes := 1     
+	   4 Input      1 Bit        Muxes := 2     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 80 (col length:40)
+BRAMs: 120 (col length: RAMB18 40 RAMB36 20)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-6014] Unused sequential element Amp_CTRL_Amp_1_reg was removed.  [C:/dev/FPGA/georadar_gen/SRC/core.vhd:188]
+WARNING: [Synth 8-6014] Unused sequential element Amp_CTRL_Amp_2_reg was removed.  [C:/dev/FPGA/georadar_gen/SRC/core.vhd:189]
+WARNING: [Synth 8-6014] Unused sequential element TIM1_CNT_reg was removed.  [C:/dev/FPGA/georadar_gen/SRC/core.vhd:316]
+WARNING: [Synth 8-6014] Unused sequential element ptrBRAM_reg was removed.  [C:/dev/FPGA/georadar_gen/SRC/core.vhd:168]
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[7].sin14_o_reg[7][13]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[7].sin14_o_reg[7][12]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[7].sin14_o_reg[7][11]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[7].sin14_o_reg[7][10]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[7].sin14_o_reg[7][9]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[7].sin14_o_reg[7][8]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[7].sin14_o_reg[7][7]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[7].sin14_o_reg[7][6]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[7].sin14_o_reg[7][5]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[7].sin14_o_reg[7][4]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[7].sin14_o_reg[7][3]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[7].sin14_o_reg[7][2]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[7].sin14_o_reg[7][1]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[7].sin14_o_reg[7][0]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[6].sin14_o_reg[6][13]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[6].sin14_o_reg[6][12]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[6].sin14_o_reg[6][11]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[6].sin14_o_reg[6][10]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[6].sin14_o_reg[6][9]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[6].sin14_o_reg[6][8]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[6].sin14_o_reg[6][7]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[6].sin14_o_reg[6][6]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[6].sin14_o_reg[6][5]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[6].sin14_o_reg[6][4]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[6].sin14_o_reg[6][3]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[6].sin14_o_reg[6][2]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[6].sin14_o_reg[6][1]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[6].sin14_o_reg[6][0]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[5].sin14_o_reg[5][13]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[5].sin14_o_reg[5][12]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[5].sin14_o_reg[5][11]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[5].sin14_o_reg[5][10]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[5].sin14_o_reg[5][9]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[5].sin14_o_reg[5][8]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[5].sin14_o_reg[5][7]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[5].sin14_o_reg[5][6]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[5].sin14_o_reg[5][5]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[5].sin14_o_reg[5][4]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[5].sin14_o_reg[5][3]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[5].sin14_o_reg[5][2]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[5].sin14_o_reg[5][1]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[5].sin14_o_reg[5][0]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[4].sin14_o_reg[4][13]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[4].sin14_o_reg[4][12]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[4].sin14_o_reg[4][11]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[4].sin14_o_reg[4][10]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[4].sin14_o_reg[4][9]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[4].sin14_o_reg[4][8]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[4].sin14_o_reg[4][7]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[4].sin14_o_reg[4][6]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[4].sin14_o_reg[4][5]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[4].sin14_o_reg[4][4]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[4].sin14_o_reg[4][3]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[4].sin14_o_reg[4][2]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[4].sin14_o_reg[4][1]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[4].sin14_o_reg[4][0]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[3].sin14_o_reg[3][13]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[3].sin14_o_reg[3][12]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[3].sin14_o_reg[3][11]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[3].sin14_o_reg[3][10]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[3].sin14_o_reg[3][9]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[3].sin14_o_reg[3][8]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[3].sin14_o_reg[3][7]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[3].sin14_o_reg[3][6]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[3].sin14_o_reg[3][5]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[3].sin14_o_reg[3][4]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[3].sin14_o_reg[3][3]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[3].sin14_o_reg[3][2]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[3].sin14_o_reg[3][1]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[3].sin14_o_reg[3][0]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[2].sin14_o_reg[2][13]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[2].sin14_o_reg[2][12]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[2].sin14_o_reg[2][11]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[2].sin14_o_reg[2][10]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[2].sin14_o_reg[2][9]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[2].sin14_o_reg[2][8]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[2].sin14_o_reg[2][7]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[2].sin14_o_reg[2][6]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[2].sin14_o_reg[2][5]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[2].sin14_o_reg[2][4]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[2].sin14_o_reg[2][3]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[2].sin14_o_reg[2][2]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[2].sin14_o_reg[2][1]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[2].sin14_o_reg[2][0]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[1].sin14_o_reg[1][13]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[1].sin14_o_reg[1][12]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[1].sin14_o_reg[1][11]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[1].sin14_o_reg[1][10]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[1].sin14_o_reg[1][9]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[1].sin14_o_reg[1][8]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[1].sin14_o_reg[1][7]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[1].sin14_o_reg[1][6]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[1].sin14_o_reg[1][5]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[1].sin14_o_reg[1][4]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[1].sin14_o_reg[1][3]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[1].sin14_o_reg[1][2]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[1].sin14_o_reg[1][1]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[1].sin14_o_reg[1][0]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[0].sin14_o_reg[0][13]) is unused and will be removed from module dds8_mod__xdcDup__1.
+WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[0].sin14_o_reg[0][12]) is unused and will be removed from module dds8_mod__xdcDup__1.
+INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:20 ; elapsed = 00:00:22 . Memory (MB): peak = 801.098 ; gain = 487.809
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:29 ; elapsed = 00:00:31 . Memory (MB): peak = 807.719 ; gain = 494.430
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:29 ; elapsed = 00:00:31 . Memory (MB): peak = 808.168 ; gain = 494.879
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:29 ; elapsed = 00:00:31 . Memory (MB): peak = 829.914 ; gain = 516.625
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:30 ; elapsed = 00:00:32 . Memory (MB): peak = 829.914 ; gain = 516.625
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:30 ; elapsed = 00:00:32 . Memory (MB): peak = 829.914 ; gain = 516.625
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:30 ; elapsed = 00:00:32 . Memory (MB): peak = 829.914 ; gain = 516.625
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:30 ; elapsed = 00:00:32 . Memory (MB): peak = 829.914 ; gain = 516.625
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:30 ; elapsed = 00:00:32 . Memory (MB): peak = 829.914 ; gain = 516.625
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:30 ; elapsed = 00:00:32 . Memory (MB): peak = 829.914 ; gain = 516.625
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++------+-----------------------+----------+
+|      |BlackBox name          |Instances |
++------+-----------------------+----------+
+|1     |blk_mem_gen_0          |         1|
+|2     |dds_lut_25x16          |        16|
+|3     |dds8_mod_group_accum   |         2|
+|4     |dds8_mod_fi_add        |         2|
+|5     |dds8_mod_fi_partial    |        16|
+|6     |pg_freq_acc_32to40plus |         2|
+|7     |mult_14_14             |         8|
++------+-----------------------+----------+
+
+Report Cell Usage: 
++------+--------------------------+------+
+|      |Cell                      |Count |
++------+--------------------------+------+
+|1     |blk_mem_gen_0             |     1|
+|2     |dds8_mod_fi_add           |     1|
+|3     |dds8_mod_fi_add__2        |     1|
+|4     |dds8_mod_fi_partial       |     1|
+|5     |dds8_mod_fi_partial__10   |     1|
+|6     |dds8_mod_fi_partial__11   |     1|
+|7     |dds8_mod_fi_partial__12   |     1|
+|8     |dds8_mod_fi_partial__13   |     1|
+|9     |dds8_mod_fi_partial__14   |     1|
+|10    |dds8_mod_fi_partial__15   |     1|
+|11    |dds8_mod_fi_partial__16   |     1|
+|12    |dds8_mod_fi_partial__2    |     1|
+|13    |dds8_mod_fi_partial__3    |     1|
+|14    |dds8_mod_fi_partial__4    |     1|
+|15    |dds8_mod_fi_partial__5    |     1|
+|16    |dds8_mod_fi_partial__6    |     1|
+|17    |dds8_mod_fi_partial__7    |     1|
+|18    |dds8_mod_fi_partial__8    |     1|
+|19    |dds8_mod_fi_partial__9    |     1|
+|20    |dds8_mod_group_accum      |     1|
+|21    |dds8_mod_group_accum__2   |     1|
+|22    |dds_lut_25x16             |     1|
+|23    |dds_lut_25x16__10         |     1|
+|24    |dds_lut_25x16__11         |     1|
+|25    |dds_lut_25x16__12         |     1|
+|26    |dds_lut_25x16__13         |     1|
+|27    |dds_lut_25x16__14         |     1|
+|28    |dds_lut_25x16__15         |     1|
+|29    |dds_lut_25x16__16         |     1|
+|30    |dds_lut_25x16__2          |     1|
+|31    |dds_lut_25x16__3          |     1|
+|32    |dds_lut_25x16__4          |     1|
+|33    |dds_lut_25x16__5          |     1|
+|34    |dds_lut_25x16__6          |     1|
+|35    |dds_lut_25x16__7          |     1|
+|36    |dds_lut_25x16__8          |     1|
+|37    |dds_lut_25x16__9          |     1|
+|38    |mult_14_14                |     1|
+|39    |mult_14_14__1             |     1|
+|40    |mult_14_14__2             |     1|
+|41    |mult_14_14__3             |     1|
+|42    |mult_14_14__4             |     1|
+|43    |mult_14_14__5             |     1|
+|44    |mult_14_14__6             |     1|
+|45    |mult_14_14__7             |     1|
+|46    |pg_freq_acc_32to40plus    |     1|
+|47    |pg_freq_acc_32to40plus__1 |     1|
+|48    |BUFG                      |     1|
+|49    |CARRY4                    |     8|
+|50    |LUT1                      |    20|
+|51    |LUT2                      |    10|
+|52    |LUT3                      |    37|
+|53    |LUT4                      |    50|
+|54    |LUT5                      |    22|
+|55    |LUT6                      |    14|
+|56    |FDRE                      |   705|
+|57    |FDSE                      |     4|
+|58    |IBUF                      |    49|
+|59    |OBUF                      |    32|
+|60    |OBUFT                     |    14|
++------+--------------------------+------+
+
+Report Instance Areas: 
++------+-------------------------+---------------------+------+
+|      |Instance                 |Module               |Cells |
++------+-------------------------+---------------------+------+
+|1     |top                      |                     |  3174|
+|2     |  GPIO_mod               |GPIO                 |    32|
+|3     |  Seq_mod                |Sequencer            |  2502|
+|4     |    inst_dds8_m_carrier  |dds8_mod__xdcDup__1  |  1136|
+|5     |      xPACC              |dds8_pacc__xdcDup__1 |   725|
+|6     |    inst_dds8_m_rotation |dds8_mod             |  1136|
+|7     |      xPACC              |dds8_pacc            |   725|
+|8     |  modulator_mod          |modulator            |   112|
++------+-------------------------+---------------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:30 ; elapsed = 00:00:32 . Memory (MB): peak = 829.914 ; gain = 516.625
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 467 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:18 ; elapsed = 00:00:25 . Memory (MB): peak = 829.914 ; gain = 185.805
+Synthesis Optimization Complete : Time (s): cpu = 00:00:30 ; elapsed = 00:00:33 . Memory (MB): peak = 829.914 ; gain = 516.625
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 57 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 1 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Common 17-83] Releasing license: Synthesis
+88 Infos, 249 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:32 ; elapsed = 00:00:36 . Memory (MB): peak = 832.535 ; gain = 531.270
+INFO: [Common 17-1381] The checkpoint 'C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1/CORE.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file CORE_utilization_synth.rpt -pb CORE_utilization_synth.pb
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.028 . Memory (MB): peak = 832.535 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Tue Apr 26 16:55:09 2022...

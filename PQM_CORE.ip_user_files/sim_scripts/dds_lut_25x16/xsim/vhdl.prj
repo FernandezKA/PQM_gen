@@ -1,4 +1,0 @@
-vhdl xil_defaultlib  \
-"../../../../dds_lut_25x16/sim/dds_lut_25x16.vhd" \
-
-nosort

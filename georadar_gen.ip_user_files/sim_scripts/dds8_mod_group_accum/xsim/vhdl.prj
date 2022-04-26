@@ -1,0 +1,4 @@
+vhdl xil_defaultlib  \
+"../../../../IP/dds8_mod_group_accum/sim/dds8_mod_group_accum.vhd" \
+
+nosort
