@@ -24,7 +24,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='C:/dev/FPGA/georadar_gen/georadar_gen.runs/synth_1'
+HD_PWD='C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log

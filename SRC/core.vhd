@@ -1,6 +1,6 @@
 ----------------------------------------------------------------------------------
 -- Company: Home
--- Engineer: Fernandez K. A.
+-- Engineer: FernandezKA
 -- 
 -- Create Date: 06.02.2022 23:40:47
 -- Design Name: PQM_CORE
@@ -65,7 +65,9 @@ ENTITY CORE IS
         en_core : IN STD_LOGIC;
         --implement gpio  
         GPIOA : OUT STD_LOGIC_VECTOR (GPIO_widgt - 1 DOWNTO 0);
-        sig_out : OUT STD_LOGIC_VECTOR(13 DOWNTO 0)
+        sig_out : OUT STD_LOGIC_VECTOR(13 DOWNTO 0);
+        
+        to_DAC : out Tdac_bus := (others => (others => '0'))
     );
 END CORE;
 -------------------------------------------------------------------
@@ -81,12 +83,13 @@ ARCHITECTURE Behavioral OF CORE IS
     CONSTANT SET_F0_CARR : STD_LOGIC_VECTOR(CMD_widgt - 1 DOWNTO 0) := X"00000006";
     CONSTANT SET_F0_ROT : STD_LOGIC_VECTOR(CMD_widgt - 1 DOWNTO 0) := X"00000007";
     CONSTANT SET_F_CARR_INC : STD_LOGIC_VECTOR(CMD_widgt - 1 DOWNTO 0) := X"00000008";
-    CONSTANT SET_F_ROT_INC : STD_LOGIC_VECTOR(CMD_widgt - 1 DOWNTO 0) := X"00000009";
+    CONSTANT SET_F_ROT_INC : std_logic_vector(CMD_widgt - 1 downto 0) := X"00000009";
     CONSTANT SET_P_CARR : STD_LOGIC_VECTOR(CMD_widgt - 1 DOWNTO 0) := X"0000000A";
     CONSTANT SET_P_ROT : STD_LOGIC_VECTOR(CMD_widgt - 1 DOWNTO 0) := X"0000000B";
     CONSTANT JMP : STD_LOGIC_VECTOR(CMD_widgt - 1 DOWNTO 0) := X"0000000C";
     CONSTANT NOP : STD_LOGIC_VECTOR(CMD_widgt - 1 DOWNTO 0) := X"0000000D";
-    CONSTANT TRIG_SEQUENCER : STD_LOGIC_VECTOR(CMD_widgt - 1 DOWNTO 0) := X"0000000E";
+    constant TRIG_SEQUENCER : STD_LOGIC_VECTOR(CMD_widgt - 1 downto 0) := X"0000000E";
+    constant select_modulation : std_logic_vector(CMD_widgt - 1 downto 0) := X"0000000F";
 
     --For read new data from BRAM
     SIGNAL readed_BRAM : STD_LOGIC_VECTOR (BRAM_widgt - 1 DOWNTO 0) := (OTHERS => '0');
@@ -104,23 +107,19 @@ ARCHITECTURE Behavioral OF CORE IS
 
     --signals for AMP_CTRL instatiaton  
     SIGNAL en_amp_ctrl : STD_LOGIC := '1';
-    SIGNAL AmpCTRL_IN_1 : STD_LOGIC_VECTOR(AMP_CTRL_Sig_widgt - 1 DOWNTO 0);
-    SIGNAL AmpCTRL_IN_2 : STD_LOGIC_VECTOR(AMP_CTRL_Sig_widgt - 1 DOWNTO 0);
-    SIGNAL Amp_CTRL_Amp_1 : STD_LOGIC_VECTOR(AMP_CTRL_widgt - 1 DOWNTO 0);
-    SIGNAL Amp_CTRL_Amp_2 : STD_LOGIC_VECTOR(AMP_CTRL_widgt - 1 DOWNTO 0);
-    SIGNAL AmpCTRL_OUT_1 : STD_LOGIC_VECTOR(AMP_CTRL_Sig_widgt - 1 DOWNTO 0);
-    SIGNAL AmpCTRL_OUT_2 : STD_LOGIC_VECTOR(AMP_CTRL_Sig_widgt - 1 DOWNTO 0);
+    signal amp_val : std_logic_vector(15 downto 0) := (others => '0');
+    signal after_amp : Tdac_bus := (others => (others => '0'));
     --signals for sequencer 
     SIGNAL en_seq : STD_LOGIC := '1';
-    SIGNAL trig_seq : STD_LOGIC := '0';
+    signal trig_seq : std_logic := '0';
     SIGNAL Fc : STD_LOGIC_VECTOR(Fcar_widgt - 1 DOWNTO 0);
     SIGNAL Fr : STD_LOGIC_VECTOR(Frot_widgt - 1 DOWNTO 0);
     SIGNAL Pc : STD_LOGIC_VECTOR(Pc_widgt - 1 DOWNTO 0);
     SIGNAL Pr : STD_LOGIC_VECTOR (Pr_widgt - 1 DOWNTO 0);
     SIGNAL Fr_inc : STD_LOGIC_VECTOR(Finc_widgt - 1 DOWNTO 0);
     SIGNAL Fc_inc : STD_LOGIC_VECTOR(Finc_widgt - 1 DOWNTO 0);
-    SIGNAL Carrier : TDAc_bus := (OTHERS => (OTHERS => '0')); --tDAC bus type 
-    SIGNAL Rotator : TDAc_bus := (OTHERS => (OTHERS => '0'));
+    SIGNAL Carrier : TDAc_bus := (others => (others => '0')); --tDAC bus type 
+    SIGNAL Rotator : TDAc_bus := (others => (others => '0'));
 
     --for delay command
     SIGNAL TIM1_CNT : unsigned(TIM1_widgt - 1 DOWNTO 0) := (OTHERS => '0');
@@ -134,32 +133,35 @@ ARCHITECTURE Behavioral OF CORE IS
     --This signals for degug, after synthesis they are removed as unused
     SIGNAL cmd_reg : STD_LOGIC_VECTOR(31 DOWNTO 0) := (OTHERS => '0');
     SIGNAL arg_reg : STD_LOGIC_VECTOR(31 DOWNTO 0) := (OTHERS => '0');
-
+    
     --For modulator instantiation 
-    SIGNAL modulator_mod_reg : STD_LOGIC_VECTOR(3 DOWNTO 0) := (OTHERS => '0');
-    SIGNAL res_modulator : Tdac_bus := (OTHERS => (OTHERS => '0'));
-
+    signal modulator_mod_reg : std_logic_vector(3 downto 0) := (others => '0');
+    signal res_modulator : Tdac_bus := (others => (others => '0')); 
+    
+    signal envelope_shaper_rule : std_logic := '1';
+    signal envelope_shaper_rst : std_logic := '0';
+    signal shaper_out : Tdac_bus := (others => (others => '0'));
+    
     COMPONENT blk_mem_gen_0
-        PORT (
-            clka : IN STD_LOGIC;
-            ena : IN STD_LOGIC;
-            wea : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
-            addra : IN STD_LOGIC_VECTOR(10 DOWNTO 0);
-            dina : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
-            clkb : IN STD_LOGIC;
-            enb : IN STD_LOGIC;
-            addrb : IN STD_LOGIC_VECTOR(9 DOWNTO 0);
-            doutb : OUT STD_LOGIC_VECTOR(63 DOWNTO 0)
-        );
-    END COMPONENT;
+            PORT (
+                clka : IN STD_LOGIC;
+                ena : IN STD_LOGIC;
+                wea : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+                addra : IN STD_LOGIC_VECTOR(10 DOWNTO 0);
+                dina : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+                clkb : IN STD_LOGIC;
+                enb : IN STD_LOGIC;
+                addrb : IN STD_LOGIC_VECTOR(9 DOWNTO 0);
+                doutb : OUT STD_LOGIC_VECTOR(63 DOWNTO 0)
+            );
+        END COMPONENT;
 
 BEGIN
     -------------------------------------------------------------------
     --This part of code for instantiation other modules and IP - cores
     -------------------------------------------------------------------
     --BRAM implementation   
-    BRAM_IP : blk_mem_gen_0
-    PORT MAP(
+    BRAM_IP : blk_mem_gen_0 PORT MAP(
         addra => addra,
         clka => clk_core,
         dina => dina,
@@ -169,7 +171,7 @@ BEGIN
         clkb => clk_core,
         doutb => readed_BRAM,
         enb => enb
-    );
+        );
 
     --GPIO instantiation  
     GPIO_mod : ENTITY work.GPIO PORT MAP(
@@ -183,12 +185,9 @@ BEGIN
     Amp_ctrl_mod : ENTITY work.AMP_CTRL PORT MAP(
         clk_amp_ctrl => clk_core,
         en_amp_ctrl => en_amp_ctrl,
-        A_1 => AmpCTRL_IN_1,
-        A_2 => AmpCTRL_IN_2,
-        Amp_1 => Amp_CTRL_Amp_1,
-        Amp_2 => Amp_CTRL_Amp_2,
-        Out_1 => AmpCTRL_OUT_1,
-        Out_2 => AmpCTRL_OUT_2
+        Amp_val => amp_val, 
+        amp_in => shaper_out, 
+        amp_out => to_DAC
         );
 
     --Sequenser instantiation 
@@ -205,15 +204,23 @@ BEGIN
         Carrier => Carrier,
         Rotator => Rotator
         );
-
-    modulator_mod : ENTITY work.modulator PORT MAP(
-        clk_mod => clk_core,
-        srst_i => rst_core,
-        mode_mod_i => modulator_mod_reg,
-        CARR_i => Carrier,
-        ROT_i => Rotator,
+        
+     modulator_mod: entity work.modulator port map(
+        clk_mod => clk_core, 
+        srst_i => rst_core, 
+        mode_mod_i => modulator_mod_reg, 
+        CARR_i => Carrier, 
+        ROT_i => Rotator, 
         RES_o => res_modulator
-        );
+     );
+     
+     env_shaper: entity work.envelope_shaper port map(
+        clk_env => clk_core, 
+        rst_env => envelope_shaper_rst, 
+        env_shape => envelope_shaper_rule, 
+        sig_i => res_modulator, 
+        sig_o => shaper_out 
+     );
     --------------------------------------------------------------------------
     --End of instantiation 
     --------------------------------------------------------------------------
@@ -257,7 +264,7 @@ BEGIN
         IF rising_edge(clk_core) THEN
             --reset strobs
             trig_seq <= '0';
-
+        
             CASE readed_BRAM(CMD_widgt - 1 DOWNTO 0) IS
                     --GPIO set command
                 WHEN GPIO_WRITE =>
@@ -270,10 +277,10 @@ BEGIN
                     gpioa_reg <= (gpioa_reg) AND readed_BRAM(BRAM_widgt - 1 DOWNTO CMD_widgt);
                     --Set amplitude I
                 WHEN SET_AMP_1 =>
-                    Amp_CTRL_Amp_1 <= readed_BRAM(CMD_widgt + AMP_CTRL_widgt - 1 DOWNTO CMD_widgt);
+                    amp_val <= readed_BRAM(CMD_widgt + AMP_CTRL_widgt - 1 DOWNTO CMD_widgt);
                     --Set amplitude Q
                 WHEN SET_AMP_2 =>
-                    Amp_CTRL_Amp_2 <= readed_BRAM(CMD_widgt + AMP_CTRL_widgt - 1 DOWNTO CMD_widgt);
+                    amp_val <= readed_BRAM(CMD_widgt + AMP_CTRL_widgt - 1 DOWNTO CMD_widgt);
                     --Set F0 carrier
                 WHEN SET_F0_CARR =>
                     Fc <= readed_BRAM(BRAM_widgt - 1 DOWNTO CMD_widgt);
@@ -283,8 +290,8 @@ BEGIN
                     --Set Fr_inc
                 WHEN SET_F_CARR_INC => --carrier frequency increment 
                     Fc_inc <= readed_BRAM(BRAM_widgt - 1 DOWNTO CMD_widgt);
-                WHEN SET_F_ROT_INC =>
-                    Fr_inc <= readed_BRAM(BRAM_widgt - 1 DOWNTO CMD_widgt);
+                WHEN SET_F_ROT_INC => 
+                    Fr_inc <= readed_BRAM(BRAM_widgt - 1 downto CMD_widgt);
                     --Set phase carrier
                 WHEN SET_P_CARR => -- replace p - > ph
                     Pc <= readed_BRAM(CMD_widgt + Pc_widgt - 1 DOWNTO CMD_widgt);
@@ -294,10 +301,12 @@ BEGIN
                 WHEN NOP =>
 
                 WHEN JMP =>
-
-                WHEN TRIG_SEQUENCER =>
+                
+                WHEN TRIG_SEQUENCER =>  
                     trig_seq <= '1';
-
+                    
+                when select_modulation => 
+                    modulator_mod_reg <= readed_BRAM(3 downto 0);
                 WHEN OTHERS =>
             END CASE;
         END IF;
