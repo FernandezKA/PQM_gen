@@ -320,10 +320,10 @@ BEGIN
                     trig_seq <= '1';
 
                 WHEN select_modulation =>
-                    modulator_mod_reg <= readed_BRAM(3 DOWNTO 0);
+                    modulator_mod_reg <= readed_BRAM(CMD_widgt +  3 DOWNTO CMD_widgt);
 
                 WHEN set_env_shape =>
-                    envelope_shaper_rule <= readed_BRAM(0);
+                    envelope_shaper_rule <= readed_BRAM(CMD_widgt);
                 WHEN OTHERS =>
             END CASE;
         END IF;

@@ -12,13 +12,13 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="66556666666fs"></ZoomStartTime>
-      <ZoomEndTime time="570056666667fs"></ZoomEndTime>
-      <Cursor1Time time="486140000000fs"></Cursor1Time>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="50550000001fs"></ZoomEndTime>
+      <Cursor1Time time="10800000000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="175"></NameColumnWidth>
-      <ValueColumnWidth column_width="146"></ValueColumnWidth>
+      <ValueColumnWidth column_width="142"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="30" />
    <wvobject fp_name="/Core_tb/core_mod/clk_core" type="logic">
@@ -53,6 +53,10 @@
       <obj_property name="ElementShortName">cmd_reg[31:0]</obj_property>
       <obj_property name="ObjectShortName">cmd_reg[31:0]</obj_property>
    </wvobject>
+   <wvobject fp_name="/Core_tb/core_mod/arg_reg" type="array">
+      <obj_property name="ElementShortName">arg_reg[31:0]</obj_property>
+      <obj_property name="ObjectShortName">arg_reg[31:0]</obj_property>
+   </wvobject>
    <wvobject fp_name="/Core_tb/core_mod/jmp_flag" type="logic">
       <obj_property name="ElementShortName">jmp_flag</obj_property>
       <obj_property name="ObjectShortName">jmp_flag</obj_property>
@@ -65,17 +69,9 @@
       <obj_property name="ElementShortName">TIM1_CNT[31:0]</obj_property>
       <obj_property name="ObjectShortName">TIM1_CNT[31:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/Core_tb/core_mod/arg_reg" type="array">
-      <obj_property name="ElementShortName">arg_reg[31:0]</obj_property>
-      <obj_property name="ObjectShortName">arg_reg[31:0]</obj_property>
-   </wvobject>
    <wvobject fp_name="/Core_tb/core_mod/TIM1_ARR" type="array">
       <obj_property name="ElementShortName">TIM1_ARR[31:0]</obj_property>
       <obj_property name="ObjectShortName">TIM1_ARR[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/Core_tb/core_mod/TIM1_CEN" type="logic">
-      <obj_property name="ElementShortName">TIM1_CEN</obj_property>
-      <obj_property name="ObjectShortName">TIM1_CEN</obj_property>
    </wvobject>
    <wvobject fp_name="/Core_tb/core_mod/TIM1_EN_STR" type="logic">
       <obj_property name="ElementShortName">TIM1_EN_STR</obj_property>
@@ -84,6 +80,10 @@
    <wvobject fp_name="/Core_tb/core_mod/TIM1_DIS_STR" type="logic">
       <obj_property name="ElementShortName">TIM1_DIS_STR</obj_property>
       <obj_property name="ObjectShortName">TIM1_DIS_STR</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Core_tb/core_mod/TIM1_CEN" type="logic">
+      <obj_property name="ElementShortName">TIM1_CEN</obj_property>
+      <obj_property name="ObjectShortName">TIM1_CEN</obj_property>
    </wvobject>
    <wvobject fp_name="/Core_tb/core_mod/TIM1_SR" type="other">
       <obj_property name="ElementShortName">TIM1_SR</obj_property>
@@ -128,43 +128,6 @@
    <wvobject fp_name="/Core_tb/core_mod/Carrier" type="array">
       <obj_property name="ElementShortName">Carrier[7:0][13:0]</obj_property>
       <obj_property name="ObjectShortName">Carrier[7:0][13:0]</obj_property>
-      <obj_property name="isExpanded"></obj_property>
-      <wvobject fp_name="/Core_tb/core_mod/Carrier[7]" type="array">
-         <obj_property name="ElementShortName">[7][13:0]</obj_property>
-         <obj_property name="ObjectShortName">[7][13:0]</obj_property>
-         <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
-         <obj_property name="CellHeight">100</obj_property>
-      </wvobject>
-      <wvobject fp_name="/Core_tb/core_mod/Carrier[6]" type="array">
-         <obj_property name="ElementShortName">[6][13:0]</obj_property>
-         <obj_property name="ObjectShortName">[6][13:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/Core_tb/core_mod/Carrier[5]" type="array">
-         <obj_property name="ElementShortName">[5][13:0]</obj_property>
-         <obj_property name="ObjectShortName">[5][13:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/Core_tb/core_mod/Carrier[4]" type="array">
-         <obj_property name="ElementShortName">[4][13:0]</obj_property>
-         <obj_property name="ObjectShortName">[4][13:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/Core_tb/core_mod/Carrier[3]" type="array">
-         <obj_property name="ElementShortName">[3][13:0]</obj_property>
-         <obj_property name="ObjectShortName">[3][13:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/Core_tb/core_mod/Carrier[2]" type="array">
-         <obj_property name="ElementShortName">[2][13:0]</obj_property>
-         <obj_property name="ObjectShortName">[2][13:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/Core_tb/core_mod/Carrier[1]" type="array">
-         <obj_property name="ElementShortName">[1][13:0]</obj_property>
-         <obj_property name="ObjectShortName">[1][13:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/Core_tb/core_mod/Carrier[0]" type="array">
-         <obj_property name="ElementShortName">[0][13:0]</obj_property>
-         <obj_property name="ObjectShortName">[0][13:0]</obj_property>
-         <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
-         <obj_property name="CellHeight">100</obj_property>
-      </wvobject>
    </wvobject>
    <wvobject fp_name="/Core_tb/core_mod/Rotator" type="array">
       <obj_property name="ElementShortName">Rotator[7:0][13:0]</obj_property>
