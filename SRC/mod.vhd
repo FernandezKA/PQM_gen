@@ -69,14 +69,16 @@ BEGIN
                         ns_mode <= reset;
                     ELSE
                         CASE mode_mod_i IS
-                            WHEN b"00" => --reset state
+                            WHEN b"0000" => --reset state
                                 ns_mode <= reset;
-                            WHEN b"01" => --carrier out
+                            WHEN b"0001" => --carrier out
                                 ns_mode <= carr_out;
-                            WHEN b"10" => --rotator out
+                            WHEN b"0010" => --rotator out
                                 ns_mode <= rot_out;
-                            WHEN b"11" => --bam out
+                            WHEN b"0011" => --bam out
                                 ns_mode <= bam_out;
+                            when others => 
+                                ns_mode <= reset;
                         END CASE;
                     END IF;
                 WHEN carr_out =>

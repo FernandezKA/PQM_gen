@@ -1,0 +1,19 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../IP/pg_freq_acc_32to40plus/sim/pg_freq_acc_32to40plus.vhd" \
+"../../../../IP/dds_lut_25x16/sim/dds_lut_25x16.vhd" \
+"../../../../IP/dds8_mod_fi_partial/sim/dds8_mod_fi_partial.vhd" \
+"../../../../IP/dds8_mod_fi_add/sim/dds8_mod_fi_add.vhd" \
+"../../../../IP/dds8_mod_group_accum/sim/dds8_mod_group_accum.vhd" \
+"../../../../SRC/main_pkg.vhd" \
+"../../../../SRC/dds8_pacc.vhd" \
+
+vhdl2008 xil_defaultlib  \
+"../../../../SRC/dds8_mod.vhd" \
+
+vhdl xil_defaultlib  \
+"../../../../SRC/sequencer.vhd" \
+"../../../../georadar_gen.srcs/sim_1/new/sequencer_tb.vhd" \
+
+# Do not sort compile order
+nosort
