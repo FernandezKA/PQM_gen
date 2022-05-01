@@ -150,8 +150,8 @@
     <Step Id="synth_design"/>
   </Strategy>
   <BlockFileSet Type="BlockSrcs" Name="pg_freq_acc_32to40plus"/>
-  <BlockFileSet Type="BlockSrcs" Name="dds8_mod_fi_add"/>
   <BlockFileSet Type="BlockSrcs" Name="dds8_mod_fi_partial"/>
+  <BlockFileSet Type="BlockSrcs" Name="dds8_mod_fi_add"/>
   <BlockFileSet Type="BlockSrcs" Name="mult_14_14"/>
   <BlockFileSet Type="BlockSrcs" Name="dds_lut_25x16"/>
   <BlockFileSet Type="BlockSrcs" Name="blk_mem_gen_0"/>
