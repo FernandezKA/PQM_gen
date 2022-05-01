@@ -6,6 +6,3 @@ set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==dds8_mod_group_
 
 # IP: C:/dev/FPGA/PQM_gen/IP/mult_16_14/mult_16_14.xci
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==mult_16_14 || ORIG_REF_NAME==mult_16_14} -quiet] -quiet
-
-# IP: ip/blk_mem_gen_0/blk_mem_gen_0.xci
-set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==blk_mem_gen_0 || ORIG_REF_NAME==blk_mem_gen_0} -quiet] -quiet

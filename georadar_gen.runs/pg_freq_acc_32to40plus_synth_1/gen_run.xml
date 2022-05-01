@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="pg_freq_acc_32to40plus_synth_1" LaunchPart="xc7z010clg400-1" LaunchTime="1650720624">
+<GenRun Id="pg_freq_acc_32to40plus_synth_1" LaunchPart="xc7z010clg400-1" LaunchTime="1651410624">
   <File Type="PA-TCL" Name="pg_freq_acc_32to40plus.tcl"/>
   <File Type="REPORTS-TCL" Name="pg_freq_acc_32to40plus_reports.tcl"/>
   <File Type="RDS-RDS" Name="pg_freq_acc_32to40plus.vds"/>
@@ -7,8 +7,10 @@
   <File Type="RDS-UTIL-PB" Name="pg_freq_acc_32to40plus_utilization_synth.pb"/>
   <File Type="RDS-DCP" Name="pg_freq_acc_32to40plus.dcp"/>
   <FileSet Name="sources" Type="BlockSrcs" RelSrcDir="$PSRCDIR/pg_freq_acc_32to40plus">
-    <File Path="$PPRDIR/IP/pg_freq_acc_32to40plus/pg_freq_acc_32to40plus.xci">
+    <File Path="$PSRCDIR/pg_freq_acc_32to40plus/ip/pg_freq_acc_32to40plus/pg_freq_acc_32to40plus.xci">
       <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/IP/pg_freq_acc_32to40plus/pg_freq_acc_32to40plus.xci"/>
+        <Attr Name="ImportTime" Val="1650720600"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -20,8 +22,10 @@
     </Config>
   </FileSet>
   <FileSet Name="constrs_in" Type="BlockSrcs" RelSrcDir="$PSRCDIR/pg_freq_acc_32to40plus">
-    <File Path="$PPRDIR/IP/pg_freq_acc_32to40plus/pg_freq_acc_32to40plus.xci">
+    <File Path="$PSRCDIR/pg_freq_acc_32to40plus/ip/pg_freq_acc_32to40plus/pg_freq_acc_32to40plus.xci">
       <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/IP/pg_freq_acc_32to40plus/pg_freq_acc_32to40plus.xci"/>
+        <Attr Name="ImportTime" Val="1650720600"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>

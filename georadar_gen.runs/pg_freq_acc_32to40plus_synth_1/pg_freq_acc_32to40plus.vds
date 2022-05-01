@@ -2,12 +2,12 @@
 # Vivado v2017.4 (64-bit)
 # SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
 # IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
-# Start of session at: Sat Apr 23 16:30:25 2022
-# Process ID: 14976
-# Current directory: C:/dev/FPGA/PQM_gen/georadar_gen/georadar_gen.runs/pg_freq_acc_32to40plus_synth_1
+# Start of session at: Sun May  1 16:10:27 2022
+# Process ID: 3180
+# Current directory: C:/dev/FPGA/PQM_gen/georadar_gen.runs/pg_freq_acc_32to40plus_synth_1
 # Command line: vivado.exe -log pg_freq_acc_32to40plus.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source pg_freq_acc_32to40plus.tcl
-# Log file: C:/dev/FPGA/PQM_gen/georadar_gen/georadar_gen.runs/pg_freq_acc_32to40plus_synth_1/pg_freq_acc_32to40plus.vds
-# Journal file: C:/dev/FPGA/PQM_gen/georadar_gen/georadar_gen.runs/pg_freq_acc_32to40plus_synth_1\vivado.jou
+# Log file: C:/dev/FPGA/PQM_gen/georadar_gen.runs/pg_freq_acc_32to40plus_synth_1/pg_freq_acc_32to40plus.vds
+# Journal file: C:/dev/FPGA/PQM_gen/georadar_gen.runs/pg_freq_acc_32to40plus_synth_1\vivado.jou
 #-----------------------------------------------------------
 source pg_freq_acc_32to40plus.tcl -notrace
 Command: synth_design -top pg_freq_acc_32to40plus -part xc7z010clg400-1 -mode out_of_context
@@ -15,11 +15,11 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7z010'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z010'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 13744 
+INFO: Helper process launched with PID 6804 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 377.766 ; gain = 100.551
+Starting RTL Elaboration : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 413.895 ; gain = 100.133
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-638] synthesizing module 'pg_freq_acc_32to40plus' [c:/dev/FPGA/PQM_gen/georadar_gen/IP/pg_freq_acc_32to40plus/synth/pg_freq_acc_32to40plus.vhd:74]
+INFO: [Synth 8-638] synthesizing module 'pg_freq_acc_32to40plus' [c:/dev/FPGA/PQM_gen/georadar_gen.srcs/pg_freq_acc_32to40plus/ip/pg_freq_acc_32to40plus/synth/pg_freq_acc_32to40plus.vhd:74]
 	Parameter C_VERBOSITY bound to: 0 - type: integer 
 	Parameter C_MODEL_TYPE bound to: 0 - type: integer 
 	Parameter C_XDEVICEFAMILY bound to: zynq - type: string 
@@ -71,8 +71,8 @@ INFO: [Synth 8-638] synthesizing module 'pg_freq_acc_32to40plus' [c:/dev/FPGA/PQ
 	Parameter C_OPMODES bound to: 000000000010111100000000 - type: string 
 	Parameter C_REG_CONFIG bound to: 00000000000000000000000010001100 - type: string 
 	Parameter C_TEST_CORE bound to: 0 - type: integer 
-INFO: [Synth 8-3491] module 'xbip_dsp48_macro_v3_0_15' declared at 'c:/dev/FPGA/PQM_gen/georadar_gen/IP/pg_freq_acc_32to40plus/hdl/xbip_dsp48_macro_v3_0_vh_rfs.vhd:5013' bound to instance 'U0' of component 'xbip_dsp48_macro_v3_0_15' [c:/dev/FPGA/PQM_gen/georadar_gen/IP/pg_freq_acc_32to40plus/synth/pg_freq_acc_32to40plus.vhd:224]
-INFO: [Synth 8-256] done synthesizing module 'pg_freq_acc_32to40plus' (6#1) [c:/dev/FPGA/PQM_gen/georadar_gen/IP/pg_freq_acc_32to40plus/synth/pg_freq_acc_32to40plus.vhd:74]
+INFO: [Synth 8-3491] module 'xbip_dsp48_macro_v3_0_15' declared at 'c:/dev/FPGA/PQM_gen/georadar_gen.srcs/pg_freq_acc_32to40plus/ip/pg_freq_acc_32to40plus/hdl/xbip_dsp48_macro_v3_0_vh_rfs.vhd:5013' bound to instance 'U0' of component 'xbip_dsp48_macro_v3_0_15' [c:/dev/FPGA/PQM_gen/georadar_gen.srcs/pg_freq_acc_32to40plus/ip/pg_freq_acc_32to40plus/synth/pg_freq_acc_32to40plus.vhd:224]
+INFO: [Synth 8-256] done synthesizing module 'pg_freq_acc_32to40plus' (6#1) [c:/dev/FPGA/PQM_gen/georadar_gen.srcs/pg_freq_acc_32to40plus/ip/pg_freq_acc_32to40plus/synth/pg_freq_acc_32to40plus.vhd:74]
 WARNING: [Synth 8-3331] design xbip_dsp48e1_wrapper_v3_0 has unconnected port CE
 WARNING: [Synth 8-3331] design xbip_dsp48e1_wrapper_v3_0 has unconnected port SCLR
 WARNING: [Synth 8-3331] design xbip_dsp48e1_wrapper_v3_0 has unconnected port CEA1
@@ -175,7 +175,7 @@ WARNING: [Synth 8-3331] design xbip_dsp48_macro_synth has unconnected port CEA
 WARNING: [Synth 8-3331] design xbip_dsp48_macro_synth has unconnected port CEA1
 INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 436.281 ; gain = 159.066
+Finished RTL Elaboration : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 471.703 ; gain = 157.941
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -185,7 +185,7 @@ Report Check Netlist:
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 436.281 ; gain = 159.066
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 471.703 ; gain = 157.941
 ---------------------------------------------------------------------------------
 INFO: [Netlist 29-17] Analyzing 1 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -194,35 +194,35 @@ INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [c:/dev/FPGA/PQM_gen/georadar_gen/IP/pg_freq_acc_32to40plus/pg_freq_acc_32to40plus_ooc.xdc] for cell 'U0'
-Finished Parsing XDC File [c:/dev/FPGA/PQM_gen/georadar_gen/IP/pg_freq_acc_32to40plus/pg_freq_acc_32to40plus_ooc.xdc] for cell 'U0'
-Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen/georadar_gen.runs/pg_freq_acc_32to40plus_synth_1/dont_touch.xdc]
-Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen/georadar_gen.runs/pg_freq_acc_32to40plus_synth_1/dont_touch.xdc]
+Parsing XDC File [c:/dev/FPGA/PQM_gen/georadar_gen.srcs/pg_freq_acc_32to40plus/ip/pg_freq_acc_32to40plus/pg_freq_acc_32to40plus_ooc.xdc] for cell 'U0'
+Finished Parsing XDC File [c:/dev/FPGA/PQM_gen/georadar_gen.srcs/pg_freq_acc_32to40plus/ip/pg_freq_acc_32to40plus/pg_freq_acc_32to40plus_ooc.xdc] for cell 'U0'
+Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/pg_freq_acc_32to40plus_synth_1/dont_touch.xdc]
+Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/pg_freq_acc_32to40plus_synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.011 . Memory (MB): peak = 688.109 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.023 . Memory (MB): peak = 722.434 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 688.109 ; gain = 410.895
+Finished Constraint Validation : Time (s): cpu = 00:00:36 ; elapsed = 00:00:38 . Memory (MB): peak = 722.434 ; gain = 408.672
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z010clg400-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 688.109 ; gain = 410.895
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:36 ; elapsed = 00:00:38 . Memory (MB): peak = 722.434 ; gain = 408.672
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
-Applied set_property DONT_TOUCH = true for U0. (constraint file  C:/dev/FPGA/PQM_gen/georadar_gen/georadar_gen.runs/pg_freq_acc_32to40plus_synth_1/dont_touch.xdc, line 9).
+Applied set_property DONT_TOUCH = true for U0. (constraint file  C:/dev/FPGA/PQM_gen/georadar_gen.runs/pg_freq_acc_32to40plus_synth_1/dont_touch.xdc, line 9).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 688.109 ; gain = 410.895
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:36 ; elapsed = 00:00:38 . Memory (MB): peak = 722.434 ; gain = 408.672
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:21 ; elapsed = 00:00:23 . Memory (MB): peak = 688.109 ; gain = 410.895
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:36 ; elapsed = 00:00:39 . Memory (MB): peak = 722.434 ; gain = 408.672
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-223] decloning instance 'U0/i_synth/i_synth_option.i_synth_model/i_a2' (xbip_pipe_v3_0_4_viv) to 'U0/i_synth/i_synth_option.i_synth_model/i_b2'
 INFO: [Synth 8-223] decloning instance 'U0/i_synth/i_synth_option.i_synth_model/i_a2' (xbip_pipe_v3_0_4_viv) to 'U0/i_synth/i_synth_option.i_synth_model/i_d2'
@@ -264,7 +264,7 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 688.109 ; gain = 410.895
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:37 ; elapsed = 00:00:39 . Memory (MB): peak = 722.434 ; gain = 408.672
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -276,13 +276,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:35 ; elapsed = 00:00:37 . Memory (MB): peak = 787.270 ; gain = 510.055
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:00 ; elapsed = 00:01:03 . Memory (MB): peak = 818.820 ; gain = 505.059
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:35 ; elapsed = 00:00:37 . Memory (MB): peak = 787.566 ; gain = 510.352
+Finished Timing Optimization : Time (s): cpu = 00:01:00 ; elapsed = 00:01:03 . Memory (MB): peak = 819.109 ; gain = 505.348
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -294,7 +294,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:35 ; elapsed = 00:00:37 . Memory (MB): peak = 797.355 ; gain = 520.141
+Finished Technology Mapping : Time (s): cpu = 00:01:00 ; elapsed = 00:01:03 . Memory (MB): peak = 828.898 ; gain = 515.137
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -318,7 +318,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:36 ; elapsed = 00:00:38 . Memory (MB): peak = 797.355 ; gain = 520.141
+Finished IO Insertion : Time (s): cpu = 00:01:02 ; elapsed = 00:01:04 . Memory (MB): peak = 828.898 ; gain = 515.137
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -331,7 +331,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:36 ; elapsed = 00:00:38 . Memory (MB): peak = 797.355 ; gain = 520.141
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:02 ; elapsed = 00:01:04 . Memory (MB): peak = 828.898 ; gain = 515.137
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -343,25 +343,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:36 ; elapsed = 00:00:38 . Memory (MB): peak = 797.355 ; gain = 520.141
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:02 ; elapsed = 00:01:04 . Memory (MB): peak = 828.898 ; gain = 515.137
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:36 ; elapsed = 00:00:38 . Memory (MB): peak = 797.355 ; gain = 520.141
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:02 ; elapsed = 00:01:04 . Memory (MB): peak = 828.898 ; gain = 515.137
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:36 ; elapsed = 00:00:38 . Memory (MB): peak = 797.355 ; gain = 520.141
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:02 ; elapsed = 00:01:04 . Memory (MB): peak = 828.898 ; gain = 515.137
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:36 ; elapsed = 00:00:38 . Memory (MB): peak = 797.355 ; gain = 520.141
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:02 ; elapsed = 00:01:04 . Memory (MB): peak = 828.898 ; gain = 515.137
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -380,11 +380,11 @@ Report Cell Usage:
 |1     |DSP48E1 |     1|
 +------+--------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:36 ; elapsed = 00:00:38 . Memory (MB): peak = 797.355 ; gain = 520.141
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:02 ; elapsed = 00:01:04 . Memory (MB): peak = 828.898 ; gain = 515.137
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 92 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:21 ; elapsed = 00:00:31 . Memory (MB): peak = 797.355 ; gain = 268.312
-Synthesis Optimization Complete : Time (s): cpu = 00:00:37 ; elapsed = 00:00:38 . Memory (MB): peak = 797.355 ; gain = 520.141
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:35 ; elapsed = 00:00:53 . Memory (MB): peak = 828.898 ; gain = 264.406
+Synthesis Optimization Complete : Time (s): cpu = 00:01:02 ; elapsed = 00:01:05 . Memory (MB): peak = 828.898 ; gain = 515.137
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Netlist 29-17] Analyzing 1 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -396,11 +396,11 @@ No Unisim elements were transformed.
 INFO: [Common 17-83] Releasing license: Synthesis
 26 Infos, 100 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:38 ; elapsed = 00:00:40 . Memory (MB): peak = 797.355 ; gain = 531.660
-INFO: [Common 17-1381] The checkpoint 'C:/dev/FPGA/PQM_gen/georadar_gen/georadar_gen.runs/pg_freq_acc_32to40plus_synth_1/pg_freq_acc_32to40plus.dcp' has been generated.
-INFO: [Coretcl 2-1482] Added synthesis output to IP cache for IP c:/dev/FPGA/PQM_gen/georadar_gen/IP/pg_freq_acc_32to40plus/pg_freq_acc_32to40plus.xci
+synth_design: Time (s): cpu = 00:01:04 ; elapsed = 00:01:08 . Memory (MB): peak = 828.898 ; gain = 526.641
+INFO: [Common 17-1381] The checkpoint 'C:/dev/FPGA/PQM_gen/georadar_gen.runs/pg_freq_acc_32to40plus_synth_1/pg_freq_acc_32to40plus.dcp' has been generated.
+INFO: [Coretcl 2-1482] Added synthesis output to IP cache for IP c:/dev/FPGA/PQM_gen/georadar_gen.srcs/pg_freq_acc_32to40plus/ip/pg_freq_acc_32to40plus/pg_freq_acc_32to40plus.xci
 INFO: [Coretcl 2-1174] Renamed 4 cell refs.
-INFO: [Common 17-1381] The checkpoint 'C:/dev/FPGA/PQM_gen/georadar_gen/georadar_gen.runs/pg_freq_acc_32to40plus_synth_1/pg_freq_acc_32to40plus.dcp' has been generated.
+INFO: [Common 17-1381] The checkpoint 'C:/dev/FPGA/PQM_gen/georadar_gen.runs/pg_freq_acc_32to40plus_synth_1/pg_freq_acc_32to40plus.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file pg_freq_acc_32to40plus_utilization_synth.rpt -pb pg_freq_acc_32to40plus_utilization_synth.pb
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.017 . Memory (MB): peak = 797.355 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Sat Apr 23 16:31:12 2022...
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.025 . Memory (MB): peak = 828.898 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Sun May  1 16:11:49 2022...

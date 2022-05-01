@@ -1,16 +1,4 @@
-vhdl xbip_utils_v3_0_8  \
-"../../../ipstatic/hdl/xbip_utils_v3_0_vh_rfs.vhd" \
-
-vhdl xbip_pipe_v3_0_4  \
-"../../../ipstatic/hdl/xbip_pipe_v3_0_vh_rfs.vhd" \
-
-vhdl xbip_bram18k_v3_0_4  \
-"../../../ipstatic/hdl/xbip_bram18k_v3_0_vh_rfs.vhd" \
-
-vhdl mult_gen_v12_0_13  \
-"../../../ipstatic/hdl/mult_gen_v12_0_vh_rfs.vhd" \
-
 vhdl xil_defaultlib  \
-"../../../../IP/mult_14_14/sim/mult_14_14.vhd" \
+"../../../../georadar_gen.srcs/mult_14_14/ip/mult_14_14/sim/mult_14_14.vhd" \
 
 nosort

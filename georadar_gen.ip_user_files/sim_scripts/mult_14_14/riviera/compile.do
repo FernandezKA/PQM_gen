@@ -16,10 +16,10 @@ vmap xbip_bram18k_v3_0_4 riviera/xbip_bram18k_v3_0_4
 vmap mult_gen_v12_0_13 riviera/mult_gen_v12_0_13
 
 vlog -work xil_defaultlib  -sv2k12 \
-"C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv" \
+"D:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv" \
 
 vcom -work xpm -93 \
-"C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_VCOMP.vhd" \
+"D:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_VCOMP.vhd" \
 
 vcom -work xbip_utils_v3_0_8 -93 \
 "../../../ipstatic/hdl/xbip_utils_v3_0_vh_rfs.vhd" \
@@ -34,7 +34,7 @@ vcom -work mult_gen_v12_0_13 -93 \
 "../../../ipstatic/hdl/mult_gen_v12_0_vh_rfs.vhd" \
 
 vcom -work xil_defaultlib -93 \
-"../../../../IP/mult_14_14/sim/mult_14_14.vhd" \
+"../../../../georadar_gen.srcs/mult_14_14/ip/mult_14_14/sim/mult_14_14.vhd" \
 
 
 vlog -work xil_defaultlib \

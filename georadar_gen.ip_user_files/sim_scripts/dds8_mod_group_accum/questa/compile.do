@@ -64,7 +64,7 @@ vcom -work c_accum_v12_0_11 -64 -93 \
 "../../../ipstatic/hdl/c_accum_v12_0_vh_rfs.vhd" \
 
 vcom -work xil_defaultlib -64 -93 \
-"../../../../IP/dds8_mod_group_accum/sim/dds8_mod_group_accum.vhd" \
+"../../../../georadar_gen.srcs/sources_1/ip/dds8_mod_group_accum/sim/dds8_mod_group_accum.vhd" \
 
 
 vlog -work xil_defaultlib \

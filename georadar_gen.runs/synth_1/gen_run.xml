@@ -1,114 +1,134 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7z010clg400-1" LaunchTime="1650993756">
+<GenRun Id="synth_1" LaunchPart="xc7z010clg400-1" LaunchTime="1651060197">
   <File Type="PA-TCL" Name="CORE.tcl"/>
-  <File Type="RDS-PROPCONSTRS" Name="CORE_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="CORE_reports.tcl"/>
   <File Type="RDS-RDS" Name="CORE.vds"/>
   <File Type="RDS-UTIL" Name="CORE_utilization_synth.rpt"/>
   <File Type="RDS-UTIL-PB" Name="CORE_utilization_synth.pb"/>
   <File Type="RDS-DCP" Name="CORE.dcp"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="CORE_timing_summary_synth.rpt"/>
-  <File Type="VDS-TIMING-PB" Name="CORE_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
-    <File Path="$PPRDIR/IP/dds8_mod_group_accum/dds8_mod_group_accum.xci">
+    <File Path="$PSRCDIR/sources_1/ip/dds8_mod_group_accum/dds8_mod_group_accum.xci">
       <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/IP/dds8_mod_group_accum/dds8_mod_group_accum.xci"/>
+        <Attr Name="ImportTime" Val="1650881794"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/IP/mult_16_14/mult_16_14.xci">
+    <File Path="$PSRCDIR/sources_1/ip/mult_16_14/mult_16_14.xci">
       <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/IP/mult_16_14/mult_16_14.xci"/>
+        <Attr Name="ImportTime" Val="1651060731"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0.xci">
+    <File Path="$PSRCDIR/sources_1/imports/PQM_gen/SRC/main_pkg.vhd">
       <FileInfo>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PPRDIR/SRC/main_pkg.vhd">
-      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/SRC/main_pkg.vhd"/>
+        <Attr Name="ImportTime" Val="1650981380"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/SRC/amp_ctrl.vhd">
+    <File Path="$PSRCDIR/sources_1/imports/PQM_gen/SRC/amp_ctrl.vhd">
       <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/SRC/amp_ctrl.vhd"/>
+        <Attr Name="ImportTime" Val="1650982350"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/SRC/gpio.vhd">
+    <File Path="$PSRCDIR/sources_1/imports/PQM_gen/SRC/gpio.vhd">
       <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/SRC/gpio.vhd"/>
+        <Attr Name="ImportTime" Val="1650981369"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/SRC/dds8_pacc.vhd">
+    <File Path="$PSRCDIR/sources_1/imports/PQM_gen/SRC/dds8_pacc.vhd">
       <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/SRC/dds8_pacc.vhd"/>
+        <Attr Name="ImportTime" Val="1650981357"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/SRC/dds8_mod.vhd">
+    <File Path="$PSRCDIR/sources_1/imports/PQM_gen/SRC/dds8_mod.vhd">
       <FileInfo SFType="VHDL2008">
+        <Attr Name="ImportPath" Val="$PPRDIR/SRC/dds8_mod.vhd"/>
+        <Attr Name="ImportTime" Val="1650981352"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/SRC/sequencer.vhd">
+    <File Path="$PSRCDIR/sources_1/imports/PQM_gen/SRC/sequencer.vhd">
       <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/SRC/sequencer.vhd"/>
+        <Attr Name="ImportTime" Val="1650981405"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/SRC/mod.vhd">
+    <File Path="$PSRCDIR/sources_1/imports/PQM_gen/SRC/mod.vhd">
       <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/SRC/mod.vhd"/>
+        <Attr Name="ImportTime" Val="1650994720"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/SRC/envelope_shaper.vhd">
+    <File Path="$PSRCDIR/sources_1/imports/PQM_gen/SRC/envelope_shaper.vhd">
       <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/SRC/envelope_shaper.vhd"/>
+        <Attr Name="ImportTime" Val="1650982477"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/SRC/core.vhd">
+    <File Path="$PSRCDIR/sources_1/imports/PQM_gen/SRC/core.vhd">
       <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/SRC/core.vhd"/>
+        <Attr Name="ImportTime" Val="1651002686"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/SRC/mux.vhd">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PPRDIR/SRC/pipeadd32.vhd">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PPRDIR/SRC/mb_pkg.vhd">
+    <File Path="$PSRCDIR/sources_1/imports/PQM_gen/SRC/mux.vhd">
       <FileInfo>
         <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/SRC/mux.vhd"/>
+        <Attr Name="ImportTime" Val="1650981397"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/SIM/BRAM_Init.coe">
+    <File Path="$PSRCDIR/sources_1/imports/PQM_gen/SRC/pipeadd32.vhd">
       <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/SRC/pipeadd32.vhd"/>
+        <Attr Name="ImportTime" Val="1650981401"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/PQM_gen/SRC/mb_pkg.vhd">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/SRC/mb_pkg.vhd"/>
+        <Attr Name="ImportTime" Val="1650981387"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/PQM_gen/SIM/BRAM_Init.coe">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/SIM/BRAM_Init.coe"/>
+        <Attr Name="ImportTime" Val="1650994333"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
@@ -130,8 +150,9 @@
     <Step Id="synth_design"/>
   </Strategy>
   <BlockFileSet Type="BlockSrcs" Name="pg_freq_acc_32to40plus"/>
-  <BlockFileSet Type="BlockSrcs" Name="dds8_mod_fi_partial"/>
   <BlockFileSet Type="BlockSrcs" Name="dds8_mod_fi_add"/>
+  <BlockFileSet Type="BlockSrcs" Name="dds8_mod_fi_partial"/>
   <BlockFileSet Type="BlockSrcs" Name="mult_14_14"/>
   <BlockFileSet Type="BlockSrcs" Name="dds_lut_25x16"/>
+  <BlockFileSet Type="BlockSrcs" Name="blk_mem_gen_0"/>
 </GenRun>

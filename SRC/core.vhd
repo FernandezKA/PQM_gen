@@ -238,9 +238,9 @@ BEGIN
             TIM1_EN_STR <= '0';
 
             IF tim1_cen = '1' THEN --only wait reset tim1_cen flag at decrement from arr to bottom
-                if tim1_dis_str = '1' then 
+                IF tim1_dis_str = '1' THEN
                     --ptrBRAM <= ptrBRAM + 1;
-                end if;
+                END IF;
             ELSE
                 enb <= '1';
                 IF jmp_flag = '1' THEN
@@ -320,7 +320,7 @@ BEGIN
                     trig_seq <= '1';
 
                 WHEN select_modulation =>
-                    modulator_mod_reg <= readed_BRAM(CMD_widgt +  3 DOWNTO CMD_widgt);
+                    modulator_mod_reg <= readed_BRAM(CMD_widgt + 3 DOWNTO CMD_widgt);
 
                 WHEN set_env_shape =>
                     envelope_shaper_rule <= readed_BRAM(CMD_widgt);

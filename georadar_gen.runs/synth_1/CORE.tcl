@@ -16,7 +16,6 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
-set_msg_config -id {Common 17-41} -limit 10000000
 create_project -in_memory -part xc7z010clg400-1
 
 set_param project.singleFileAddWarning.threshold 0
@@ -48,9 +47,6 @@ set_property used_in_implementation false [get_files -all c:/dev/FPGA/PQM_gen/IP
 read_ip -quiet C:/dev/FPGA/PQM_gen/IP/mult_16_14/mult_16_14.xci
 set_property used_in_implementation false [get_files -all c:/dev/FPGA/PQM_gen/IP/mult_16_14/mult_16_14_ooc.xdc]
 
-read_ip -quiet C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0.xci
-set_property used_in_implementation false [get_files -all c:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0_ooc.xdc]
-
 read_ip -quiet C:/dev/FPGA/PQM_gen/IP/pg_freq_acc_32to40plus/pg_freq_acc_32to40plus.xci
 set_property used_in_implementation false [get_files -all c:/dev/FPGA/PQM_gen/IP/pg_freq_acc_32to40plus/pg_freq_acc_32to40plus_ooc.xdc]
 
@@ -65,6 +61,9 @@ set_property used_in_implementation false [get_files -all c:/dev/FPGA/PQM_gen/IP
 
 read_ip -quiet C:/dev/FPGA/PQM_gen/IP/dds_lut_25x16/dds_lut_25x16.xci
 set_property used_in_implementation false [get_files -all c:/dev/FPGA/PQM_gen/IP/dds_lut_25x16/dds_lut_25x16_ooc.xdc]
+
+read_ip -quiet C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0.xci
+set_property used_in_implementation false [get_files -all c:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0_ooc.xdc]
 
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the

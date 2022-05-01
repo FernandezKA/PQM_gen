@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="Core_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="Core_tb" />
+            <top_module name="glbl" />
+            <top_module name="main_pkg" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="50550000001fs"></ZoomEndTime>
+      <Cursor1Time time="10800000000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="175"></NameColumnWidth>
+      <ValueColumnWidth column_width="142"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="30" />
+   <wvobject fp_name="/Core_tb/core_mod/clk_core" type="logic">
+      <obj_property name="ElementShortName">clk_core</obj_property>
+      <obj_property name="ObjectShortName">clk_core</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Core_tb/core_mod/rst_core" type="logic">
+      <obj_property name="ElementShortName">rst_core</obj_property>
+      <obj_property name="ObjectShortName">rst_core</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Core_tb/core_mod/trig_core" type="logic">
+      <obj_property name="ElementShortName">trig_core</obj_property>
+      <obj_property name="ObjectShortName">trig_core</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Core_tb/core_mod/en_core" type="logic">
+      <obj_property name="ElementShortName">en_core</obj_property>
+      <obj_property name="ObjectShortName">en_core</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Core_tb/core_mod/GPIOA" type="array">
+      <obj_property name="ElementShortName">GPIOA[31:0]</obj_property>
+      <obj_property name="ObjectShortName">GPIOA[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Core_tb/core_mod/readed_BRAM" type="array">
+      <obj_property name="ElementShortName">readed_BRAM[63:0]</obj_property>
+      <obj_property name="ObjectShortName">readed_BRAM[63:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Core_tb/core_mod/ptrBRAM" type="array">
+      <obj_property name="ElementShortName">ptrBRAM[9:0]</obj_property>
+      <obj_property name="ObjectShortName">ptrBRAM[9:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Core_tb/core_mod/cmd_reg" type="array">
+      <obj_property name="ElementShortName">cmd_reg[31:0]</obj_property>
+      <obj_property name="ObjectShortName">cmd_reg[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Core_tb/core_mod/arg_reg" type="array">
+      <obj_property name="ElementShortName">arg_reg[31:0]</obj_property>
+      <obj_property name="ObjectShortName">arg_reg[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Core_tb/core_mod/jmp_flag" type="logic">
+      <obj_property name="ElementShortName">jmp_flag</obj_property>
+      <obj_property name="ObjectShortName">jmp_flag</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Core_tb/core_mod/nop_flag" type="logic">
+      <obj_property name="ElementShortName">nop_flag</obj_property>
+      <obj_property name="ObjectShortName">nop_flag</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Core_tb/core_mod/TIM1_CNT" type="array">
+      <obj_property name="ElementShortName">TIM1_CNT[31:0]</obj_property>
+      <obj_property name="ObjectShortName">TIM1_CNT[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Core_tb/core_mod/TIM1_ARR" type="array">
+      <obj_property name="ElementShortName">TIM1_ARR[31:0]</obj_property>
+      <obj_property name="ObjectShortName">TIM1_ARR[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Core_tb/core_mod/TIM1_EN_STR" type="logic">
+      <obj_property name="ElementShortName">TIM1_EN_STR</obj_property>
+      <obj_property name="ObjectShortName">TIM1_EN_STR</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Core_tb/core_mod/TIM1_DIS_STR" type="logic">
+      <obj_property name="ElementShortName">TIM1_DIS_STR</obj_property>
+      <obj_property name="ObjectShortName">TIM1_DIS_STR</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Core_tb/core_mod/TIM1_CEN" type="logic">
+      <obj_property name="ElementShortName">TIM1_CEN</obj_property>
+      <obj_property name="ObjectShortName">TIM1_CEN</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Core_tb/core_mod/TIM1_SR" type="other">
+      <obj_property name="ElementShortName">TIM1_SR</obj_property>
+      <obj_property name="ObjectShortName">TIM1_SR</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Core_tb/core_mod/Fc" type="array">
+      <obj_property name="ElementShortName">Fc[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Fc[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Core_tb/core_mod/Fr" type="array">
+      <obj_property name="ElementShortName">Fr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Fr[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Core_tb/core_mod/Pc" type="array">
+      <obj_property name="ElementShortName">Pc[15:0]</obj_property>
+      <obj_property name="ObjectShortName">Pc[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Core_tb/core_mod/Pr" type="array">
+      <obj_property name="ElementShortName">Pr[15:0]</obj_property>
+      <obj_property name="ObjectShortName">Pr[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Core_tb/core_mod/Fr_inc" type="array">
+      <obj_property name="ElementShortName">Fr_inc[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Fr_inc[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Core_tb/core_mod/Fc_inc" type="array">
+      <obj_property name="ElementShortName">Fc_inc[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Fc_inc[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Core_tb/core_mod/modulator_mod_reg" type="array">
+      <obj_property name="ElementShortName">modulator_mod_reg[3:0]</obj_property>
+      <obj_property name="ObjectShortName">modulator_mod_reg[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Core_tb/core_mod/res_modulator" type="array">
+      <obj_property name="ElementShortName">res_modulator[7:0][13:0]</obj_property>
+      <obj_property name="ObjectShortName">res_modulator[7:0][13:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Core_tb/core_mod/envelope_shaper_rule" type="logic">
+      <obj_property name="ElementShortName">envelope_shaper_rule</obj_property>
+      <obj_property name="ObjectShortName">envelope_shaper_rule</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Core_tb/core_mod/Carrier" type="array">
+      <obj_property name="ElementShortName">Carrier[7:0][13:0]</obj_property>
+      <obj_property name="ObjectShortName">Carrier[7:0][13:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Core_tb/core_mod/Rotator" type="array">
+      <obj_property name="ElementShortName">Rotator[7:0][13:0]</obj_property>
+      <obj_property name="ObjectShortName">Rotator[7:0][13:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Core_tb/core_mod/after_amp" type="array">
+      <obj_property name="ElementShortName">after_amp[7:0][13:0]</obj_property>
+      <obj_property name="ObjectShortName">after_amp[7:0][13:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Core_tb/core_mod/to_DAC" type="array">
+      <obj_property name="ElementShortName">to_DAC[7:0][13:0]</obj_property>
+      <obj_property name="ObjectShortName">to_DAC[7:0][13:0]</obj_property>
+   </wvobject>
+</wave_config>

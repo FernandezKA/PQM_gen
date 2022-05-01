@@ -35,7 +35,7 @@
   "../../../ipstatic/hdl/c_accum_v12_0_vh_rfs.vhd" \
 -endlib
 -makelib ies_lib/xil_defaultlib \
-  "../../../../IP/dds8_mod_group_accum/sim/dds8_mod_group_accum.vhd" \
+  "../../../../georadar_gen.srcs/sources_1/ip/dds8_mod_group_accum/sim/dds8_mod_group_accum.vhd" \
 -endlib
 -makelib ies_lib/xil_defaultlib \
   glbl.v

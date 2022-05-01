@@ -3,8 +3,8 @@
 // Tool Version: Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
 // Date        : Sat Apr 23 16:33:12 2022
 // Host        : FERNANDEZKA-DT running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode synth_stub
-//               C:/dev/FPGA/PQM_gen/georadar_gen/IP/dds8_mod_fi_partial/dds8_mod_fi_partial_stub.v
+// Command     : write_verilog -force -mode synth_stub -rename_top dds8_mod_fi_partial -prefix
+//               dds8_mod_fi_partial_ dds8_mod_fi_partial_stub.v
 // Design      : dds8_mod_fi_partial
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7z010clg400-1

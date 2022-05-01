@@ -1,9 +1,10 @@
 // Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
-// Date        : Sat Apr 23 16:34:34 2022
+// Date        : Sat Apr 23 16:34:33 2022
 // Host        : FERNANDEZKA-DT running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode synth_stub C:/dev/FPGA/PQM_gen/georadar_gen/IP/mult_14_14/mult_14_14_stub.v
+// Command     : write_verilog -force -mode synth_stub -rename_top mult_14_14 -prefix
+//               mult_14_14_ mult_14_14_stub.v
 // Design      : mult_14_14
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7z010clg400-1

@@ -54,7 +54,7 @@ begin
 core_mod: entity work.CORE port map(
 addra => addra_tb, 
 dina => dina_tb, 
-wea => wea_tb, 
+wea_i => wea_tb, 
 ena => ena_tb, 
 clk_core => clk_core_tb, 
 rst_core => rst_core_tb, 

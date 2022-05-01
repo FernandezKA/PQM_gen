@@ -3,8 +3,8 @@
 -- Tool Version: Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
 -- Date        : Sat Apr 23 16:32:55 2022
 -- Host        : FERNANDEZKA-DT running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode synth_stub
---               C:/dev/FPGA/PQM_gen/georadar_gen/IP/dds8_mod_fi_add/dds8_mod_fi_add_stub.vhdl
+-- Command     : write_vhdl -force -mode synth_stub -rename_top dds8_mod_fi_add -prefix
+--               dds8_mod_fi_add_ dds8_mod_fi_add_stub.vhdl
 -- Design      : dds8_mod_fi_add
 -- Purpose     : Stub declaration of top-level module interface
 -- Device      : xc7z010clg400-1

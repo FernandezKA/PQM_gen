@@ -1,10 +1,10 @@
 -- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
--- Date        : Sat Apr 23 16:31:12 2022
+-- Date        : Sat Apr 23 16:31:11 2022
 -- Host        : FERNANDEZKA-DT running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode synth_stub
---               C:/dev/FPGA/PQM_gen/georadar_gen/IP/pg_freq_acc_32to40plus/pg_freq_acc_32to40plus_stub.vhdl
+-- Command     : write_vhdl -force -mode synth_stub -rename_top pg_freq_acc_32to40plus -prefix
+--               pg_freq_acc_32to40plus_ pg_freq_acc_32to40plus_stub.vhdl
 -- Design      : pg_freq_acc_32to40plus
 -- Purpose     : Stub declaration of top-level module interface
 -- Device      : xc7z010clg400-1

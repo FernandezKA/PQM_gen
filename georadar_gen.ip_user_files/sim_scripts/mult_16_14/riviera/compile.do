@@ -34,7 +34,7 @@ vcom -work mult_gen_v12_0_13 -93 \
 "../../../ipstatic/hdl/mult_gen_v12_0_vh_rfs.vhd" \
 
 vcom -work xil_defaultlib -93 \
-"../../../../IP/mult_16_14/sim/mult_16_14.vhd" \
+"../../../../georadar_gen.srcs/sources_1/ip/mult_16_14/sim/mult_16_14.vhd" \
 
 
 vlog -work xil_defaultlib \

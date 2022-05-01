@@ -24,15 +24,15 @@ set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
 set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
-set_property webtalk.parent_dir C:/dev/FPGA/PQM_gen/georadar_gen/georadar_gen.cache/wt [current_project]
-set_property parent.project_path C:/dev/FPGA/PQM_gen/georadar_gen/georadar_gen.xpr [current_project]
+set_property webtalk.parent_dir C:/dev/FPGA/PQM_gen/georadar_gen.cache/wt [current_project]
+set_property parent.project_path C:/dev/FPGA/PQM_gen/georadar_gen.xpr [current_project]
 set_property XPM_LIBRARIES XPM_MEMORY [current_project]
 set_property default_lib xil_defaultlib [current_project]
-set_property target_language Verilog [current_project]
-set_property ip_output_repo c:/dev/FPGA/PQM_gen/georadar_gen/georadar_gen.cache/ip [current_project]
+set_property target_language VHDL [current_project]
+set_property ip_output_repo c:/dev/FPGA/PQM_gen/georadar_gen.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
-read_ip -quiet C:/dev/FPGA/PQM_gen/georadar_gen/IP/dds8_mod_fi_partial/dds8_mod_fi_partial.xci
-set_property used_in_implementation false [get_files -all c:/dev/FPGA/PQM_gen/georadar_gen/IP/dds8_mod_fi_partial/dds8_mod_fi_partial_ooc.xdc]
+read_ip -quiet C:/dev/FPGA/PQM_gen/georadar_gen.srcs/dds8_mod_fi_partial/ip/dds8_mod_fi_partial/dds8_mod_fi_partial.xci
+set_property used_in_implementation false [get_files -all c:/dev/FPGA/PQM_gen/georadar_gen.srcs/dds8_mod_fi_partial/ip/dds8_mod_fi_partial/dds8_mod_fi_partial_ooc.xdc]
 
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
@@ -45,7 +45,7 @@ foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
 read_xdc dont_touch.xdc
 set_property used_in_implementation false [get_files dont_touch.xdc]
 
-set cached_ip [config_ip_cache -export -no_bom -use_project_ipc -dir C:/dev/FPGA/PQM_gen/georadar_gen/georadar_gen.runs/dds8_mod_fi_partial_synth_1 -new_name dds8_mod_fi_partial -ip [get_ips dds8_mod_fi_partial]]
+set cached_ip [config_ip_cache -export -no_bom -use_project_ipc -dir C:/dev/FPGA/PQM_gen/georadar_gen.runs/dds8_mod_fi_partial_synth_1 -new_name dds8_mod_fi_partial -ip [get_ips dds8_mod_fi_partial]]
 
 if { $cached_ip eq {} } {
 
@@ -84,32 +84,32 @@ write_checkpoint -force -noxdef dds8_mod_fi_partial.dcp
 create_report "dds8_mod_fi_partial_synth_1_synth_report_utilization_0" "report_utilization -file dds8_mod_fi_partial_utilization_synth.rpt -pb dds8_mod_fi_partial_utilization_synth.pb"
 
 if { [catch {
-  file copy -force C:/dev/FPGA/PQM_gen/georadar_gen/georadar_gen.runs/dds8_mod_fi_partial_synth_1/dds8_mod_fi_partial.dcp C:/dev/FPGA/PQM_gen/georadar_gen/IP/dds8_mod_fi_partial/dds8_mod_fi_partial.dcp
+  file copy -force C:/dev/FPGA/PQM_gen/georadar_gen.runs/dds8_mod_fi_partial_synth_1/dds8_mod_fi_partial.dcp C:/dev/FPGA/PQM_gen/georadar_gen.srcs/dds8_mod_fi_partial/ip/dds8_mod_fi_partial/dds8_mod_fi_partial.dcp
 } _RESULT ] } { 
   send_msg_id runtcl-3 error "ERROR: Unable to successfully create or copy the sub-design checkpoint file."
   error "ERROR: Unable to successfully create or copy the sub-design checkpoint file."
 }
 
 if { [catch {
-  write_verilog -force -mode synth_stub C:/dev/FPGA/PQM_gen/georadar_gen/IP/dds8_mod_fi_partial/dds8_mod_fi_partial_stub.v
+  write_verilog -force -mode synth_stub C:/dev/FPGA/PQM_gen/georadar_gen.srcs/dds8_mod_fi_partial/ip/dds8_mod_fi_partial/dds8_mod_fi_partial_stub.v
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create a Verilog synthesis stub for the sub-design. This may lead to errors in top level synthesis of the design. Error reported: $_RESULT"
 }
 
 if { [catch {
-  write_vhdl -force -mode synth_stub C:/dev/FPGA/PQM_gen/georadar_gen/IP/dds8_mod_fi_partial/dds8_mod_fi_partial_stub.vhdl
+  write_vhdl -force -mode synth_stub C:/dev/FPGA/PQM_gen/georadar_gen.srcs/dds8_mod_fi_partial/ip/dds8_mod_fi_partial/dds8_mod_fi_partial_stub.vhdl
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create a VHDL synthesis stub for the sub-design. This may lead to errors in top level synthesis of the design. Error reported: $_RESULT"
 }
 
 if { [catch {
-  write_verilog -force -mode funcsim C:/dev/FPGA/PQM_gen/georadar_gen/IP/dds8_mod_fi_partial/dds8_mod_fi_partial_sim_netlist.v
+  write_verilog -force -mode funcsim C:/dev/FPGA/PQM_gen/georadar_gen.srcs/dds8_mod_fi_partial/ip/dds8_mod_fi_partial/dds8_mod_fi_partial_sim_netlist.v
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create the Verilog functional simulation sub-design file. Post-Synthesis Functional Simulation with this file may not be possible or may give incorrect results. Error reported: $_RESULT"
 }
 
 if { [catch {
-  write_vhdl -force -mode funcsim C:/dev/FPGA/PQM_gen/georadar_gen/IP/dds8_mod_fi_partial/dds8_mod_fi_partial_sim_netlist.vhdl
+  write_vhdl -force -mode funcsim C:/dev/FPGA/PQM_gen/georadar_gen.srcs/dds8_mod_fi_partial/ip/dds8_mod_fi_partial/dds8_mod_fi_partial_sim_netlist.vhdl
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create the VHDL functional simulation sub-design file. Post-Synthesis Functional Simulation with this file may not be possible or may give incorrect results. Error reported: $_RESULT"
 }
@@ -119,46 +119,46 @@ if { [catch {
 
 
 if { [catch {
-  file copy -force C:/dev/FPGA/PQM_gen/georadar_gen/georadar_gen.runs/dds8_mod_fi_partial_synth_1/dds8_mod_fi_partial.dcp C:/dev/FPGA/PQM_gen/georadar_gen/IP/dds8_mod_fi_partial/dds8_mod_fi_partial.dcp
+  file copy -force C:/dev/FPGA/PQM_gen/georadar_gen.runs/dds8_mod_fi_partial_synth_1/dds8_mod_fi_partial.dcp C:/dev/FPGA/PQM_gen/georadar_gen.srcs/dds8_mod_fi_partial/ip/dds8_mod_fi_partial/dds8_mod_fi_partial.dcp
 } _RESULT ] } { 
   send_msg_id runtcl-3 error "ERROR: Unable to successfully create or copy the sub-design checkpoint file."
   error "ERROR: Unable to successfully create or copy the sub-design checkpoint file."
 }
 
 if { [catch {
-  file rename -force C:/dev/FPGA/PQM_gen/georadar_gen/georadar_gen.runs/dds8_mod_fi_partial_synth_1/dds8_mod_fi_partial_stub.v C:/dev/FPGA/PQM_gen/georadar_gen/IP/dds8_mod_fi_partial/dds8_mod_fi_partial_stub.v
+  file rename -force C:/dev/FPGA/PQM_gen/georadar_gen.runs/dds8_mod_fi_partial_synth_1/dds8_mod_fi_partial_stub.v C:/dev/FPGA/PQM_gen/georadar_gen.srcs/dds8_mod_fi_partial/ip/dds8_mod_fi_partial/dds8_mod_fi_partial_stub.v
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create a Verilog synthesis stub for the sub-design. This may lead to errors in top level synthesis of the design. Error reported: $_RESULT"
 }
 
 if { [catch {
-  file rename -force C:/dev/FPGA/PQM_gen/georadar_gen/georadar_gen.runs/dds8_mod_fi_partial_synth_1/dds8_mod_fi_partial_stub.vhdl C:/dev/FPGA/PQM_gen/georadar_gen/IP/dds8_mod_fi_partial/dds8_mod_fi_partial_stub.vhdl
+  file rename -force C:/dev/FPGA/PQM_gen/georadar_gen.runs/dds8_mod_fi_partial_synth_1/dds8_mod_fi_partial_stub.vhdl C:/dev/FPGA/PQM_gen/georadar_gen.srcs/dds8_mod_fi_partial/ip/dds8_mod_fi_partial/dds8_mod_fi_partial_stub.vhdl
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create a VHDL synthesis stub for the sub-design. This may lead to errors in top level synthesis of the design. Error reported: $_RESULT"
 }
 
 if { [catch {
-  file rename -force C:/dev/FPGA/PQM_gen/georadar_gen/georadar_gen.runs/dds8_mod_fi_partial_synth_1/dds8_mod_fi_partial_sim_netlist.v C:/dev/FPGA/PQM_gen/georadar_gen/IP/dds8_mod_fi_partial/dds8_mod_fi_partial_sim_netlist.v
+  file rename -force C:/dev/FPGA/PQM_gen/georadar_gen.runs/dds8_mod_fi_partial_synth_1/dds8_mod_fi_partial_sim_netlist.v C:/dev/FPGA/PQM_gen/georadar_gen.srcs/dds8_mod_fi_partial/ip/dds8_mod_fi_partial/dds8_mod_fi_partial_sim_netlist.v
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create the Verilog functional simulation sub-design file. Post-Synthesis Functional Simulation with this file may not be possible or may give incorrect results. Error reported: $_RESULT"
 }
 
 if { [catch {
-  file rename -force C:/dev/FPGA/PQM_gen/georadar_gen/georadar_gen.runs/dds8_mod_fi_partial_synth_1/dds8_mod_fi_partial_sim_netlist.vhdl C:/dev/FPGA/PQM_gen/georadar_gen/IP/dds8_mod_fi_partial/dds8_mod_fi_partial_sim_netlist.vhdl
+  file rename -force C:/dev/FPGA/PQM_gen/georadar_gen.runs/dds8_mod_fi_partial_synth_1/dds8_mod_fi_partial_sim_netlist.vhdl C:/dev/FPGA/PQM_gen/georadar_gen.srcs/dds8_mod_fi_partial/ip/dds8_mod_fi_partial/dds8_mod_fi_partial_sim_netlist.vhdl
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create the VHDL functional simulation sub-design file. Post-Synthesis Functional Simulation with this file may not be possible or may give incorrect results. Error reported: $_RESULT"
 }
 
 }; # end if cached_ip 
 
-if {[file isdir C:/dev/FPGA/PQM_gen/georadar_gen/georadar_gen.ip_user_files/ip/dds8_mod_fi_partial]} {
+if {[file isdir C:/dev/FPGA/PQM_gen/georadar_gen.ip_user_files/ip/dds8_mod_fi_partial]} {
   catch { 
-    file copy -force C:/dev/FPGA/PQM_gen/georadar_gen/IP/dds8_mod_fi_partial/dds8_mod_fi_partial_stub.v C:/dev/FPGA/PQM_gen/georadar_gen/georadar_gen.ip_user_files/ip/dds8_mod_fi_partial
+    file copy -force C:/dev/FPGA/PQM_gen/georadar_gen.srcs/dds8_mod_fi_partial/ip/dds8_mod_fi_partial/dds8_mod_fi_partial_stub.v C:/dev/FPGA/PQM_gen/georadar_gen.ip_user_files/ip/dds8_mod_fi_partial
   }
 }
 
-if {[file isdir C:/dev/FPGA/PQM_gen/georadar_gen/georadar_gen.ip_user_files/ip/dds8_mod_fi_partial]} {
+if {[file isdir C:/dev/FPGA/PQM_gen/georadar_gen.ip_user_files/ip/dds8_mod_fi_partial]} {
   catch { 
-    file copy -force C:/dev/FPGA/PQM_gen/georadar_gen/IP/dds8_mod_fi_partial/dds8_mod_fi_partial_stub.vhdl C:/dev/FPGA/PQM_gen/georadar_gen/georadar_gen.ip_user_files/ip/dds8_mod_fi_partial
+    file copy -force C:/dev/FPGA/PQM_gen/georadar_gen.srcs/dds8_mod_fi_partial/ip/dds8_mod_fi_partial/dds8_mod_fi_partial_stub.vhdl C:/dev/FPGA/PQM_gen/georadar_gen.ip_user_files/ip/dds8_mod_fi_partial
   }
 }
