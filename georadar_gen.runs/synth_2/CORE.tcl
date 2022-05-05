@@ -29,12 +29,10 @@ set_property default_lib xil_defaultlib [current_project]
 set_property target_language VHDL [current_project]
 set_property ip_output_repo c:/dev/FPGA/PQM_gen/georadar_gen.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
-add_files C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SIM/BRAM_Init.coe
-add_files C:/dev/FPGA/PQM_gen/SIM/BRAM_Init.coe
+add_files C:/dev/FPGA/georadar_gen/SIM/BRAM_Init.coe
 read_vhdl -library xil_defaultlib {
   C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/main_pkg.vhd
   C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/amp_ctrl.vhd
-  C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/gpio.vhd
   C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/dds8_pacc.vhd
   C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/sequencer.vhd
   C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/mod.vhd
@@ -63,7 +61,7 @@ set_property used_in_implementation false [get_files -all c:/dev/FPGA/PQM_gen/ge
 read_ip -quiet C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/ip/mult_16_14/mult_16_14.xci
 set_property used_in_implementation false [get_files -all c:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/ip/mult_16_14/mult_16_14_ooc.xdc]
 
-read_ip -quiet c:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/ip/blk_mem_gen_0_1/blk_mem_gen_0.xci
+read_ip -quiet C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/ip/blk_mem_gen_0_1/blk_mem_gen_0.xci
 set_property used_in_implementation false [get_files -all c:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/ip/blk_mem_gen_0_1/blk_mem_gen_0_ooc.xdc]
 
 # Mark all dcp files as not used in implementation to prevent them from being

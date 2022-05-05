@@ -18,6 +18,7 @@ ENTITY Sequencer IS
 		clk_seq : IN STD_LOGIC := '0';
 		en_seq : IN STD_LOGIC := '1';
 		rst_seq : IN STD_LOGIC := '0';
+		rst_dds : in std_logic := '0';
 		trig_init : IN STD_LOGIC := '0';
 		Fc : IN STD_LOGIC_VECTOR(freq_widgt - 1 DOWNTO 0);
 		Fr : IN STD_LOGIC_VECTOR(freq_widgt - 1 DOWNTO 0);
@@ -84,7 +85,7 @@ BEGIN
 	inst_dds8_m_carrier : ENTITY work.dds8_mod PORT MAP(
 		clk_i => clk_seq,
 		f_we_i => '1',
-		rst_i => '0',
+		rst_i => rst_dds,
 		freq_i => carrier_reg,
 		phase_i => carrier_phase_init,
 		cos14_o => Carrier,
@@ -94,7 +95,7 @@ BEGIN
 	inst_dds8_m_rotation : ENTITY work.dds8_mod PORT MAP(
 		clk_i => clk_seq,
 		f_we_i => '1',
-		rst_i => '0',
+		rst_i => rst_dds,
 		freq_i => rotator_reg,
 		phase_i => rotator_phase_init,
 		cos14_o => Rotator,

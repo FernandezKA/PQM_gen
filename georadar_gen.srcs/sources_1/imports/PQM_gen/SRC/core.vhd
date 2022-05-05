@@ -38,7 +38,8 @@ ENTITY CORE IS
         ADDR_widgt : INTEGER := 10;
         ptrMaxVal : unsigned(9 DOWNTO 0) := (OTHERS => '1');
 
-        GPIO_widgt : INTEGER := 32;
+        GPIO_ext_widgt : INTEGER := 32;
+        gpio_int_widgt : integer := 8;
 
         AMP_CTRL_Sig_widgt : INTEGER := 16;
         AMP_CTRL_widgt : INTEGER := 16;
@@ -64,7 +65,7 @@ ENTITY CORE IS
         trig_core : IN STD_LOGIC;
         en_core : IN STD_LOGIC;
         --implement gpio  
-        GPIOA : OUT STD_LOGIC_VECTOR (GPIO_widgt - 1 DOWNTO 0);
+        gpio_ext_out : std_logic_vector (gpio_ext_widgt - 1 downto 0) := (others => '0');
         sig_out : OUT STD_LOGIC_VECTOR(13 DOWNTO 0);
 
         to_DAC : OUT Tdac_bus := (OTHERS => (OTHERS => '0'))
@@ -75,22 +76,22 @@ END CORE;
 -------------------------------------------------------------------
 ARCHITECTURE Behavioral OF CORE IS
 
-    CONSTANT GPIO_WRITE : STD_LOGIC_VECTOR(CMD_widgt - 1 DOWNTO 0) := X"00000001";
-    CONSTANT GPIO_SET : STD_LOGIC_VECTOR(CMD_widgt - 1 DOWNTO 0) := X"00000002";
-    CONSTANT GPIO_RESET : STD_LOGIC_VECTOR(CMD_widgt - 1 DOWNTO 0) := X"00000003";
-    CONSTANT SET_AMP_1 : STD_LOGIC_VECTOR(CMD_widgt - 1 DOWNTO 0) := X"00000004";
-    CONSTANT SET_AMP_2 : STD_LOGIC_VECTOR(CMD_widgt - 1 DOWNTO 0) := X"00000005";
-    CONSTANT SET_F0_CARR : STD_LOGIC_VECTOR(CMD_widgt - 1 DOWNTO 0) := X"00000006";
-    CONSTANT SET_F0_ROT : STD_LOGIC_VECTOR(CMD_widgt - 1 DOWNTO 0) := X"00000007";
-    CONSTANT SET_F_CARR_INC : STD_LOGIC_VECTOR(CMD_widgt - 1 DOWNTO 0) := X"00000008";
-    CONSTANT SET_F_ROT_INC : STD_LOGIC_VECTOR(CMD_widgt - 1 DOWNTO 0) := X"00000009";
-    CONSTANT SET_P_CARR : STD_LOGIC_VECTOR(CMD_widgt - 1 DOWNTO 0) := X"0000000A";
-    CONSTANT SET_P_ROT : STD_LOGIC_VECTOR(CMD_widgt - 1 DOWNTO 0) := X"0000000B";
-    CONSTANT JMP : STD_LOGIC_VECTOR(CMD_widgt - 1 DOWNTO 0) := X"0000000C";
-    CONSTANT NOP : STD_LOGIC_VECTOR(CMD_widgt - 1 DOWNTO 0) := X"0000000D";
-    CONSTANT TRIG_SEQUENCER : STD_LOGIC_VECTOR(CMD_widgt - 1 DOWNTO 0) := X"0000000E";
-    CONSTANT select_modulation : STD_LOGIC_VECTOR(CMD_widgt - 1 DOWNTO 0) := X"0000000F";
-    CONSTANT set_env_shape : STD_LOGIC_VECTOR(CMD_widgt - 1 DOWNTO 0) := X"00000010";
+    CONSTANT GPIO_EXT_WRITE : STD_LOGIC_VECTOR(CMD_widgt - 1 DOWNTO 0) := X"00000001";
+    CONSTANT GPIO_EXT_SET : STD_LOGIC_VECTOR(CMD_widgt - 1 DOWNTO 0) := X"00000002";
+    CONSTANT GPIO_EXT_RESET : STD_LOGIC_VECTOR(CMD_widgt - 1 DOWNTO 0) := X"00000003";
+    CONSTANT GPIO_INT_WRITE : STD_LOGIC_VECTOR(CMD_WIDGT - 1 DOWNTO 0) := X"00000004";
+    CONSTANT GPIO_INT_SET : STD_LOGIC_VECTOR(CMD_WIDGT - 1 DOWNTO 0) := X"00000005";
+    CONSTANT GPIO_INT_RESET : STD_LOGIC_VECTOR (CMD_WIDGT - 1 DOWNTO 0) := X"00000006";
+    CONSTANT SET_AMP : STD_LOGIC_VECTOR(CMD_widgt - 1 DOWNTO 0) := X"00000007";
+    CONSTANT SET_F0_CARR : STD_LOGIC_VECTOR(CMD_widgt - 1 DOWNTO 0) := X"00000008";
+    CONSTANT SET_F0_ROT : STD_LOGIC_VECTOR(CMD_widgt - 1 DOWNTO 0) := X"00000009";
+    CONSTANT SET_F_CARR_INC : STD_LOGIC_VECTOR(CMD_widgt - 1 DOWNTO 0) := X"0000000A";
+    CONSTANT SET_F_ROT_INC : STD_LOGIC_VECTOR(CMD_widgt - 1 DOWNTO 0) := X"0000000B";
+    CONSTANT SET_P_CARR : STD_LOGIC_VECTOR(CMD_widgt - 1 DOWNTO 0) := X"0000000C";
+    CONSTANT SET_P_ROT : STD_LOGIC_VECTOR(CMD_widgt - 1 DOWNTO 0) := X"0000000D";
+    CONSTANT JMP : STD_LOGIC_VECTOR(CMD_widgt - 1 DOWNTO 0) := X"0000000E";
+    CONSTANT NOP : STD_LOGIC_VECTOR(CMD_widgt - 1 DOWNTO 0) := X"0000000F";
+    CONSTANT select_modulation : STD_LOGIC_VECTOR(CMD_widgt - 1 DOWNTO 0) := X"00000010";
 
     --For read new data from BRAM
     SIGNAL readed_BRAM : STD_LOGIC_VECTOR (BRAM_widgt - 1 DOWNTO 0) := (OTHERS => '0');
@@ -104,8 +105,8 @@ ARCHITECTURE Behavioral OF CORE IS
     SIGNAL enb : STD_LOGIC := '1';
 
     --signals for GPIO instantioaton  
-    SIGNAL gpioa_reg : STD_LOGIC_VECTOR (GPIO_widgt - 1 DOWNTO 0) := (OTHERS => '0');
-    SIGNAL gpioa_rst : STD_LOGIC := '0';
+    SIGNAL gpio_ext : STD_LOGIC_VECTOR (GPIO_ext_widgt - 1 DOWNTO 0) := (OTHERS => '0');
+    SIGNAL gpio_int : STD_LOGIC_VECTOR (GPIO_INT_widgt - 1 DOWNTO 0) := (OTHERS => '0');
 
     --signals for AMP_CTRL instatiaton  
     SIGNAL en_amp_ctrl : STD_LOGIC := '1';
@@ -175,13 +176,6 @@ BEGIN
         enb => enb
     );
 
-    --GPIO instantiation  
-    GPIO_mod : ENTITY work.GPIO PORT MAP(
-        clk_gpio => clk_core,
-        rst_gpio => gpioa_rst,
-        gpio_reg => gpioa_reg,
-        GPIOA => GPIOA
-        );
 
     --Amp ctrl instantiation 
     Amp_ctrl_mod : ENTITY work.AMP_CTRL PORT MAP(
@@ -196,7 +190,8 @@ BEGIN
     Seq_mod : ENTITY work.Sequencer PORT MAP(
         clk_seq => clk_core,
         en_seq => en_seq,
-        trig_init => trig_seq,
+        rst_dds => gpio_int(2),
+        trig_init => gpio_int(1),
         Fc => Fc,
         Fr => Fr,
         Pc => Pc,
@@ -211,7 +206,7 @@ BEGIN
     modulator_mod : ENTITY work.modulator PORT MAP(
         clk_mod => clk_core,
         srst_i => rst_core,
-        mode_mod_i => modulator_mod_reg,
+        mode_mod_i => gpio_int(6 downto 3),
         CARR_i => Carrier,
         ROT_i => Rotator,
         RES_o => res_modulator
@@ -221,7 +216,7 @@ BEGIN
     env_shaper : ENTITY work.envelope_shaper PORT MAP(
         clk_env => clk_core,
         rst_env => envelope_shaper_rst,
-        env_shape => envelope_shaper_rule,
+        env_shape => gpio_int(0),
         sig_i => res_modulator,
         sig_o => shaper_out
         );
@@ -277,23 +272,29 @@ BEGIN
     cmd_parser : PROCESS (clk_core) BEGIN
         IF rising_edge(clk_core) THEN
             --reset strobs
-            trig_seq <= '0';
+            gpio_int <= gpio_int and (not "0000010");
 
             CASE readed_BRAM(CMD_widgt - 1 DOWNTO 0) IS
                     --GPIO set command
-                WHEN GPIO_WRITE =>
-                    gpioa_reg <= readed_BRAM(BRAM_widgt - 1 DOWNTO CMD_widgt);
-                    --Set GPIO bits
-                WHEN GPIO_SET =>
-                    gpioa_reg <= (gpioa_reg) OR readed_BRAM(BRAM_widgt - 1 DOWNTO CMD_widgt);
-                    --Reset GPIO bits
-                WHEN GPIO_RESET =>
-                    gpioa_reg <= (gpioa_reg) AND readed_BRAM(BRAM_widgt - 1 DOWNTO CMD_widgt);
-                    --Set amplitude I
-                WHEN SET_AMP_1 =>
-                    amp_val <= readed_BRAM(CMD_widgt + AMP_CTRL_widgt - 1 DOWNTO CMD_widgt);
+               WHEN GPIO_EXT_WRITE =>
+                         gpio_ext <= readed_BRAM(BRAM_widgt - 1 DOWNTO CMD_widgt);
+                         --Set GPIO ext bits
+                     WHEN GPIO_EXT_SET =>
+                         gpio_ext <= (gpio_ext) OR readed_BRAM(cmd_widgt + gpio_ext_widgt - 1  DOWNTO CMD_widgt);
+                         --Reset GPIO bits
+                     WHEN GPIO_EXT_RESET =>
+                         gpio_ext <= (gpio_ext) AND readed_BRAM(cmd_widgt + gpio_ext_widgt - 1 DOWNTO CMD_widgt);
+                 --Internal gpio part of code
+                     WHEN GPIO_INT_WRITE =>
+                         gpio_int <= readed_BRAM(CMD_widgt + gpio_int_widgt - 1 DOWNTO CMD_widgt);
+                         --Set GPIO bits
+                     WHEN GPIO_INT_SET =>
+                         gpio_int <= (gpio_int) OR readed_BRAM(CMD_widgt + gpio_int_widgt - 1 DOWNTO CMD_widgt);
+                         --Reset GPIO bits
+                     WHEN GPIO_INT_RESET =>
+                         gpio_int <= (gpio_int) AND readed_BRAM(CMD_widgt + gpio_int_widgt - 1 DOWNTO CMD_widgt);
                     --Set amplitude Q
-                WHEN SET_AMP_2 =>
+                WHEN SET_AMP =>
                     amp_val <= readed_BRAM(CMD_widgt + AMP_CTRL_widgt - 1 DOWNTO CMD_widgt);
                     --Set F0 carrier
                 WHEN SET_F0_CARR =>
@@ -315,14 +316,7 @@ BEGIN
                 WHEN NOP =>
 
                 WHEN JMP =>
-
-                WHEN TRIG_SEQUENCER =>
-                    trig_seq <= '1';
-
-                WHEN select_modulation =>
-                    modulator_mod_reg <= readed_BRAM(CMD_widgt + 3 DOWNTO CMD_widgt);
-                WHEN set_env_shape =>
-                    envelope_shaper_rule <= readed_BRAM(CMD_widgt);
+                
                 WHEN OTHERS =>
             END CASE;
         END IF;

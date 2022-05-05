@@ -33,7 +33,7 @@
     <Option Name="EnableBDX" Val="FALSE"/>
     <Option Name="DSAVendor" Val="xilinx"/>
     <Option Name="DSANumComputeUnits" Val="60"/>
-    <Option Name="WTXSimLaunchSim" Val="40"/>
+    <Option Name="WTXSimLaunchSim" Val="42"/>
     <Option Name="WTModelSimLaunchSim" Val="0"/>
     <Option Name="WTQuestaLaunchSim" Val="0"/>
     <Option Name="WTIesLaunchSim" Val="0"/>
@@ -69,14 +69,6 @@
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/SRC/amp_ctrl.vhd"/>
           <Attr Name="ImportTime" Val="1650982350"/>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PSRCDIR/sources_1/imports/PQM_gen/SRC/gpio.vhd">
-        <FileInfo>
-          <Attr Name="ImportPath" Val="$PPRDIR/SRC/gpio.vhd"/>
-          <Attr Name="ImportTime" Val="1650981369"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
@@ -125,6 +117,15 @@
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/SRC/core.vhd"/>
           <Attr Name="ImportTime" Val="1651002686"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/PQM_gen/SRC/gpio.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/SRC/gpio.vhd"/>
+          <Attr Name="ImportTime" Val="1650981369"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>

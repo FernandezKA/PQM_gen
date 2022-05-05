@@ -42,7 +42,6 @@ ARCHITECTURE behavioral OF modulator IS
 
 BEGIN
 
-    --���������� ������� � ������� Qc
     mix_multQC : FOR i IN 0 TO 7 GENERATE
         mix_multQC_14_14_cos : mult_14_14
         PORT MAP(

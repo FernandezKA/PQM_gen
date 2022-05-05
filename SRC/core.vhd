@@ -38,7 +38,8 @@ ENTITY CORE IS
         ADDR_widgt : INTEGER := 10;
         ptrMaxVal : unsigned(9 DOWNTO 0) := (OTHERS => '1');
 
-        GPIO_widgt : INTEGER := 32;
+        GPIO_ext_widgt : INTEGER := 32;
+        gpio_int_widgt : INTEGER := 8;
 
         AMP_CTRL_Sig_widgt : INTEGER := 16;
         AMP_CTRL_widgt : INTEGER := 16;
@@ -63,9 +64,8 @@ ENTITY CORE IS
         rst_core : IN STD_LOGIC;
         trig_core : IN STD_LOGIC;
         en_core : IN STD_LOGIC;
-        --implement gpio  
-        GPIOA : OUT STD_LOGIC_VECTOR (GPIO_widgt - 1 DOWNTO 0);
-        sig_out : OUT STD_LOGIC_VECTOR(13 DOWNTO 0);
+
+        gpio_ext_o : OUT STD_LOGIC_VECTOR(gpio_ext_widgt - 1 DOWNTO 0) := (OTHERS => '0');
 
         to_DAC : OUT Tdac_bus := (OTHERS => (OTHERS => '0'))
     );
@@ -75,11 +75,13 @@ END CORE;
 -------------------------------------------------------------------
 ARCHITECTURE Behavioral OF CORE IS
 
-    CONSTANT GPIO_WRITE : STD_LOGIC_VECTOR(CMD_widgt - 1 DOWNTO 0) := X"00000001";
-    CONSTANT GPIO_SET : STD_LOGIC_VECTOR(CMD_widgt - 1 DOWNTO 0) := X"00000002";
-    CONSTANT GPIO_RESET : STD_LOGIC_VECTOR(CMD_widgt - 1 DOWNTO 0) := X"00000003";
-    CONSTANT SET_AMP_1 : STD_LOGIC_VECTOR(CMD_widgt - 1 DOWNTO 0) := X"00000004";
-    CONSTANT SET_AMP_2 : STD_LOGIC_VECTOR(CMD_widgt - 1 DOWNTO 0) := X"00000005";
+    CONSTANT GPIO_EXT_WRITE : STD_LOGIC_VECTOR(CMD_widgt - 1 DOWNTO 0) := X"00000001";
+    CONSTANT GPIO_EXT_SET : STD_LOGIC_VECTOR(CMD_widgt - 1 DOWNTO 0) := X"00000002";
+    CONSTANT GPIO_EXT_RESET : STD_LOGIC_VECTOR(CMD_widgt - 1 DOWNTO 0) := X"00000003";
+    CONSTANT GPIO_INT_WRITE := STD_LOGIC_VECTOR(CMD_WIDGT - 1 DOWNTO 0) := X"00000004";
+    CONSTANT GPIO_INT_SET := STD_LOGIC_VECTOR(CMD_WIDGT - 1 DOWNTO 0) := X"00000005";
+    CONSTANT GPIO_INT_RESET : STD_LOGIC_VECTOR (CMD_WIDGT - 1 DOWNTO 0) := X"00000006";
+    CONSTANT SET_AMP : STD_LOGIC_VECTOR(CMD_widgt - 1 DOWNTO 0) := X"00000004";
     CONSTANT SET_F0_CARR : STD_LOGIC_VECTOR(CMD_widgt - 1 DOWNTO 0) := X"00000006";
     CONSTANT SET_F0_ROT : STD_LOGIC_VECTOR(CMD_widgt - 1 DOWNTO 0) := X"00000007";
     CONSTANT SET_F_CARR_INC : STD_LOGIC_VECTOR(CMD_widgt - 1 DOWNTO 0) := X"00000008";
@@ -88,9 +90,7 @@ ARCHITECTURE Behavioral OF CORE IS
     CONSTANT SET_P_ROT : STD_LOGIC_VECTOR(CMD_widgt - 1 DOWNTO 0) := X"0000000B";
     CONSTANT JMP : STD_LOGIC_VECTOR(CMD_widgt - 1 DOWNTO 0) := X"0000000C";
     CONSTANT NOP : STD_LOGIC_VECTOR(CMD_widgt - 1 DOWNTO 0) := X"0000000D";
-    CONSTANT TRIG_SEQUENCER : STD_LOGIC_VECTOR(CMD_widgt - 1 DOWNTO 0) := X"0000000E";
     CONSTANT select_modulation : STD_LOGIC_VECTOR(CMD_widgt - 1 DOWNTO 0) := X"0000000F";
-    CONSTANT set_env_shape : STD_LOGIC_VECTOR(CMD_widgt - 1 DOWNTO 0) := X"00000010";
 
     --For read new data from BRAM
     SIGNAL readed_BRAM : STD_LOGIC_VECTOR (BRAM_widgt - 1 DOWNTO 0) := (OTHERS => '0');
@@ -104,8 +104,8 @@ ARCHITECTURE Behavioral OF CORE IS
     SIGNAL enb : STD_LOGIC := '1';
 
     --signals for GPIO instantioaton  
-    SIGNAL gpioa_reg : STD_LOGIC_VECTOR (GPIO_widgt - 1 DOWNTO 0) := (OTHERS => '0');
-    SIGNAL gpioa_rst : STD_LOGIC := '0';
+    SIGNAL gpio_ext : STD_LOGIC_VECTOR (GPIO_ext_widgt - 1 DOWNTO 0) := (OTHERS => '0');
+    SIGNAL gpio_int : STD_LOGIC_VECTOR (GPIO_INT_widgt - 1 DOWNTO 0) := (OTHERS => '0');
 
     --signals for AMP_CTRL instatiaton  
     SIGNAL en_amp_ctrl : STD_LOGIC := '1';
@@ -174,15 +174,6 @@ BEGIN
         doutb => readed_BRAM,
         enb => enb
     );
-
-    --GPIO instantiation  
-    GPIO_mod : ENTITY work.GPIO PORT MAP(
-        clk_gpio => clk_core,
-        rst_gpio => gpioa_rst,
-        gpio_reg => gpioa_reg,
-        GPIOA => GPIOA
-        );
-
     --Amp ctrl instantiation 
     Amp_ctrl_mod : ENTITY work.AMP_CTRL PORT MAP(
         clk_amp_ctrl => clk_core,
@@ -211,7 +202,7 @@ BEGIN
     modulator_mod : ENTITY work.modulator PORT MAP(
         clk_mod => clk_core,
         srst_i => rst_core,
-        mode_mod_i => modulator_mod_reg,
+        mode_mod_i => gpio_int(7 downto 3),
         CARR_i => Carrier,
         ROT_i => Rotator,
         RES_o => res_modulator
@@ -280,20 +271,26 @@ BEGIN
             trig_seq <= '0';
 
             CASE readed_BRAM(CMD_widgt - 1 DOWNTO 0) IS
-                    --GPIO set command
-                WHEN GPIO_WRITE =>
-                    gpioa_reg <= readed_BRAM(BRAM_widgt - 1 DOWNTO CMD_widgt);
-                    --Set GPIO bits
-                WHEN GPIO_SET =>
-                    gpioa_reg <= (gpioa_reg) OR readed_BRAM(BRAM_widgt - 1 DOWNTO CMD_widgt);
+                    --External gpio part of code
+                WHEN GPIO_EXT_WRITE =>
+                    gpio_ext <= readed_BRAM(BRAM_widgt - 1 DOWNTO CMD_widgt);
+                    --Set GPIO ext bits
+                WHEN GPIO_EXT_SET =>
+                    gpio_ext <= (gpio_ext) OR readed_BRAM(cmd_widgt + gpio_ext_widgt - 1 DOWNTO CMD_widgt);
                     --Reset GPIO bits
-                WHEN GPIO_RESET =>
-                    gpioa_reg <= (gpioa_reg) AND readed_BRAM(BRAM_widgt - 1 DOWNTO CMD_widgt);
-                    --Set amplitude I
+                WHEN GPIO_EXT_RESET =>
+                    gpio_ext <= (gpio_ext) AND readed_BRAM(cmd_widgt + gpio_ext_widgt - 1 DOWNTO CMD_widgt);
+                    --Internal gpio part of code
+                WHEN GPIO_INT_WRITE =>
+                    gpio_int <= readed_BRAM(CMD_widgt + gpio_int_widgt - 1 DOWNTO CMD_widgt);
+                    --Set GPIO bits
+                WHEN GPIO_INT_SET =>
+                    gpio_int <= (gpio_int) OR readed_BRAM(CMD_widgt + gpio_int_widgt - 1 DOWNTO CMD_widgt);
+                    --Reset GPIO bits
+                WHEN GPIO_INT_RESET =>
+                    gpio_int <= (gpio_int) AND readed_BRAM(CMD_widgt + gpio_int_widgt - 1 DOWNTO CMD_widgt);
+                    --Set amplitude
                 WHEN SET_AMP_1 =>
-                    amp_val <= readed_BRAM(CMD_widgt + AMP_CTRL_widgt - 1 DOWNTO CMD_widgt);
-                    --Set amplitude Q
-                WHEN SET_AMP_2 =>
                     amp_val <= readed_BRAM(CMD_widgt + AMP_CTRL_widgt - 1 DOWNTO CMD_widgt);
                     --Set F0 carrier
                 WHEN SET_F0_CARR =>
@@ -316,14 +313,8 @@ BEGIN
 
                 WHEN JMP =>
 
-                WHEN TRIG_SEQUENCER =>
-                    trig_seq <= '1';
-
                 WHEN select_modulation =>
                     modulator_mod_reg <= readed_BRAM(CMD_widgt + 3 DOWNTO CMD_widgt);
-
-                WHEN set_env_shape =>
-                    envelope_shaper_rule <= readed_BRAM(CMD_widgt);
                 WHEN OTHERS =>
             END CASE;
         END IF;
