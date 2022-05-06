@@ -272,7 +272,7 @@ BEGIN
     cmd_parser : PROCESS (clk_core) BEGIN
         IF rising_edge(clk_core) THEN
             --reset strobs
-            gpio_int <= gpio_int and (not "0000010");
+            gpio_int <= gpio_int and (not "00000010");
 
             CASE readed_BRAM(CMD_widgt - 1 DOWNTO 0) IS
                     --GPIO set command

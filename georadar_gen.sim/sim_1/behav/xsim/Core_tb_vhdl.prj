@@ -10,7 +10,6 @@ vhdl xil_defaultlib  \
 "../../../../georadar_gen.srcs/sources_1/ip/blk_mem_gen_0_1/blk_mem_gen_0_sim_netlist.vhdl" \
 "../../../../georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/main_pkg.vhd" \
 "../../../../georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/amp_ctrl.vhd" \
-"../../../../georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/gpio.vhd" \
 "../../../../georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/dds8_pacc.vhd" \
 
 vhdl2008 xil_defaultlib  \

@@ -176,14 +176,14 @@ BEGIN
 						f_inc_ce <= '1';
 						p_ce <= '1';
 						f_clr <= '1';
-						f_inc_clr <= '1';
+						f_inc_clr <= '0';
 						p_clr <= '0';
 						curr_state <= generation;
 					WHEN generation =>
 						--current frequency generator : added with f_inc
 						f_ce <= '0';
-						f_inc_ce <= '0';
-						p_ce <= '0';
+						f_inc_ce <= '1';
+						p_ce <= '1';
 						f_clr <= '1';
 						f_inc_clr <= '0';
 						p_clr <= '0';

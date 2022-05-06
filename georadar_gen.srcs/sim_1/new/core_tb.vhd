@@ -60,7 +60,7 @@ clk_core => clk_core_tb,
 rst_core => rst_core_tb, 
 trig_core => trig_core_tb, 
 en_core => en_core_tb, 
-GPIOA => GPIOA_tb
+GPIO_ext_out => GPIOA_tb
 );
 
 clk_gen: process begin
