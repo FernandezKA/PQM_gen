@@ -273,7 +273,7 @@ BEGIN
         IF rising_edge(clk_core) THEN
             --reset strobs
             gpio_int <= gpio_int and (not "00000010");
-
+            if tim1_cen = '0' and tim1_en_str = '0' then 
             CASE readed_BRAM(CMD_widgt - 1 DOWNTO 0) IS
                     --GPIO set command
                WHEN GPIO_EXT_WRITE =>
@@ -319,6 +319,7 @@ BEGIN
                 
                 WHEN OTHERS =>
             END CASE;
+            end if;
         END IF;
     END PROCESS cmd_parser;
 

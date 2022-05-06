@@ -11,15 +11,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="56100000000001fs"></ZoomEndTime>
-      <Cursor1Time time="29284900000fs"></Cursor1Time>
+      <ZoomStartTime time="712000000fs"></ZoomStartTime>
+      <ZoomEndTime time="938400001fs"></ZoomEndTime>
+      <Cursor1Time time="840000000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="132"></NameColumnWidth>
-      <ValueColumnWidth column_width="126"></ValueColumnWidth>
+      <ValueColumnWidth column_width="176"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="45" />
+   <WVObjectSize size="44" />
    <wvobject fp_name="/Core_tb/core_mod/clk_core" type="logic">
       <obj_property name="ElementShortName">clk_core</obj_property>
       <obj_property name="ObjectShortName">clk_core</obj_property>
@@ -48,9 +48,175 @@
       <obj_property name="ElementShortName">ptrBRAM[9:0]</obj_property>
       <obj_property name="ObjectShortName">ptrBRAM[9:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/Core_tb/core_mod/readed_BRAM" type="array">
-      <obj_property name="ElementShortName">readed_BRAM[63:0]</obj_property>
-      <obj_property name="ObjectShortName">readed_BRAM[63:0]</obj_property>
+   <wvobject fp_name="vbus394" type="vbus">
+      <obj_property name="label">readedCMD</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <wvobject fp_name="/Core_tb/core_mod/readed_BRAM[7]" type="logic">
+         <obj_property name="ElementShortName">[7]</obj_property>
+         <obj_property name="ObjectShortName">[7]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Core_tb/core_mod/readed_BRAM[6]" type="logic">
+         <obj_property name="ElementShortName">[6]</obj_property>
+         <obj_property name="ObjectShortName">[6]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Core_tb/core_mod/readed_BRAM[5]" type="logic">
+         <obj_property name="ElementShortName">[5]</obj_property>
+         <obj_property name="ObjectShortName">[5]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Core_tb/core_mod/readed_BRAM[4]" type="logic">
+         <obj_property name="ElementShortName">[4]</obj_property>
+         <obj_property name="ObjectShortName">[4]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Core_tb/core_mod/readed_BRAM[3]" type="logic">
+         <obj_property name="ElementShortName">[3]</obj_property>
+         <obj_property name="ObjectShortName">[3]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Core_tb/core_mod/readed_BRAM[2]" type="logic">
+         <obj_property name="ElementShortName">[2]</obj_property>
+         <obj_property name="ObjectShortName">[2]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Core_tb/core_mod/readed_BRAM[1]" type="logic">
+         <obj_property name="ElementShortName">[1]</obj_property>
+         <obj_property name="ObjectShortName">[1]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Core_tb/core_mod/readed_BRAM[0]" type="logic">
+         <obj_property name="ElementShortName">[0]</obj_property>
+         <obj_property name="ObjectShortName">[0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="vbus361" type="vbus">
+      <obj_property name="label">readedDATA</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <wvobject fp_name="/Core_tb/core_mod/readed_BRAM[63]" type="logic">
+         <obj_property name="ElementShortName">[63]</obj_property>
+         <obj_property name="ObjectShortName">[63]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Core_tb/core_mod/readed_BRAM[62]" type="logic">
+         <obj_property name="ElementShortName">[62]</obj_property>
+         <obj_property name="ObjectShortName">[62]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Core_tb/core_mod/readed_BRAM[61]" type="logic">
+         <obj_property name="ElementShortName">[61]</obj_property>
+         <obj_property name="ObjectShortName">[61]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Core_tb/core_mod/readed_BRAM[60]" type="logic">
+         <obj_property name="ElementShortName">[60]</obj_property>
+         <obj_property name="ObjectShortName">[60]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Core_tb/core_mod/readed_BRAM[59]" type="logic">
+         <obj_property name="ElementShortName">[59]</obj_property>
+         <obj_property name="ObjectShortName">[59]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Core_tb/core_mod/readed_BRAM[58]" type="logic">
+         <obj_property name="ElementShortName">[58]</obj_property>
+         <obj_property name="ObjectShortName">[58]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Core_tb/core_mod/readed_BRAM[57]" type="logic">
+         <obj_property name="ElementShortName">[57]</obj_property>
+         <obj_property name="ObjectShortName">[57]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Core_tb/core_mod/readed_BRAM[56]" type="logic">
+         <obj_property name="ElementShortName">[56]</obj_property>
+         <obj_property name="ObjectShortName">[56]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Core_tb/core_mod/readed_BRAM[55]" type="logic">
+         <obj_property name="ElementShortName">[55]</obj_property>
+         <obj_property name="ObjectShortName">[55]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Core_tb/core_mod/readed_BRAM[54]" type="logic">
+         <obj_property name="ElementShortName">[54]</obj_property>
+         <obj_property name="ObjectShortName">[54]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Core_tb/core_mod/readed_BRAM[53]" type="logic">
+         <obj_property name="ElementShortName">[53]</obj_property>
+         <obj_property name="ObjectShortName">[53]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Core_tb/core_mod/readed_BRAM[52]" type="logic">
+         <obj_property name="ElementShortName">[52]</obj_property>
+         <obj_property name="ObjectShortName">[52]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Core_tb/core_mod/readed_BRAM[51]" type="logic">
+         <obj_property name="ElementShortName">[51]</obj_property>
+         <obj_property name="ObjectShortName">[51]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Core_tb/core_mod/readed_BRAM[50]" type="logic">
+         <obj_property name="ElementShortName">[50]</obj_property>
+         <obj_property name="ObjectShortName">[50]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Core_tb/core_mod/readed_BRAM[49]" type="logic">
+         <obj_property name="ElementShortName">[49]</obj_property>
+         <obj_property name="ObjectShortName">[49]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Core_tb/core_mod/readed_BRAM[48]" type="logic">
+         <obj_property name="ElementShortName">[48]</obj_property>
+         <obj_property name="ObjectShortName">[48]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Core_tb/core_mod/readed_BRAM[47]" type="logic">
+         <obj_property name="ElementShortName">[47]</obj_property>
+         <obj_property name="ObjectShortName">[47]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Core_tb/core_mod/readed_BRAM[46]" type="logic">
+         <obj_property name="ElementShortName">[46]</obj_property>
+         <obj_property name="ObjectShortName">[46]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Core_tb/core_mod/readed_BRAM[45]" type="logic">
+         <obj_property name="ElementShortName">[45]</obj_property>
+         <obj_property name="ObjectShortName">[45]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Core_tb/core_mod/readed_BRAM[44]" type="logic">
+         <obj_property name="ElementShortName">[44]</obj_property>
+         <obj_property name="ObjectShortName">[44]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Core_tb/core_mod/readed_BRAM[43]" type="logic">
+         <obj_property name="ElementShortName">[43]</obj_property>
+         <obj_property name="ObjectShortName">[43]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Core_tb/core_mod/readed_BRAM[42]" type="logic">
+         <obj_property name="ElementShortName">[42]</obj_property>
+         <obj_property name="ObjectShortName">[42]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Core_tb/core_mod/readed_BRAM[41]" type="logic">
+         <obj_property name="ElementShortName">[41]</obj_property>
+         <obj_property name="ObjectShortName">[41]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Core_tb/core_mod/readed_BRAM[40]" type="logic">
+         <obj_property name="ElementShortName">[40]</obj_property>
+         <obj_property name="ObjectShortName">[40]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Core_tb/core_mod/readed_BRAM[39]" type="logic">
+         <obj_property name="ElementShortName">[39]</obj_property>
+         <obj_property name="ObjectShortName">[39]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Core_tb/core_mod/readed_BRAM[38]" type="logic">
+         <obj_property name="ElementShortName">[38]</obj_property>
+         <obj_property name="ObjectShortName">[38]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Core_tb/core_mod/readed_BRAM[37]" type="logic">
+         <obj_property name="ElementShortName">[37]</obj_property>
+         <obj_property name="ObjectShortName">[37]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Core_tb/core_mod/readed_BRAM[36]" type="logic">
+         <obj_property name="ElementShortName">[36]</obj_property>
+         <obj_property name="ObjectShortName">[36]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Core_tb/core_mod/readed_BRAM[35]" type="logic">
+         <obj_property name="ElementShortName">[35]</obj_property>
+         <obj_property name="ObjectShortName">[35]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Core_tb/core_mod/readed_BRAM[34]" type="logic">
+         <obj_property name="ElementShortName">[34]</obj_property>
+         <obj_property name="ObjectShortName">[34]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Core_tb/core_mod/readed_BRAM[33]" type="logic">
+         <obj_property name="ElementShortName">[33]</obj_property>
+         <obj_property name="ObjectShortName">[33]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Core_tb/core_mod/readed_BRAM[32]" type="logic">
+         <obj_property name="ElementShortName">[32]</obj_property>
+         <obj_property name="ObjectShortName">[32]</obj_property>
+      </wvobject>
    </wvobject>
    <wvobject fp_name="/Core_tb/core_mod/jmp_flag" type="logic">
       <obj_property name="ElementShortName">jmp_flag</obj_property>
@@ -91,10 +257,111 @@
    <wvobject fp_name="/Core_tb/core_mod/Carrier" type="array">
       <obj_property name="ElementShortName">Carrier[7:0][13:0]</obj_property>
       <obj_property name="ObjectShortName">Carrier[7:0][13:0]</obj_property>
+      <wvobject fp_name="/Core_tb/core_mod/Carrier[7]" type="array">
+         <obj_property name="ElementShortName">[7][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[7][13:0]</obj_property>
+         <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+         <obj_property name="CellHeight">100</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Core_tb/core_mod/Carrier[6]" type="array">
+         <obj_property name="ElementShortName">[6][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[6][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Core_tb/core_mod/Carrier[5]" type="array">
+         <obj_property name="ElementShortName">[5][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[5][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Core_tb/core_mod/Carrier[4]" type="array">
+         <obj_property name="ElementShortName">[4][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[4][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Core_tb/core_mod/Carrier[3]" type="array">
+         <obj_property name="ElementShortName">[3][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[3][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Core_tb/core_mod/Carrier[2]" type="array">
+         <obj_property name="ElementShortName">[2][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[2][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Core_tb/core_mod/Carrier[1]" type="array">
+         <obj_property name="ElementShortName">[1][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[1][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Core_tb/core_mod/Carrier[0]" type="array">
+         <obj_property name="ElementShortName">[0][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[0][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Core_tb/core_mod/Carrier[7]" type="array">
+         <obj_property name="ElementShortName">[7][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[7][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Core_tb/core_mod/Carrier[6]" type="array">
+         <obj_property name="ElementShortName">[6][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[6][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Core_tb/core_mod/Carrier[5]" type="array">
+         <obj_property name="ElementShortName">[5][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[5][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Core_tb/core_mod/Carrier[4]" type="array">
+         <obj_property name="ElementShortName">[4][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[4][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Core_tb/core_mod/Carrier[3]" type="array">
+         <obj_property name="ElementShortName">[3][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[3][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Core_tb/core_mod/Carrier[2]" type="array">
+         <obj_property name="ElementShortName">[2][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[2][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Core_tb/core_mod/Carrier[1]" type="array">
+         <obj_property name="ElementShortName">[1][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[1][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Core_tb/core_mod/Carrier[0]" type="array">
+         <obj_property name="ElementShortName">[0][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[0][13:0]</obj_property>
+      </wvobject>
    </wvobject>
    <wvobject fp_name="/Core_tb/core_mod/Rotator" type="array">
       <obj_property name="ElementShortName">Rotator[7:0][13:0]</obj_property>
       <obj_property name="ObjectShortName">Rotator[7:0][13:0]</obj_property>
+      <wvobject fp_name="/Core_tb/core_mod/Rotator[7]" type="array">
+         <obj_property name="ElementShortName">[7][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[7][13:0]</obj_property>
+         <obj_property name="WaveformStyle">STYLE_ANALOG</obj_property>
+         <obj_property name="CellHeight">100</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Core_tb/core_mod/Rotator[6]" type="array">
+         <obj_property name="ElementShortName">[6][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[6][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Core_tb/core_mod/Rotator[5]" type="array">
+         <obj_property name="ElementShortName">[5][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[5][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Core_tb/core_mod/Rotator[4]" type="array">
+         <obj_property name="ElementShortName">[4][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[4][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Core_tb/core_mod/Rotator[3]" type="array">
+         <obj_property name="ElementShortName">[3][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[3][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Core_tb/core_mod/Rotator[2]" type="array">
+         <obj_property name="ElementShortName">[2][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[2][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Core_tb/core_mod/Rotator[1]" type="array">
+         <obj_property name="ElementShortName">[1][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[1][13:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/Core_tb/core_mod/Rotator[0]" type="array">
+         <obj_property name="ElementShortName">[0][13:0]</obj_property>
+         <obj_property name="ObjectShortName">[0][13:0]</obj_property>
+      </wvobject>
    </wvobject>
    <wvobject fp_name="/Core_tb/core_mod/res_modulator" type="array">
       <obj_property name="ElementShortName">res_modulator[7:0][13:0]</obj_property>
@@ -171,10 +438,26 @@
    <wvobject fp_name="/Core_tb/core_mod/Seq_mod/carrier_reg" type="array">
       <obj_property name="ElementShortName">carrier_reg[31:0]</obj_property>
       <obj_property name="ObjectShortName">carrier_reg[31:0]</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+      <obj_property name="AnalogYRangeMin">63583.000000</obj_property>
+      <obj_property name="AnalogYRRangeMax">67018.000000</obj_property>
+      <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_FIXED</obj_property>
+      <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_HOLD</obj_property>
+      <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+      <obj_property name="AnalogHorizLine">0.000000</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/Core_tb/core_mod/Seq_mod/rotator_reg" type="array">
       <obj_property name="ElementShortName">rotator_reg[31:0]</obj_property>
       <obj_property name="ObjectShortName">rotator_reg[31:0]</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+      <obj_property name="AnalogYRangeMin">63583.000000</obj_property>
+      <obj_property name="AnalogYRRangeMax">67018.000000</obj_property>
+      <obj_property name="AnalogYRangeType">ANALOG_YRANGETYPE_FIXED</obj_property>
+      <obj_property name="AnalogInterpolation">ANALOG_INTERPOLATION_HOLD</obj_property>
+      <obj_property name="AnalogOffscale">ANALOG_OFFSCALE_HIDE</obj_property>
+      <obj_property name="AnalogHorizLine">0.000000</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/Core_tb/core_mod/Seq_mod/rotator_freq_init" type="array">
       <obj_property name="ElementShortName">rotator_freq_init[31:0]</obj_property>
@@ -191,13 +474,5 @@
    <wvobject fp_name="/Core_tb/core_mod/Seq_mod/rotator_phase_init" type="array">
       <obj_property name="ElementShortName">rotator_phase_init[15:0]</obj_property>
       <obj_property name="ObjectShortName">rotator_phase_init[15:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/Core_tb/core_mod/Seq_mod/Carrier" type="array">
-      <obj_property name="ElementShortName">Carrier[7:0][13:0]</obj_property>
-      <obj_property name="ObjectShortName">Carrier[7:0][13:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/Core_tb/core_mod/Seq_mod/Rotator" type="array">
-      <obj_property name="ElementShortName">Rotator[7:0][13:0]</obj_property>
-      <obj_property name="ObjectShortName">Rotator[7:0][13:0]</obj_property>
    </wvobject>
 </wave_config>
