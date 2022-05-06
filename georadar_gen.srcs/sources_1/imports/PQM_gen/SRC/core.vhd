@@ -39,7 +39,7 @@ ENTITY CORE IS
         ptrMaxVal : unsigned(9 DOWNTO 0) := (OTHERS => '1');
 
         GPIO_ext_widgt : INTEGER := 32;
-        gpio_int_widgt : integer := 8;
+        gpio_int_widgt : INTEGER := 8;
 
         AMP_CTRL_Sig_widgt : INTEGER := 16;
         AMP_CTRL_widgt : INTEGER := 16;
@@ -65,7 +65,7 @@ ENTITY CORE IS
         trig_core : IN STD_LOGIC;
         en_core : IN STD_LOGIC;
         --implement gpio  
-        gpio_ext_out : std_logic_vector (gpio_ext_widgt - 1 downto 0) := (others => '0');
+        gpio_ext_out : STD_LOGIC_VECTOR (gpio_ext_widgt - 1 DOWNTO 0) := (OTHERS => '0');
         sig_out : OUT STD_LOGIC_VECTOR(13 DOWNTO 0);
 
         to_DAC : OUT Tdac_bus := (OTHERS => (OTHERS => '0'))
@@ -175,8 +175,6 @@ BEGIN
         doutb => readed_BRAM,
         enb => enb
     );
-
-
     --Amp ctrl instantiation 
     Amp_ctrl_mod : ENTITY work.AMP_CTRL PORT MAP(
         clk_amp_ctrl => clk_core,
@@ -190,6 +188,7 @@ BEGIN
     Seq_mod : ENTITY work.Sequencer PORT MAP(
         clk_seq => clk_core,
         en_seq => en_seq,
+        rst_seq => gpio_int(3),
         rst_dds => gpio_int(2),
         trig_init => gpio_int(1),
         Fc => Fc,
@@ -206,7 +205,7 @@ BEGIN
     modulator_mod : ENTITY work.modulator PORT MAP(
         clk_mod => clk_core,
         srst_i => rst_core,
-        mode_mod_i => gpio_int(6 downto 3),
+        mode_mod_i => gpio_int(7 DOWNTO 4),
         CARR_i => Carrier,
         ROT_i => Rotator,
         RES_o => res_modulator
@@ -272,54 +271,54 @@ BEGIN
     cmd_parser : PROCESS (clk_core) BEGIN
         IF rising_edge(clk_core) THEN
             --reset strobs
-            gpio_int <= gpio_int and (not "00000010");
-            if tim1_cen = '0' and tim1_en_str = '0' then 
-            CASE readed_BRAM(CMD_widgt - 1 DOWNTO 0) IS
-                    --GPIO set command
-               WHEN GPIO_EXT_WRITE =>
-                         gpio_ext <= readed_BRAM(BRAM_widgt - 1 DOWNTO CMD_widgt);
-                         --Set GPIO ext bits
-                     WHEN GPIO_EXT_SET =>
-                         gpio_ext <= (gpio_ext) OR readed_BRAM(cmd_widgt + gpio_ext_widgt - 1  DOWNTO CMD_widgt);
-                         --Reset GPIO bits
-                     WHEN GPIO_EXT_RESET =>
-                         gpio_ext <= (gpio_ext) AND readed_BRAM(cmd_widgt + gpio_ext_widgt - 1 DOWNTO CMD_widgt);
-                 --Internal gpio part of code
-                     WHEN GPIO_INT_WRITE =>
-                         gpio_int <= readed_BRAM(CMD_widgt + gpio_int_widgt - 1 DOWNTO CMD_widgt);
-                         --Set GPIO bits
-                     WHEN GPIO_INT_SET =>
-                         gpio_int <= (gpio_int) OR readed_BRAM(CMD_widgt + gpio_int_widgt - 1 DOWNTO CMD_widgt);
-                         --Reset GPIO bits
-                     WHEN GPIO_INT_RESET =>
-                         gpio_int <= (gpio_int) AND readed_BRAM(CMD_widgt + gpio_int_widgt - 1 DOWNTO CMD_widgt);
-                    --Set amplitude Q
-                WHEN SET_AMP =>
-                    amp_val <= readed_BRAM(CMD_widgt + AMP_CTRL_widgt - 1 DOWNTO CMD_widgt);
-                    --Set F0 carrier
-                WHEN SET_F0_CARR =>
-                    Fc <= readed_BRAM(BRAM_widgt - 1 DOWNTO CMD_widgt);
-                    --Set F0 rotation 
-                WHEN SET_F0_ROT => -- add f_inc_carr
-                    Fr <= readed_BRAM(BRAM_widgt - 1 DOWNTO CMD_widgt);
-                    --Set Fr_inc
-                WHEN SET_F_CARR_INC => --carrier frequency increment 
-                    Fc_inc <= readed_BRAM(BRAM_widgt - 1 DOWNTO CMD_widgt);
-                WHEN SET_F_ROT_INC =>
-                    Fr_inc <= readed_BRAM(BRAM_widgt - 1 DOWNTO CMD_widgt);
-                    --Set phase carrier
-                WHEN SET_P_CARR => -- replace p - > ph
-                    Pc <= readed_BRAM(CMD_widgt + Pc_widgt - 1 DOWNTO CMD_widgt);
-                    --Set phase rotation 
-                WHEN SET_P_ROT =>
-                    Pr <= readed_BRAM(CMD_widgt + Pr_widgt - 1 DOWNTO CMD_widgt);
-                WHEN NOP =>
+            gpio_int <= gpio_int AND (NOT "00001010"); -- clear seq_en strob 
+            IF tim1_cen = '0' AND tim1_en_str = '0' THEN -- lock execute when timer for delay is active 
+                CASE readed_BRAM(CMD_widgt - 1 DOWNTO 0) IS
+                        --GPIO set command
+                    WHEN GPIO_EXT_WRITE =>
+                        gpio_ext <= readed_BRAM(BRAM_widgt - 1 DOWNTO CMD_widgt);
+                        --Set GPIO ext bits
+                    WHEN GPIO_EXT_SET =>
+                        gpio_ext <= (gpio_ext) OR readed_BRAM(cmd_widgt + gpio_ext_widgt - 1 DOWNTO CMD_widgt);
+                        --Reset GPIO bits
+                    WHEN GPIO_EXT_RESET =>
+                        gpio_ext <= (gpio_ext) AND (not readed_BRAM(cmd_widgt + gpio_ext_widgt - 1 DOWNTO CMD_widgt));
+                        --Internal gpio part of code
+                    WHEN GPIO_INT_WRITE =>
+                        gpio_int <= readed_BRAM(CMD_widgt + gpio_int_widgt - 1 DOWNTO CMD_widgt);
+                        --Set GPIO bits
+                    WHEN GPIO_INT_SET =>
+                        gpio_int <= (gpio_int) OR readed_BRAM(CMD_widgt + gpio_int_widgt - 1 DOWNTO CMD_widgt);
+                        --Reset GPIO bits
+                    WHEN GPIO_INT_RESET =>
+                        gpio_int <= (gpio_int) AND (not readed_BRAM(CMD_widgt + gpio_int_widgt - 1 DOWNTO CMD_widgt));
+                        --Set amplitude Q
+                    WHEN SET_AMP =>
+                        amp_val <= readed_BRAM(CMD_widgt + AMP_CTRL_widgt - 1 DOWNTO CMD_widgt);
+                        --Set F0 carrier
+                    WHEN SET_F0_CARR =>
+                        Fc <= readed_BRAM(BRAM_widgt - 1 DOWNTO CMD_widgt);
+                        --Set F0 rotation 
+                    WHEN SET_F0_ROT => -- add f_inc_carr
+                        Fr <= readed_BRAM(BRAM_widgt - 1 DOWNTO CMD_widgt);
+                        --Set Fr_inc
+                    WHEN SET_F_CARR_INC => --carrier frequency increment 
+                        Fc_inc <= readed_BRAM(BRAM_widgt - 1 DOWNTO CMD_widgt);
+                    WHEN SET_F_ROT_INC =>
+                        Fr_inc <= readed_BRAM(BRAM_widgt - 1 DOWNTO CMD_widgt);
+                        --Set phase carrier
+                    WHEN SET_P_CARR => -- replace p - > ph
+                        Pc <= readed_BRAM(CMD_widgt + Pc_widgt - 1 DOWNTO CMD_widgt);
+                        --Set phase rotation 
+                    WHEN SET_P_ROT =>
+                        Pr <= readed_BRAM(CMD_widgt + Pr_widgt - 1 DOWNTO CMD_widgt);
+                    WHEN NOP =>
 
-                WHEN JMP =>
-                
-                WHEN OTHERS =>
-            END CASE;
-            end if;
+                    WHEN JMP =>
+
+                    WHEN OTHERS =>
+                END CASE;
+            END IF;
         END IF;
     END PROCESS cmd_parser;
 

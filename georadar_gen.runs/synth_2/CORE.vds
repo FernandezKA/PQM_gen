@@ -2,8 +2,8 @@
 # Vivado v2017.4 (64-bit)
 # SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
 # IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
-# Start of session at: Fri May  6 10:32:42 2022
-# Process ID: 12360
+# Start of session at: Fri May  6 14:45:31 2022
+# Process ID: 9676
 # Current directory: C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2
 # Command line: vivado.exe -log CORE.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source CORE.tcl
 # Log file: C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/CORE.vds
@@ -15,9 +15,9 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7z010'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z010'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 10588 
+INFO: Helper process launched with PID 14276 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 416.312 ; gain = 102.277
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 417.234 ; gain = 102.492
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'CORE' [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/core.vhd:77]
 	Parameter BRAM_widgt bound to: 64 - type: integer 
@@ -37,19 +37,19 @@ INFO: [Synth 8-638] synthesizing module 'CORE' [C:/dev/FPGA/PQM_gen/georadar_gen
 	Parameter Car_widgt bound to: 14 - type: integer 
 	Parameter Rot_widgt bound to: 14 - type: integer 
 	Parameter TIM1_widgt bound to: 32 - type: integer 
-INFO: [Synth 8-3491] module 'blk_mem_gen_0' declared at 'C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/realtime/blk_mem_gen_0_stub.vhdl:5' bound to instance 'BRAM_IP' of component 'blk_mem_gen_0' [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/core.vhd:167]
-INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_0' [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/realtime/blk_mem_gen_0_stub.vhdl:20]
+INFO: [Synth 8-3491] module 'blk_mem_gen_0' declared at 'C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/realtime/blk_mem_gen_0_stub.vhdl:5' bound to instance 'BRAM_IP' of component 'blk_mem_gen_0' [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/core.vhd:167]
+INFO: [Synth 8-638] synthesizing module 'blk_mem_gen_0' [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/realtime/blk_mem_gen_0_stub.vhdl:20]
 INFO: [Synth 8-638] synthesizing module 'AMP_CTRL' [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/amp_ctrl.vhd:24]
 	Parameter Amp_widgt bound to: 16 - type: integer 
-INFO: [Synth 8-3491] module 'mult_16_14' declared at 'C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/realtime/mult_16_14_stub.vhdl:5' bound to instance 'ampl_mult_I_16_14' of component 'mult_16_14' [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/amp_ctrl.vhd:39]
-INFO: [Synth 8-638] synthesizing module 'mult_16_14' [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/realtime/mult_16_14_stub.vhdl:15]
-INFO: [Synth 8-3491] module 'mult_16_14' declared at 'C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/realtime/mult_16_14_stub.vhdl:5' bound to instance 'ampl_mult_I_16_14' of component 'mult_16_14' [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/amp_ctrl.vhd:39]
-INFO: [Synth 8-3491] module 'mult_16_14' declared at 'C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/realtime/mult_16_14_stub.vhdl:5' bound to instance 'ampl_mult_I_16_14' of component 'mult_16_14' [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/amp_ctrl.vhd:39]
-INFO: [Synth 8-3491] module 'mult_16_14' declared at 'C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/realtime/mult_16_14_stub.vhdl:5' bound to instance 'ampl_mult_I_16_14' of component 'mult_16_14' [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/amp_ctrl.vhd:39]
-INFO: [Synth 8-3491] module 'mult_16_14' declared at 'C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/realtime/mult_16_14_stub.vhdl:5' bound to instance 'ampl_mult_I_16_14' of component 'mult_16_14' [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/amp_ctrl.vhd:39]
-INFO: [Synth 8-3491] module 'mult_16_14' declared at 'C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/realtime/mult_16_14_stub.vhdl:5' bound to instance 'ampl_mult_I_16_14' of component 'mult_16_14' [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/amp_ctrl.vhd:39]
-INFO: [Synth 8-3491] module 'mult_16_14' declared at 'C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/realtime/mult_16_14_stub.vhdl:5' bound to instance 'ampl_mult_I_16_14' of component 'mult_16_14' [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/amp_ctrl.vhd:39]
-INFO: [Synth 8-3491] module 'mult_16_14' declared at 'C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/realtime/mult_16_14_stub.vhdl:5' bound to instance 'ampl_mult_I_16_14' of component 'mult_16_14' [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/amp_ctrl.vhd:39]
+INFO: [Synth 8-3491] module 'mult_16_14' declared at 'C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/realtime/mult_16_14_stub.vhdl:5' bound to instance 'ampl_mult_I_16_14' of component 'mult_16_14' [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/amp_ctrl.vhd:39]
+INFO: [Synth 8-638] synthesizing module 'mult_16_14' [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/realtime/mult_16_14_stub.vhdl:15]
+INFO: [Synth 8-3491] module 'mult_16_14' declared at 'C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/realtime/mult_16_14_stub.vhdl:5' bound to instance 'ampl_mult_I_16_14' of component 'mult_16_14' [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/amp_ctrl.vhd:39]
+INFO: [Synth 8-3491] module 'mult_16_14' declared at 'C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/realtime/mult_16_14_stub.vhdl:5' bound to instance 'ampl_mult_I_16_14' of component 'mult_16_14' [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/amp_ctrl.vhd:39]
+INFO: [Synth 8-3491] module 'mult_16_14' declared at 'C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/realtime/mult_16_14_stub.vhdl:5' bound to instance 'ampl_mult_I_16_14' of component 'mult_16_14' [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/amp_ctrl.vhd:39]
+INFO: [Synth 8-3491] module 'mult_16_14' declared at 'C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/realtime/mult_16_14_stub.vhdl:5' bound to instance 'ampl_mult_I_16_14' of component 'mult_16_14' [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/amp_ctrl.vhd:39]
+INFO: [Synth 8-3491] module 'mult_16_14' declared at 'C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/realtime/mult_16_14_stub.vhdl:5' bound to instance 'ampl_mult_I_16_14' of component 'mult_16_14' [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/amp_ctrl.vhd:39]
+INFO: [Synth 8-3491] module 'mult_16_14' declared at 'C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/realtime/mult_16_14_stub.vhdl:5' bound to instance 'ampl_mult_I_16_14' of component 'mult_16_14' [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/amp_ctrl.vhd:39]
+INFO: [Synth 8-3491] module 'mult_16_14' declared at 'C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/realtime/mult_16_14_stub.vhdl:5' bound to instance 'ampl_mult_I_16_14' of component 'mult_16_14' [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/amp_ctrl.vhd:39]
 INFO: [Synth 8-256] done synthesizing module 'AMP_CTRL' (1#1) [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/amp_ctrl.vhd:24]
 INFO: [Synth 8-638] synthesizing module 'Sequencer' [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/sequencer.vhd:35]
 	Parameter freq_widgt bound to: 32 - type: integer 
@@ -60,54 +60,54 @@ INFO: [Synth 8-638] synthesizing module 'Sequencer' [C:/dev/FPGA/PQM_gen/georada
 INFO: [Synth 8-638] synthesizing module 'dds8_mod' [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/dds8_mod.vhd:51]
 	Parameter C_OUT_UNSIGNED bound to: 1'b1 
 INFO: [Synth 8-638] synthesizing module 'dds8_pacc' [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/dds8_pacc.vhd:38]
-INFO: [Synth 8-3491] module 'dds8_mod_group_accum' declared at 'C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/realtime/dds8_mod_group_accum_stub.vhdl:5' bound to instance 'xMACC_GROUP' of component 'dds8_mod_group_accum' [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/dds8_pacc.vhd:96]
-INFO: [Synth 8-638] synthesizing module 'dds8_mod_group_accum' [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/realtime/dds8_mod_group_accum_stub.vhdl:15]
-INFO: [Synth 8-3491] module 'dds8_mod_fi_add' declared at 'C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/realtime/dds8_mod_fi_add_stub.vhdl:5' bound to instance 'xFI_ADD' of component 'dds8_mod_fi_add' [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/dds8_pacc.vhd:104]
-INFO: [Synth 8-638] synthesizing module 'dds8_mod_fi_add' [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/realtime/dds8_mod_fi_add_stub.vhdl:17]
-INFO: [Synth 8-3491] module 'dds8_mod_fi_partial' declared at 'C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/realtime/dds8_mod_fi_partial_stub.vhdl:5' bound to instance 'xMADD_PARTIAL' of component 'dds8_mod_fi_partial' [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/dds8_pacc.vhd:115]
-INFO: [Synth 8-638] synthesizing module 'dds8_mod_fi_partial' [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/realtime/dds8_mod_fi_partial_stub.vhdl:20]
-INFO: [Synth 8-3491] module 'dds8_mod_fi_partial' declared at 'C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/realtime/dds8_mod_fi_partial_stub.vhdl:5' bound to instance 'xMADD_PARTIAL' of component 'dds8_mod_fi_partial' [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/dds8_pacc.vhd:115]
-INFO: [Synth 8-3491] module 'dds8_mod_fi_partial' declared at 'C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/realtime/dds8_mod_fi_partial_stub.vhdl:5' bound to instance 'xMADD_PARTIAL' of component 'dds8_mod_fi_partial' [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/dds8_pacc.vhd:115]
-INFO: [Synth 8-3491] module 'dds8_mod_fi_partial' declared at 'C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/realtime/dds8_mod_fi_partial_stub.vhdl:5' bound to instance 'xMADD_PARTIAL' of component 'dds8_mod_fi_partial' [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/dds8_pacc.vhd:115]
-INFO: [Synth 8-3491] module 'dds8_mod_fi_partial' declared at 'C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/realtime/dds8_mod_fi_partial_stub.vhdl:5' bound to instance 'xMADD_PARTIAL' of component 'dds8_mod_fi_partial' [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/dds8_pacc.vhd:115]
-INFO: [Synth 8-3491] module 'dds8_mod_fi_partial' declared at 'C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/realtime/dds8_mod_fi_partial_stub.vhdl:5' bound to instance 'xMADD_PARTIAL' of component 'dds8_mod_fi_partial' [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/dds8_pacc.vhd:115]
-INFO: [Synth 8-3491] module 'dds8_mod_fi_partial' declared at 'C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/realtime/dds8_mod_fi_partial_stub.vhdl:5' bound to instance 'xMADD_PARTIAL' of component 'dds8_mod_fi_partial' [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/dds8_pacc.vhd:115]
-INFO: [Synth 8-3491] module 'dds8_mod_fi_partial' declared at 'C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/realtime/dds8_mod_fi_partial_stub.vhdl:5' bound to instance 'xMADD_PARTIAL' of component 'dds8_mod_fi_partial' [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/dds8_pacc.vhd:115]
+INFO: [Synth 8-3491] module 'dds8_mod_group_accum' declared at 'C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/realtime/dds8_mod_group_accum_stub.vhdl:5' bound to instance 'xMACC_GROUP' of component 'dds8_mod_group_accum' [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/dds8_pacc.vhd:96]
+INFO: [Synth 8-638] synthesizing module 'dds8_mod_group_accum' [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/realtime/dds8_mod_group_accum_stub.vhdl:15]
+INFO: [Synth 8-3491] module 'dds8_mod_fi_add' declared at 'C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/realtime/dds8_mod_fi_add_stub.vhdl:5' bound to instance 'xFI_ADD' of component 'dds8_mod_fi_add' [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/dds8_pacc.vhd:104]
+INFO: [Synth 8-638] synthesizing module 'dds8_mod_fi_add' [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/realtime/dds8_mod_fi_add_stub.vhdl:17]
+INFO: [Synth 8-3491] module 'dds8_mod_fi_partial' declared at 'C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/realtime/dds8_mod_fi_partial_stub.vhdl:5' bound to instance 'xMADD_PARTIAL' of component 'dds8_mod_fi_partial' [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/dds8_pacc.vhd:115]
+INFO: [Synth 8-638] synthesizing module 'dds8_mod_fi_partial' [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/realtime/dds8_mod_fi_partial_stub.vhdl:20]
+INFO: [Synth 8-3491] module 'dds8_mod_fi_partial' declared at 'C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/realtime/dds8_mod_fi_partial_stub.vhdl:5' bound to instance 'xMADD_PARTIAL' of component 'dds8_mod_fi_partial' [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/dds8_pacc.vhd:115]
+INFO: [Synth 8-3491] module 'dds8_mod_fi_partial' declared at 'C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/realtime/dds8_mod_fi_partial_stub.vhdl:5' bound to instance 'xMADD_PARTIAL' of component 'dds8_mod_fi_partial' [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/dds8_pacc.vhd:115]
+INFO: [Synth 8-3491] module 'dds8_mod_fi_partial' declared at 'C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/realtime/dds8_mod_fi_partial_stub.vhdl:5' bound to instance 'xMADD_PARTIAL' of component 'dds8_mod_fi_partial' [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/dds8_pacc.vhd:115]
+INFO: [Synth 8-3491] module 'dds8_mod_fi_partial' declared at 'C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/realtime/dds8_mod_fi_partial_stub.vhdl:5' bound to instance 'xMADD_PARTIAL' of component 'dds8_mod_fi_partial' [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/dds8_pacc.vhd:115]
+INFO: [Synth 8-3491] module 'dds8_mod_fi_partial' declared at 'C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/realtime/dds8_mod_fi_partial_stub.vhdl:5' bound to instance 'xMADD_PARTIAL' of component 'dds8_mod_fi_partial' [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/dds8_pacc.vhd:115]
+INFO: [Synth 8-3491] module 'dds8_mod_fi_partial' declared at 'C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/realtime/dds8_mod_fi_partial_stub.vhdl:5' bound to instance 'xMADD_PARTIAL' of component 'dds8_mod_fi_partial' [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/dds8_pacc.vhd:115]
+INFO: [Synth 8-3491] module 'dds8_mod_fi_partial' declared at 'C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/realtime/dds8_mod_fi_partial_stub.vhdl:5' bound to instance 'xMADD_PARTIAL' of component 'dds8_mod_fi_partial' [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/dds8_pacc.vhd:115]
 INFO: [Synth 8-256] done synthesizing module 'dds8_pacc' (2#1) [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/dds8_pacc.vhd:38]
-INFO: [Synth 8-3491] module 'dds_lut_25x16' declared at 'C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/realtime/dds_lut_25x16_stub.vhdl:5' bound to instance 'xSINCOS_LUT' of component 'dds_lut_25x16' [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/dds8_mod.vhd:139]
-INFO: [Synth 8-638] synthesizing module 'dds_lut_25x16' [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/realtime/dds_lut_25x16_stub.vhdl:17]
-INFO: [Synth 8-3491] module 'dds_lut_25x16' declared at 'C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/realtime/dds_lut_25x16_stub.vhdl:5' bound to instance 'xSINCOS_LUT' of component 'dds_lut_25x16' [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/dds8_mod.vhd:139]
-INFO: [Synth 8-3491] module 'dds_lut_25x16' declared at 'C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/realtime/dds_lut_25x16_stub.vhdl:5' bound to instance 'xSINCOS_LUT' of component 'dds_lut_25x16' [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/dds8_mod.vhd:139]
-INFO: [Synth 8-3491] module 'dds_lut_25x16' declared at 'C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/realtime/dds_lut_25x16_stub.vhdl:5' bound to instance 'xSINCOS_LUT' of component 'dds_lut_25x16' [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/dds8_mod.vhd:139]
-INFO: [Synth 8-3491] module 'dds_lut_25x16' declared at 'C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/realtime/dds_lut_25x16_stub.vhdl:5' bound to instance 'xSINCOS_LUT' of component 'dds_lut_25x16' [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/dds8_mod.vhd:139]
-INFO: [Synth 8-3491] module 'dds_lut_25x16' declared at 'C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/realtime/dds_lut_25x16_stub.vhdl:5' bound to instance 'xSINCOS_LUT' of component 'dds_lut_25x16' [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/dds8_mod.vhd:139]
-INFO: [Synth 8-3491] module 'dds_lut_25x16' declared at 'C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/realtime/dds_lut_25x16_stub.vhdl:5' bound to instance 'xSINCOS_LUT' of component 'dds_lut_25x16' [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/dds8_mod.vhd:139]
-INFO: [Synth 8-3491] module 'dds_lut_25x16' declared at 'C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/realtime/dds_lut_25x16_stub.vhdl:5' bound to instance 'xSINCOS_LUT' of component 'dds_lut_25x16' [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/dds8_mod.vhd:139]
+INFO: [Synth 8-3491] module 'dds_lut_25x16' declared at 'C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/realtime/dds_lut_25x16_stub.vhdl:5' bound to instance 'xSINCOS_LUT' of component 'dds_lut_25x16' [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/dds8_mod.vhd:139]
+INFO: [Synth 8-638] synthesizing module 'dds_lut_25x16' [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/realtime/dds_lut_25x16_stub.vhdl:17]
+INFO: [Synth 8-3491] module 'dds_lut_25x16' declared at 'C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/realtime/dds_lut_25x16_stub.vhdl:5' bound to instance 'xSINCOS_LUT' of component 'dds_lut_25x16' [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/dds8_mod.vhd:139]
+INFO: [Synth 8-3491] module 'dds_lut_25x16' declared at 'C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/realtime/dds_lut_25x16_stub.vhdl:5' bound to instance 'xSINCOS_LUT' of component 'dds_lut_25x16' [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/dds8_mod.vhd:139]
+INFO: [Synth 8-3491] module 'dds_lut_25x16' declared at 'C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/realtime/dds_lut_25x16_stub.vhdl:5' bound to instance 'xSINCOS_LUT' of component 'dds_lut_25x16' [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/dds8_mod.vhd:139]
+INFO: [Synth 8-3491] module 'dds_lut_25x16' declared at 'C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/realtime/dds_lut_25x16_stub.vhdl:5' bound to instance 'xSINCOS_LUT' of component 'dds_lut_25x16' [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/dds8_mod.vhd:139]
+INFO: [Synth 8-3491] module 'dds_lut_25x16' declared at 'C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/realtime/dds_lut_25x16_stub.vhdl:5' bound to instance 'xSINCOS_LUT' of component 'dds_lut_25x16' [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/dds8_mod.vhd:139]
+INFO: [Synth 8-3491] module 'dds_lut_25x16' declared at 'C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/realtime/dds_lut_25x16_stub.vhdl:5' bound to instance 'xSINCOS_LUT' of component 'dds_lut_25x16' [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/dds8_mod.vhd:139]
+INFO: [Synth 8-3491] module 'dds_lut_25x16' declared at 'C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/realtime/dds_lut_25x16_stub.vhdl:5' bound to instance 'xSINCOS_LUT' of component 'dds_lut_25x16' [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/dds8_mod.vhd:139]
 INFO: [Synth 8-256] done synthesizing module 'dds8_mod' (3#1) [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/dds8_mod.vhd:51]
-INFO: [Synth 8-3491] module 'pg_freq_acc_32to40plus' declared at 'C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/realtime/pg_freq_acc_32to40plus_stub.vhdl:5' bound to instance 'CARRIER_ACCUM' of component 'pg_freq_acc_32to40plus' [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/sequencer.vhd:105]
-INFO: [Synth 8-638] synthesizing module 'pg_freq_acc_32to40plus' [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/realtime/pg_freq_acc_32to40plus_stub.vhdl:21]
-INFO: [Synth 8-3491] module 'pg_freq_acc_32to40plus' declared at 'C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/realtime/pg_freq_acc_32to40plus_stub.vhdl:5' bound to instance 'ROTATOR_ACCUM' of component 'pg_freq_acc_32to40plus' [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/sequencer.vhd:119]
+INFO: [Synth 8-3491] module 'pg_freq_acc_32to40plus' declared at 'C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/realtime/pg_freq_acc_32to40plus_stub.vhdl:5' bound to instance 'CARRIER_ACCUM' of component 'pg_freq_acc_32to40plus' [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/sequencer.vhd:105]
+INFO: [Synth 8-638] synthesizing module 'pg_freq_acc_32to40plus' [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/realtime/pg_freq_acc_32to40plus_stub.vhdl:21]
+INFO: [Synth 8-3491] module 'pg_freq_acc_32to40plus' declared at 'C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/realtime/pg_freq_acc_32to40plus_stub.vhdl:5' bound to instance 'ROTATOR_ACCUM' of component 'pg_freq_acc_32to40plus' [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/sequencer.vhd:119]
 INFO: [Synth 8-256] done synthesizing module 'Sequencer' (4#1) [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/sequencer.vhd:35]
 INFO: [Synth 8-638] synthesizing module 'modulator' [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/mod.vhd:23]
 	Parameter MODE_widgt bound to: 4 - type: integer 
-INFO: [Synth 8-3491] module 'mult_14_14' declared at 'C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/realtime/mult_14_14_stub.vhdl:5' bound to instance 'mix_multQC_14_14_cos' of component 'mult_14_14' [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/mod.vhd:47]
-INFO: [Synth 8-638] synthesizing module 'mult_14_14' [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/realtime/mult_14_14_stub.vhdl:15]
-INFO: [Synth 8-3491] module 'mult_14_14' declared at 'C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/realtime/mult_14_14_stub.vhdl:5' bound to instance 'mix_multQC_14_14_cos' of component 'mult_14_14' [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/mod.vhd:47]
-INFO: [Synth 8-3491] module 'mult_14_14' declared at 'C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/realtime/mult_14_14_stub.vhdl:5' bound to instance 'mix_multQC_14_14_cos' of component 'mult_14_14' [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/mod.vhd:47]
-INFO: [Synth 8-3491] module 'mult_14_14' declared at 'C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/realtime/mult_14_14_stub.vhdl:5' bound to instance 'mix_multQC_14_14_cos' of component 'mult_14_14' [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/mod.vhd:47]
-INFO: [Synth 8-3491] module 'mult_14_14' declared at 'C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/realtime/mult_14_14_stub.vhdl:5' bound to instance 'mix_multQC_14_14_cos' of component 'mult_14_14' [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/mod.vhd:47]
-INFO: [Synth 8-3491] module 'mult_14_14' declared at 'C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/realtime/mult_14_14_stub.vhdl:5' bound to instance 'mix_multQC_14_14_cos' of component 'mult_14_14' [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/mod.vhd:47]
-INFO: [Synth 8-3491] module 'mult_14_14' declared at 'C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/realtime/mult_14_14_stub.vhdl:5' bound to instance 'mix_multQC_14_14_cos' of component 'mult_14_14' [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/mod.vhd:47]
-INFO: [Synth 8-3491] module 'mult_14_14' declared at 'C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/realtime/mult_14_14_stub.vhdl:5' bound to instance 'mix_multQC_14_14_cos' of component 'mult_14_14' [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/mod.vhd:47]
+INFO: [Synth 8-3491] module 'mult_14_14' declared at 'C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/realtime/mult_14_14_stub.vhdl:5' bound to instance 'mix_multQC_14_14_cos' of component 'mult_14_14' [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/mod.vhd:47]
+INFO: [Synth 8-638] synthesizing module 'mult_14_14' [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/realtime/mult_14_14_stub.vhdl:15]
+INFO: [Synth 8-3491] module 'mult_14_14' declared at 'C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/realtime/mult_14_14_stub.vhdl:5' bound to instance 'mix_multQC_14_14_cos' of component 'mult_14_14' [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/mod.vhd:47]
+INFO: [Synth 8-3491] module 'mult_14_14' declared at 'C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/realtime/mult_14_14_stub.vhdl:5' bound to instance 'mix_multQC_14_14_cos' of component 'mult_14_14' [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/mod.vhd:47]
+INFO: [Synth 8-3491] module 'mult_14_14' declared at 'C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/realtime/mult_14_14_stub.vhdl:5' bound to instance 'mix_multQC_14_14_cos' of component 'mult_14_14' [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/mod.vhd:47]
+INFO: [Synth 8-3491] module 'mult_14_14' declared at 'C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/realtime/mult_14_14_stub.vhdl:5' bound to instance 'mix_multQC_14_14_cos' of component 'mult_14_14' [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/mod.vhd:47]
+INFO: [Synth 8-3491] module 'mult_14_14' declared at 'C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/realtime/mult_14_14_stub.vhdl:5' bound to instance 'mix_multQC_14_14_cos' of component 'mult_14_14' [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/mod.vhd:47]
+INFO: [Synth 8-3491] module 'mult_14_14' declared at 'C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/realtime/mult_14_14_stub.vhdl:5' bound to instance 'mix_multQC_14_14_cos' of component 'mult_14_14' [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/mod.vhd:47]
+INFO: [Synth 8-3491] module 'mult_14_14' declared at 'C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/realtime/mult_14_14_stub.vhdl:5' bound to instance 'mix_multQC_14_14_cos' of component 'mult_14_14' [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/mod.vhd:47]
 INFO: [Synth 8-256] done synthesizing module 'modulator' (5#1) [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/mod.vhd:23]
 INFO: [Synth 8-638] synthesizing module 'envelope_shaper' [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/envelope_shaper.vhd:37]
 INFO: [Synth 8-256] done synthesizing module 'envelope_shaper' (6#1) [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/envelope_shaper.vhd:37]
-WARNING: [Synth 8-6014] Unused sequential element cmd_reg_reg was removed.  [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/core.vhd:265]
-WARNING: [Synth 8-6014] Unused sequential element arg_reg_reg was removed.  [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/core.vhd:266]
-WARNING: [Synth 8-6014] Unused sequential element gpio_ext_reg was removed.  [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/core.vhd:280]
-WARNING: [Synth 8-6014] Unused sequential element TIM1_DIS_STR_reg was removed.  [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/core.vhd:236]
-INFO: [Synth 8-4471] merging register 'TIM1_EN_STR_reg' into 'nop_flag_reg' [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/core.vhd:233]
-WARNING: [Synth 8-6014] Unused sequential element TIM1_EN_STR_reg was removed.  [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/core.vhd:233]
+WARNING: [Synth 8-6014] Unused sequential element cmd_reg_reg was removed.  [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/core.vhd:264]
+WARNING: [Synth 8-6014] Unused sequential element arg_reg_reg was removed.  [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/core.vhd:265]
+WARNING: [Synth 8-6014] Unused sequential element gpio_ext_reg was removed.  [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/core.vhd:279]
+WARNING: [Synth 8-6014] Unused sequential element TIM1_DIS_STR_reg was removed.  [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/core.vhd:235]
+INFO: [Synth 8-4471] merging register 'TIM1_EN_STR_reg' into 'nop_flag_reg' [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/core.vhd:232]
+WARNING: [Synth 8-6014] Unused sequential element TIM1_EN_STR_reg was removed.  [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/core.vhd:232]
 WARNING: [Synth 8-3848] Net sig_out in module/entity CORE does not have driver. [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/core.vhd:69]
 INFO: [Synth 8-256] done synthesizing module 'CORE' (7#1) [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/core.vhd:77]
 WARNING: [Synth 8-3331] design dds8_mod has unconnected port a_we_i
@@ -209,7 +209,7 @@ WARNING: [Synth 8-3331] design CORE has unconnected port gpio_ext_out[2]
 WARNING: [Synth 8-3331] design CORE has unconnected port gpio_ext_out[1]
 WARNING: [Synth 8-3331] design CORE has unconnected port gpio_ext_out[0]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 471.199 ; gain = 157.164
+Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 471.578 ; gain = 156.836
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -219,138 +219,138 @@ Report Check Netlist:
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 471.199 ; gain = 157.164
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 471.578 ; gain = 156.836
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7z010clg400-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp8/pg_freq_acc_32to40plus_in_context.xdc] for cell 'Seq_mod/CARRIER_ACCUM'
-Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp8/pg_freq_acc_32to40plus_in_context.xdc] for cell 'Seq_mod/CARRIER_ACCUM'
-Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp8/pg_freq_acc_32to40plus_in_context.xdc] for cell 'Seq_mod/ROTATOR_ACCUM'
-Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp8/pg_freq_acc_32to40plus_in_context.xdc] for cell 'Seq_mod/ROTATOR_ACCUM'
-Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp9/dds8_mod_fi_add_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xPACC/xFI_ADD'
-Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp9/dds8_mod_fi_add_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xPACC/xFI_ADD'
-Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp9/dds8_mod_fi_add_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xPACC/xFI_ADD'
-Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp9/dds8_mod_fi_add_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xPACC/xFI_ADD'
-Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp10/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xPACC/xGEN_MADD[0].xMADD_PARTIAL'
-Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp10/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xPACC/xGEN_MADD[0].xMADD_PARTIAL'
-Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp10/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xPACC/xGEN_MADD[1].xMADD_PARTIAL'
-Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp10/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xPACC/xGEN_MADD[1].xMADD_PARTIAL'
-Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp10/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xPACC/xGEN_MADD[2].xMADD_PARTIAL'
-Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp10/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xPACC/xGEN_MADD[2].xMADD_PARTIAL'
-Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp10/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xPACC/xGEN_MADD[3].xMADD_PARTIAL'
-Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp10/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xPACC/xGEN_MADD[3].xMADD_PARTIAL'
-Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp10/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xPACC/xGEN_MADD[4].xMADD_PARTIAL'
-Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp10/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xPACC/xGEN_MADD[4].xMADD_PARTIAL'
-Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp10/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xPACC/xGEN_MADD[5].xMADD_PARTIAL'
-Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp10/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xPACC/xGEN_MADD[5].xMADD_PARTIAL'
-Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp10/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xPACC/xGEN_MADD[6].xMADD_PARTIAL'
-Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp10/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xPACC/xGEN_MADD[6].xMADD_PARTIAL'
-Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp10/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xPACC/xGEN_MADD[7].xMADD_PARTIAL'
-Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp10/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xPACC/xGEN_MADD[7].xMADD_PARTIAL'
-Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp10/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xPACC/xGEN_MADD[0].xMADD_PARTIAL'
-Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp10/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xPACC/xGEN_MADD[0].xMADD_PARTIAL'
-Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp10/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xPACC/xGEN_MADD[1].xMADD_PARTIAL'
-Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp10/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xPACC/xGEN_MADD[1].xMADD_PARTIAL'
-Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp10/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xPACC/xGEN_MADD[2].xMADD_PARTIAL'
-Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp10/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xPACC/xGEN_MADD[2].xMADD_PARTIAL'
-Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp10/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xPACC/xGEN_MADD[3].xMADD_PARTIAL'
-Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp10/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xPACC/xGEN_MADD[3].xMADD_PARTIAL'
-Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp10/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xPACC/xGEN_MADD[4].xMADD_PARTIAL'
-Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp10/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xPACC/xGEN_MADD[4].xMADD_PARTIAL'
-Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp10/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xPACC/xGEN_MADD[5].xMADD_PARTIAL'
-Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp10/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xPACC/xGEN_MADD[5].xMADD_PARTIAL'
-Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp10/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xPACC/xGEN_MADD[6].xMADD_PARTIAL'
-Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp10/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xPACC/xGEN_MADD[6].xMADD_PARTIAL'
-Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp10/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xPACC/xGEN_MADD[7].xMADD_PARTIAL'
-Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp10/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xPACC/xGEN_MADD[7].xMADD_PARTIAL'
-Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp11/mult_14_14_in_context.xdc] for cell 'modulator_mod/mix_multQC[0].mix_multQC_14_14_cos'
-Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp11/mult_14_14_in_context.xdc] for cell 'modulator_mod/mix_multQC[0].mix_multQC_14_14_cos'
-Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp11/mult_14_14_in_context.xdc] for cell 'modulator_mod/mix_multQC[1].mix_multQC_14_14_cos'
-Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp11/mult_14_14_in_context.xdc] for cell 'modulator_mod/mix_multQC[1].mix_multQC_14_14_cos'
-Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp11/mult_14_14_in_context.xdc] for cell 'modulator_mod/mix_multQC[2].mix_multQC_14_14_cos'
-Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp11/mult_14_14_in_context.xdc] for cell 'modulator_mod/mix_multQC[2].mix_multQC_14_14_cos'
-Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp11/mult_14_14_in_context.xdc] for cell 'modulator_mod/mix_multQC[3].mix_multQC_14_14_cos'
-Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp11/mult_14_14_in_context.xdc] for cell 'modulator_mod/mix_multQC[3].mix_multQC_14_14_cos'
-Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp11/mult_14_14_in_context.xdc] for cell 'modulator_mod/mix_multQC[4].mix_multQC_14_14_cos'
-Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp11/mult_14_14_in_context.xdc] for cell 'modulator_mod/mix_multQC[4].mix_multQC_14_14_cos'
-Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp11/mult_14_14_in_context.xdc] for cell 'modulator_mod/mix_multQC[5].mix_multQC_14_14_cos'
-Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp11/mult_14_14_in_context.xdc] for cell 'modulator_mod/mix_multQC[5].mix_multQC_14_14_cos'
-Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp11/mult_14_14_in_context.xdc] for cell 'modulator_mod/mix_multQC[6].mix_multQC_14_14_cos'
-Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp11/mult_14_14_in_context.xdc] for cell 'modulator_mod/mix_multQC[6].mix_multQC_14_14_cos'
-Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp11/mult_14_14_in_context.xdc] for cell 'modulator_mod/mix_multQC[7].mix_multQC_14_14_cos'
-Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp11/mult_14_14_in_context.xdc] for cell 'modulator_mod/mix_multQC[7].mix_multQC_14_14_cos'
-Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp12/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xGEN_LUT[0].xSINCOS_LUT'
-Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp12/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xGEN_LUT[0].xSINCOS_LUT'
-Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp12/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xGEN_LUT[1].xSINCOS_LUT'
-Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp12/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xGEN_LUT[1].xSINCOS_LUT'
-Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp12/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xGEN_LUT[2].xSINCOS_LUT'
-Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp12/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xGEN_LUT[2].xSINCOS_LUT'
-Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp12/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xGEN_LUT[3].xSINCOS_LUT'
-Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp12/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xGEN_LUT[3].xSINCOS_LUT'
-Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp12/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xGEN_LUT[4].xSINCOS_LUT'
-Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp12/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xGEN_LUT[4].xSINCOS_LUT'
-Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp12/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xGEN_LUT[5].xSINCOS_LUT'
-Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp12/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xGEN_LUT[5].xSINCOS_LUT'
-Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp12/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xGEN_LUT[6].xSINCOS_LUT'
-Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp12/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xGEN_LUT[6].xSINCOS_LUT'
-Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp12/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xGEN_LUT[7].xSINCOS_LUT'
-Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp12/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xGEN_LUT[7].xSINCOS_LUT'
-Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp12/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xGEN_LUT[0].xSINCOS_LUT'
-Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp12/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xGEN_LUT[0].xSINCOS_LUT'
-Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp12/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xGEN_LUT[1].xSINCOS_LUT'
-Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp12/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xGEN_LUT[1].xSINCOS_LUT'
-Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp12/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xGEN_LUT[2].xSINCOS_LUT'
-Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp12/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xGEN_LUT[2].xSINCOS_LUT'
-Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp12/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xGEN_LUT[3].xSINCOS_LUT'
-Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp12/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xGEN_LUT[3].xSINCOS_LUT'
-Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp12/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xGEN_LUT[4].xSINCOS_LUT'
-Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp12/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xGEN_LUT[4].xSINCOS_LUT'
-Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp12/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xGEN_LUT[5].xSINCOS_LUT'
-Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp12/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xGEN_LUT[5].xSINCOS_LUT'
-Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp12/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xGEN_LUT[6].xSINCOS_LUT'
-Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp12/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xGEN_LUT[6].xSINCOS_LUT'
-Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp12/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xGEN_LUT[7].xSINCOS_LUT'
-Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp12/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xGEN_LUT[7].xSINCOS_LUT'
-Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp13/dds8_mod_group_accum_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xPACC/xMACC_GROUP'
-Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp13/dds8_mod_group_accum_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xPACC/xMACC_GROUP'
-Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp13/dds8_mod_group_accum_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xPACC/xMACC_GROUP'
-Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp13/dds8_mod_group_accum_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xPACC/xMACC_GROUP'
-Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp14/mult_16_14_in_context.xdc] for cell 'Amp_ctrl_mod/ampl_mult_I[0].ampl_mult_I_16_14'
-Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp14/mult_16_14_in_context.xdc] for cell 'Amp_ctrl_mod/ampl_mult_I[0].ampl_mult_I_16_14'
-Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp14/mult_16_14_in_context.xdc] for cell 'Amp_ctrl_mod/ampl_mult_I[1].ampl_mult_I_16_14'
-Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp14/mult_16_14_in_context.xdc] for cell 'Amp_ctrl_mod/ampl_mult_I[1].ampl_mult_I_16_14'
-Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp14/mult_16_14_in_context.xdc] for cell 'Amp_ctrl_mod/ampl_mult_I[2].ampl_mult_I_16_14'
-Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp14/mult_16_14_in_context.xdc] for cell 'Amp_ctrl_mod/ampl_mult_I[2].ampl_mult_I_16_14'
-Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp14/mult_16_14_in_context.xdc] for cell 'Amp_ctrl_mod/ampl_mult_I[3].ampl_mult_I_16_14'
-Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp14/mult_16_14_in_context.xdc] for cell 'Amp_ctrl_mod/ampl_mult_I[3].ampl_mult_I_16_14'
-Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp14/mult_16_14_in_context.xdc] for cell 'Amp_ctrl_mod/ampl_mult_I[4].ampl_mult_I_16_14'
-Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp14/mult_16_14_in_context.xdc] for cell 'Amp_ctrl_mod/ampl_mult_I[4].ampl_mult_I_16_14'
-Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp14/mult_16_14_in_context.xdc] for cell 'Amp_ctrl_mod/ampl_mult_I[5].ampl_mult_I_16_14'
-Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp14/mult_16_14_in_context.xdc] for cell 'Amp_ctrl_mod/ampl_mult_I[5].ampl_mult_I_16_14'
-Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp14/mult_16_14_in_context.xdc] for cell 'Amp_ctrl_mod/ampl_mult_I[6].ampl_mult_I_16_14'
-Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp14/mult_16_14_in_context.xdc] for cell 'Amp_ctrl_mod/ampl_mult_I[6].ampl_mult_I_16_14'
-Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp14/mult_16_14_in_context.xdc] for cell 'Amp_ctrl_mod/ampl_mult_I[7].ampl_mult_I_16_14'
-Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp14/mult_16_14_in_context.xdc] for cell 'Amp_ctrl_mod/ampl_mult_I[7].ampl_mult_I_16_14'
-Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp15/blk_mem_gen_0_in_context.xdc] for cell 'BRAM_IP'
-Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-12360-FERNANDEZKA-DT/dcp15/blk_mem_gen_0_in_context.xdc] for cell 'BRAM_IP'
+Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp8/pg_freq_acc_32to40plus_in_context.xdc] for cell 'Seq_mod/CARRIER_ACCUM'
+Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp8/pg_freq_acc_32to40plus_in_context.xdc] for cell 'Seq_mod/CARRIER_ACCUM'
+Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp8/pg_freq_acc_32to40plus_in_context.xdc] for cell 'Seq_mod/ROTATOR_ACCUM'
+Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp8/pg_freq_acc_32to40plus_in_context.xdc] for cell 'Seq_mod/ROTATOR_ACCUM'
+Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp9/dds8_mod_fi_add_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xPACC/xFI_ADD'
+Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp9/dds8_mod_fi_add_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xPACC/xFI_ADD'
+Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp9/dds8_mod_fi_add_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xPACC/xFI_ADD'
+Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp9/dds8_mod_fi_add_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xPACC/xFI_ADD'
+Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp10/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xPACC/xGEN_MADD[0].xMADD_PARTIAL'
+Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp10/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xPACC/xGEN_MADD[0].xMADD_PARTIAL'
+Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp10/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xPACC/xGEN_MADD[1].xMADD_PARTIAL'
+Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp10/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xPACC/xGEN_MADD[1].xMADD_PARTIAL'
+Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp10/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xPACC/xGEN_MADD[2].xMADD_PARTIAL'
+Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp10/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xPACC/xGEN_MADD[2].xMADD_PARTIAL'
+Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp10/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xPACC/xGEN_MADD[3].xMADD_PARTIAL'
+Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp10/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xPACC/xGEN_MADD[3].xMADD_PARTIAL'
+Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp10/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xPACC/xGEN_MADD[4].xMADD_PARTIAL'
+Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp10/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xPACC/xGEN_MADD[4].xMADD_PARTIAL'
+Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp10/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xPACC/xGEN_MADD[5].xMADD_PARTIAL'
+Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp10/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xPACC/xGEN_MADD[5].xMADD_PARTIAL'
+Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp10/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xPACC/xGEN_MADD[6].xMADD_PARTIAL'
+Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp10/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xPACC/xGEN_MADD[6].xMADD_PARTIAL'
+Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp10/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xPACC/xGEN_MADD[7].xMADD_PARTIAL'
+Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp10/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xPACC/xGEN_MADD[7].xMADD_PARTIAL'
+Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp10/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xPACC/xGEN_MADD[0].xMADD_PARTIAL'
+Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp10/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xPACC/xGEN_MADD[0].xMADD_PARTIAL'
+Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp10/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xPACC/xGEN_MADD[1].xMADD_PARTIAL'
+Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp10/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xPACC/xGEN_MADD[1].xMADD_PARTIAL'
+Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp10/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xPACC/xGEN_MADD[2].xMADD_PARTIAL'
+Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp10/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xPACC/xGEN_MADD[2].xMADD_PARTIAL'
+Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp10/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xPACC/xGEN_MADD[3].xMADD_PARTIAL'
+Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp10/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xPACC/xGEN_MADD[3].xMADD_PARTIAL'
+Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp10/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xPACC/xGEN_MADD[4].xMADD_PARTIAL'
+Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp10/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xPACC/xGEN_MADD[4].xMADD_PARTIAL'
+Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp10/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xPACC/xGEN_MADD[5].xMADD_PARTIAL'
+Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp10/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xPACC/xGEN_MADD[5].xMADD_PARTIAL'
+Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp10/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xPACC/xGEN_MADD[6].xMADD_PARTIAL'
+Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp10/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xPACC/xGEN_MADD[6].xMADD_PARTIAL'
+Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp10/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xPACC/xGEN_MADD[7].xMADD_PARTIAL'
+Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp10/dds8_mod_fi_partial_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xPACC/xGEN_MADD[7].xMADD_PARTIAL'
+Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp11/mult_14_14_in_context.xdc] for cell 'modulator_mod/mix_multQC[0].mix_multQC_14_14_cos'
+Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp11/mult_14_14_in_context.xdc] for cell 'modulator_mod/mix_multQC[0].mix_multQC_14_14_cos'
+Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp11/mult_14_14_in_context.xdc] for cell 'modulator_mod/mix_multQC[1].mix_multQC_14_14_cos'
+Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp11/mult_14_14_in_context.xdc] for cell 'modulator_mod/mix_multQC[1].mix_multQC_14_14_cos'
+Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp11/mult_14_14_in_context.xdc] for cell 'modulator_mod/mix_multQC[2].mix_multQC_14_14_cos'
+Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp11/mult_14_14_in_context.xdc] for cell 'modulator_mod/mix_multQC[2].mix_multQC_14_14_cos'
+Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp11/mult_14_14_in_context.xdc] for cell 'modulator_mod/mix_multQC[3].mix_multQC_14_14_cos'
+Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp11/mult_14_14_in_context.xdc] for cell 'modulator_mod/mix_multQC[3].mix_multQC_14_14_cos'
+Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp11/mult_14_14_in_context.xdc] for cell 'modulator_mod/mix_multQC[4].mix_multQC_14_14_cos'
+Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp11/mult_14_14_in_context.xdc] for cell 'modulator_mod/mix_multQC[4].mix_multQC_14_14_cos'
+Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp11/mult_14_14_in_context.xdc] for cell 'modulator_mod/mix_multQC[5].mix_multQC_14_14_cos'
+Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp11/mult_14_14_in_context.xdc] for cell 'modulator_mod/mix_multQC[5].mix_multQC_14_14_cos'
+Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp11/mult_14_14_in_context.xdc] for cell 'modulator_mod/mix_multQC[6].mix_multQC_14_14_cos'
+Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp11/mult_14_14_in_context.xdc] for cell 'modulator_mod/mix_multQC[6].mix_multQC_14_14_cos'
+Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp11/mult_14_14_in_context.xdc] for cell 'modulator_mod/mix_multQC[7].mix_multQC_14_14_cos'
+Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp11/mult_14_14_in_context.xdc] for cell 'modulator_mod/mix_multQC[7].mix_multQC_14_14_cos'
+Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp12/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xGEN_LUT[0].xSINCOS_LUT'
+Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp12/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xGEN_LUT[0].xSINCOS_LUT'
+Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp12/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xGEN_LUT[1].xSINCOS_LUT'
+Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp12/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xGEN_LUT[1].xSINCOS_LUT'
+Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp12/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xGEN_LUT[2].xSINCOS_LUT'
+Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp12/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xGEN_LUT[2].xSINCOS_LUT'
+Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp12/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xGEN_LUT[3].xSINCOS_LUT'
+Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp12/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xGEN_LUT[3].xSINCOS_LUT'
+Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp12/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xGEN_LUT[4].xSINCOS_LUT'
+Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp12/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xGEN_LUT[4].xSINCOS_LUT'
+Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp12/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xGEN_LUT[5].xSINCOS_LUT'
+Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp12/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xGEN_LUT[5].xSINCOS_LUT'
+Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp12/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xGEN_LUT[6].xSINCOS_LUT'
+Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp12/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xGEN_LUT[6].xSINCOS_LUT'
+Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp12/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xGEN_LUT[7].xSINCOS_LUT'
+Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp12/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xGEN_LUT[7].xSINCOS_LUT'
+Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp12/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xGEN_LUT[0].xSINCOS_LUT'
+Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp12/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xGEN_LUT[0].xSINCOS_LUT'
+Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp12/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xGEN_LUT[1].xSINCOS_LUT'
+Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp12/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xGEN_LUT[1].xSINCOS_LUT'
+Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp12/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xGEN_LUT[2].xSINCOS_LUT'
+Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp12/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xGEN_LUT[2].xSINCOS_LUT'
+Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp12/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xGEN_LUT[3].xSINCOS_LUT'
+Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp12/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xGEN_LUT[3].xSINCOS_LUT'
+Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp12/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xGEN_LUT[4].xSINCOS_LUT'
+Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp12/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xGEN_LUT[4].xSINCOS_LUT'
+Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp12/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xGEN_LUT[5].xSINCOS_LUT'
+Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp12/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xGEN_LUT[5].xSINCOS_LUT'
+Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp12/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xGEN_LUT[6].xSINCOS_LUT'
+Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp12/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xGEN_LUT[6].xSINCOS_LUT'
+Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp12/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xGEN_LUT[7].xSINCOS_LUT'
+Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp12/dds_lut_25x16_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xGEN_LUT[7].xSINCOS_LUT'
+Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp13/dds8_mod_group_accum_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xPACC/xMACC_GROUP'
+Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp13/dds8_mod_group_accum_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_carrier/xPACC/xMACC_GROUP'
+Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp13/dds8_mod_group_accum_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xPACC/xMACC_GROUP'
+Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp13/dds8_mod_group_accum_in_context.xdc] for cell 'Seq_mod/inst_dds8_m_rotation/xPACC/xMACC_GROUP'
+Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp14/mult_16_14_in_context.xdc] for cell 'Amp_ctrl_mod/ampl_mult_I[0].ampl_mult_I_16_14'
+Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp14/mult_16_14_in_context.xdc] for cell 'Amp_ctrl_mod/ampl_mult_I[0].ampl_mult_I_16_14'
+Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp14/mult_16_14_in_context.xdc] for cell 'Amp_ctrl_mod/ampl_mult_I[1].ampl_mult_I_16_14'
+Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp14/mult_16_14_in_context.xdc] for cell 'Amp_ctrl_mod/ampl_mult_I[1].ampl_mult_I_16_14'
+Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp14/mult_16_14_in_context.xdc] for cell 'Amp_ctrl_mod/ampl_mult_I[2].ampl_mult_I_16_14'
+Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp14/mult_16_14_in_context.xdc] for cell 'Amp_ctrl_mod/ampl_mult_I[2].ampl_mult_I_16_14'
+Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp14/mult_16_14_in_context.xdc] for cell 'Amp_ctrl_mod/ampl_mult_I[3].ampl_mult_I_16_14'
+Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp14/mult_16_14_in_context.xdc] for cell 'Amp_ctrl_mod/ampl_mult_I[3].ampl_mult_I_16_14'
+Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp14/mult_16_14_in_context.xdc] for cell 'Amp_ctrl_mod/ampl_mult_I[4].ampl_mult_I_16_14'
+Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp14/mult_16_14_in_context.xdc] for cell 'Amp_ctrl_mod/ampl_mult_I[4].ampl_mult_I_16_14'
+Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp14/mult_16_14_in_context.xdc] for cell 'Amp_ctrl_mod/ampl_mult_I[5].ampl_mult_I_16_14'
+Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp14/mult_16_14_in_context.xdc] for cell 'Amp_ctrl_mod/ampl_mult_I[5].ampl_mult_I_16_14'
+Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp14/mult_16_14_in_context.xdc] for cell 'Amp_ctrl_mod/ampl_mult_I[6].ampl_mult_I_16_14'
+Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp14/mult_16_14_in_context.xdc] for cell 'Amp_ctrl_mod/ampl_mult_I[6].ampl_mult_I_16_14'
+Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp14/mult_16_14_in_context.xdc] for cell 'Amp_ctrl_mod/ampl_mult_I[7].ampl_mult_I_16_14'
+Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp14/mult_16_14_in_context.xdc] for cell 'Amp_ctrl_mod/ampl_mult_I[7].ampl_mult_I_16_14'
+Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp15/blk_mem_gen_0_in_context.xdc] for cell 'BRAM_IP'
+Finished Parsing XDC File [C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/.Xil/Vivado-9676-FERNANDEZKA-DT/dcp15/blk_mem_gen_0_in_context.xdc] for cell 'BRAM_IP'
 Completed Processing XDC Constraints
 
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.017 . Memory (MB): peak = 802.883 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.010 . Memory (MB): peak = 802.543 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 802.883 ; gain = 488.848
+Finished Constraint Validation : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 802.543 ; gain = 487.801
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z010clg400-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 802.883 ; gain = 488.848
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 802.543 ; gain = 487.801
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -411,10 +411,12 @@ Applied set_property DONT_TOUCH = true for modulator_mod/\mix_multQC[5].mix_mult
 Applied set_property DONT_TOUCH = true for modulator_mod/\mix_multQC[6].mix_multQC_14_14_cos . (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for modulator_mod/\mix_multQC[7].mix_multQC_14_14_cos . (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:18 ; elapsed = 00:00:20 . Memory (MB): peak = 802.883 ; gain = 488.848
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:18 ; elapsed = 00:00:20 . Memory (MB): peak = 802.543 ; gain = 487.801
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-4471] merging register 'p_ce_reg' into 'f_inc_ce_reg' [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/sequencer.vhd:113]
+INFO: [Synth 8-4471] merging register 'p_clr_reg' into 'f_inc_clr_reg' [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/sequencer.vhd:116]
 WARNING: [Synth 8-6014] Unused sequential element p_ce_reg was removed.  [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/sequencer.vhd:113]
+WARNING: [Synth 8-6014] Unused sequential element p_clr_reg was removed.  [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/sequencer.vhd:116]
 INFO: [Synth 8-5544] ROM "curr_state" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "rst_counter" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "ns_mode" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
@@ -433,7 +435,7 @@ INFO: [Synth 8-5545] ROM "TIM1_CNT" won't be mapped to RAM because address size 
 WARNING: [Synth 8-6014] Unused sequential element ptrBRAM_reg was removed.  [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/core.vhd:173]
 WARNING: [Synth 8-6014] Unused sequential element TIM1_CNT_reg was removed.  [C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/core.vhd:337]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:18 ; elapsed = 00:00:20 . Memory (MB): peak = 802.883 ; gain = 488.848
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 802.543 ; gain = 487.801
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -459,18 +461,18 @@ Detailed RTL Component Info :
 	                4 Bit    Registers := 1     
 	                3 Bit    Registers := 3     
 	                2 Bit    Registers := 5     
-	                1 Bit    Registers := 11    
+	                1 Bit    Registers := 10    
 +---Muxes : 
 	   2 Input     14 Bit        Muxes := 16    
 	   4 Input     14 Bit        Muxes := 8     
 	   2 Input     10 Bit        Muxes := 3     
 	   4 Input      8 Bit        Muxes := 1     
-	   2 Input      8 Bit        Muxes := 1     
+	   2 Input      8 Bit        Muxes := 2     
 	   4 Input      2 Bit        Muxes := 1     
 	   9 Input      2 Bit        Muxes := 1     
 	  16 Input      2 Bit        Muxes := 1     
 	   2 Input      1 Bit        Muxes := 19    
-	   4 Input      1 Bit        Muxes := 11    
+	   4 Input      1 Bit        Muxes := 9     
 	   5 Input      1 Bit        Muxes := 1     
 	  16 Input      1 Bit        Muxes := 7     
 	   3 Input      1 Bit        Muxes := 2     
@@ -494,7 +496,7 @@ Detailed RTL Component Info :
 +---Muxes : 
 	   2 Input     10 Bit        Muxes := 3     
 	   4 Input      8 Bit        Muxes := 1     
-	   2 Input      8 Bit        Muxes := 1     
+	   2 Input      8 Bit        Muxes := 2     
 	  16 Input      2 Bit        Muxes := 1     
 	   2 Input      1 Bit        Muxes := 18    
 	  16 Input      1 Bit        Muxes := 7     
@@ -537,11 +539,11 @@ Detailed RTL Component Info :
 	               32 Bit    Registers := 4     
 	                3 Bit    Registers := 1     
 	                2 Bit    Registers := 1     
-	                1 Bit    Registers := 6     
+	                1 Bit    Registers := 5     
 +---Muxes : 
 	   4 Input      2 Bit        Muxes := 1     
 	   2 Input      1 Bit        Muxes := 1     
-	   4 Input      1 Bit        Muxes := 9     
+	   4 Input      1 Bit        Muxes := 7     
 	   5 Input      1 Bit        Muxes := 1     
 Module modulator 
 Detailed RTL Component Info : 
@@ -681,7 +683,7 @@ WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[0].sin14_o_reg[0][13]) is u
 WARNING: [Synth 8-3332] Sequential element (xGEN_OUT[0].sin14_o_reg[0][12]) is unused and will be removed from module dds8_mod__xdcDup__1.
 INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:21 ; elapsed = 00:00:23 . Memory (MB): peak = 802.883 ; gain = 488.848
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:21 ; elapsed = 00:00:23 . Memory (MB): peak = 802.543 ; gain = 487.801
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -693,13 +695,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:30 ; elapsed = 00:00:32 . Memory (MB): peak = 808.598 ; gain = 494.562
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:32 ; elapsed = 00:00:34 . Memory (MB): peak = 809.824 ; gain = 495.082
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:30 ; elapsed = 00:00:32 . Memory (MB): peak = 810.262 ; gain = 496.227
+Finished Timing Optimization : Time (s): cpu = 00:00:32 ; elapsed = 00:00:34 . Memory (MB): peak = 811.340 ; gain = 496.598
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -711,7 +713,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:30 ; elapsed = 00:00:32 . Memory (MB): peak = 832.375 ; gain = 518.340
+Finished Technology Mapping : Time (s): cpu = 00:00:32 ; elapsed = 00:00:34 . Memory (MB): peak = 832.695 ; gain = 517.953
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -735,7 +737,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:31 ; elapsed = 00:00:33 . Memory (MB): peak = 832.375 ; gain = 518.340
+Finished IO Insertion : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 832.695 ; gain = 517.953
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -748,7 +750,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:31 ; elapsed = 00:00:33 . Memory (MB): peak = 832.375 ; gain = 518.340
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 832.695 ; gain = 517.953
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -760,25 +762,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:31 ; elapsed = 00:00:34 . Memory (MB): peak = 832.375 ; gain = 518.340
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 832.695 ; gain = 517.953
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:31 ; elapsed = 00:00:34 . Memory (MB): peak = 832.375 ; gain = 518.340
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 832.695 ; gain = 517.953
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:31 ; elapsed = 00:00:34 . Memory (MB): peak = 832.375 ; gain = 518.340
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 832.695 ; gain = 517.953
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:32 ; elapsed = 00:00:34 . Memory (MB): peak = 832.375 ; gain = 518.340
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 832.695 ; gain = 517.953
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -860,11 +862,11 @@ Report Cell Usage:
 |56    |BUFG                            |     1|
 |57    |CARRY4                          |     8|
 |58    |LUT1                            |    21|
-|59    |LUT2                            |     8|
+|59    |LUT2                            |     7|
 |60    |LUT3                            |    40|
-|61    |LUT4                            |    13|
-|62    |LUT5                            |   147|
-|63    |LUT6                            |    16|
+|61    |LUT4                            |    15|
+|62    |LUT5                            |   137|
+|63    |LUT6                            |    27|
 |64    |FDRE                            |  1006|
 |65    |FDSE                            |     4|
 |66    |IBUF                            |    50|
@@ -876,9 +878,9 @@ Report Instance Areas:
 +------+-------------------------+---------------------+------+
 |      |Instance                 |Module               |Cells |
 +------+-------------------------+---------------------+------+
-|1     |top                      |                     |  3760|
+|1     |top                      |                     |  3762|
 |2     |  Amp_ctrl_mod           |AMP_CTRL             |   224|
-|3     |  Seq_mod                |Sequencer            |  2502|
+|3     |  Seq_mod                |Sequencer            |  2500|
 |4     |    inst_dds8_m_carrier  |dds8_mod__xdcDup__1  |  1136|
 |5     |      xPACC              |dds8_pacc__xdcDup__1 |   725|
 |6     |    inst_dds8_m_rotation |dds8_mod             |  1136|
@@ -887,24 +889,24 @@ Report Instance Areas:
 |9     |  modulator_mod          |modulator            |   351|
 +------+-------------------------+---------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:32 ; elapsed = 00:00:34 . Memory (MB): peak = 832.375 ; gain = 518.340
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 832.695 ; gain = 517.953
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 378 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:19 ; elapsed = 00:00:26 . Memory (MB): peak = 832.375 ; gain = 186.656
-Synthesis Optimization Complete : Time (s): cpu = 00:00:32 ; elapsed = 00:00:34 . Memory (MB): peak = 832.375 ; gain = 518.340
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:20 ; elapsed = 00:00:28 . Memory (MB): peak = 832.695 ; gain = 186.988
+Synthesis Optimization Complete : Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 832.695 ; gain = 517.953
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Netlist 29-17] Analyzing 58 Unisim elements for replacement
-INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Netlist 29-28] Unisim Transformation completed in 1 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
-89 Infos, 211 Warnings, 0 Critical Warnings and 0 Errors encountered.
+90 Infos, 212 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:34 ; elapsed = 00:00:38 . Memory (MB): peak = 832.375 ; gain = 530.520
+synth_design: Time (s): cpu = 00:00:35 ; elapsed = 00:00:39 . Memory (MB): peak = 835.551 ; gain = 533.035
 INFO: [Common 17-1381] The checkpoint 'C:/dev/FPGA/PQM_gen/georadar_gen.runs/synth_2/CORE.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file CORE_utilization_synth.rpt -pb CORE_utilization_synth.pb
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.035 . Memory (MB): peak = 832.375 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Fri May  6 10:33:27 2022...
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.027 . Memory (MB): peak = 835.551 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Fri May  6 14:46:18 2022...
