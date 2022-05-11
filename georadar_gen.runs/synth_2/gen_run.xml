@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_2" LaunchPart="xc7z010clg400-1" LaunchTime="1651837529">
+<GenRun Id="synth_2" LaunchPart="xc7z010clg400-1" LaunchTime="1652267733">
   <File Type="PA-TCL" Name="CORE.tcl"/>
   <File Type="RDS-PROPCONSTRS" Name="CORE_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="CORE_reports.tcl"/>
@@ -80,15 +80,6 @@
         <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="ImportPath" Val="$PPRDIR/SRC/gpio.vhd"/>
         <Attr Name="ImportTime" Val="1650981369"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PSRCDIR/sources_1/imports/PQM_gen/SRC/mux.vhd">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
-        <Attr Name="ImportPath" Val="$PPRDIR/SRC/mux.vhd"/>
-        <Attr Name="ImportTime" Val="1650981397"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>

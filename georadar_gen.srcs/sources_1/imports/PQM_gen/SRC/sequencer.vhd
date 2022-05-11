@@ -18,8 +18,7 @@ ENTITY Sequencer IS
 		clk_seq : IN STD_LOGIC := '0';
 		en_seq : IN STD_LOGIC := '1';
 		rst_seq : IN STD_LOGIC := '0';
-		rst_dds : in std_logic := '0';
-		trig_init : IN STD_LOGIC := '0';
+		rst_dds : IN STD_LOGIC := '0';
 		Fc : IN STD_LOGIC_VECTOR(freq_widgt - 1 DOWNTO 0);
 		Fr : IN STD_LOGIC_VECTOR(freq_widgt - 1 DOWNTO 0);
 		Pc : IN STD_LOGIC_VECTOR(phase_widgt - 1 DOWNTO 0);
@@ -47,8 +46,8 @@ ARCHITECTURE Behavioral OF Sequencer IS
 	SIGNAL f_clr, f_inc_clr, p_clr : STD_LOGIC := '1';
 
 	--for FSM accum 
-	TYPE fsm_state IS (reset, idle, load, generation);
-	SIGNAL curr_state : fsm_state := idle;
+	TYPE fsm_state IS (reset, load, generation);
+	SIGNAL curr_state : fsm_state := reset;
 
 	SIGNAL rst_counter : unsigned(2 DOWNTO 0) := (OTHERS => '0');
 
@@ -132,63 +131,52 @@ BEGIN
 
 	FSM_ACCUM : PROCESS (clk_seq, curr_state) BEGIN
 		IF rising_edge(clk_seq) THEN
+			--Check reset input
 			IF rst_seq = '1' THEN
 				curr_state <= reset;
-				rst_counter <= b"011";
-			ELSE
-				CASE (curr_state) IS
-					WHEN reset =>
-						IF rst_counter = b"000" THEN
-							curr_state <= idle;
-						ELSE
-							rst_counter <= rst_counter - 1;
-							done_o <= '1';
-							--carrier_reg <= (OTHERS => '0');
-							--rotator_reg <= (OTHERS => '0');
-						END IF;
-					WHEN idle =>
-						IF trig_init = '1' THEN
-							carrier_freq_init <= Fc;
-							rotator_freq_init <= Fr;
-							carrier_inc_reg <= Fc_inc;
-							rotator_inc_reg <= Fr_inc;
-							--prepare frequency generator: load init freq into registers
-							f_ce <= '1';
-							f_inc_ce <= '0';
-							p_ce <= '0';
-							f_clr <= '0';
-							f_inc_clr <= '1';
-							p_clr <= '1';
-							curr_state <= load;
-						ELSE
-							done_o <= '1';
-							-- current frequency generator
-							f_ce <= '0';
-							f_inc_ce <= '0';
-							p_ce <= '0';
-							f_clr <= '1';
-							f_inc_clr <= '1';
-							p_clr <= '1';
-						END IF;
-					WHEN load =>
-						--This we sum init frequency and clear our register, load increment value
-						f_ce <= '0';
-						f_inc_ce <= '1';
-						p_ce <= '1';
-						f_clr <= '1';
-						f_inc_clr <= '0';
-						p_clr <= '0';
-						curr_state <= generation;
-					WHEN generation =>
-						--current frequency generator : added with f_inc
-						f_ce <= '0';
-						f_inc_ce <= '1';
-						p_ce <= '1';
-						f_clr <= '1';
-						f_inc_clr <= '0';
-						p_clr <= '0';
-				END CASE;
 			END IF;
+
+			CASE curr_state IS
+				WHEN reset =>
+					IF rst_seq = '1' THEN
+						curr_state <= reset;
+						f_ce <= '0';
+                        f_inc_ce <= '0';
+                        f_clr <= '1';
+                        f_inc_clr <= '1';
+                        p_clr <= '1';
+					ELSE
+					   carrier_freq_init <= Fc;
+                        rotator_freq_init <= Fr;
+                        carrier_inc_reg <= Fc_inc;
+                        rotator_inc_reg <= Fr_inc;
+                        --prepare frequency generator: load init freq into registers
+                        f_ce <= '1';
+                        f_inc_ce <= '0';
+                        p_ce <= '0';
+                        f_clr <= '0';
+                        f_inc_clr <= '1';
+                        p_clr <= '1';
+                        curr_state <= load;
+					END IF;
+				WHEN load =>
+					--This we sum init frequency and clear our register, load increment value
+					f_ce <= '0';
+					f_inc_ce <= '1';
+					p_ce <= '1';
+					f_clr <= '1';
+					f_inc_clr <= '0';
+					p_clr <= '0';
+					curr_state <= generation;
+				WHEN generation =>
+					--current frequency generator : added with f_inc
+					f_ce <= '0';
+					f_inc_ce <= '1';
+					p_ce <= '1';
+					f_clr <= '1';
+					f_inc_clr <= '0';
+					p_clr <= '0';
+			END CASE;
 		END IF;
 	END PROCESS FSM_ACCUM;
 END ARCHITECTURE Behavioral;

@@ -41,10 +41,10 @@ signal        dina_tb :  STD_LOGIC_VECTOR(31 DOWNTO 0) := (OTHERS => '0');
 signal        wea_tb : STD_LOGIC_VECTOR(3 DOWNTO 0) := (OTHERS => '0');
 signal        ena_tb : STD_LOGIC := '0';
         --for connecting with other module
-signal        clk_core_tb : STD_LOGIC;
-signal        rst_core_tb : STD_LOGIC;
-signal        trig_core_tb : STD_LOGIC;
-signal        en_core_tb : STD_LOGIC;
+signal        clk_core_tb : STD_LOGIC := '0';
+signal        rst_core_tb : STD_LOGIC := '1';
+signal        trig_core_tb : STD_LOGIC := '0';
+signal        en_core_tb : STD_LOGIC := '1';
         --implement gpio  
 signal        GPIOA_tb : STD_LOGIC_VECTOR (32 - 1 DOWNTO 0);
 
@@ -64,9 +64,20 @@ GPIO_ext_out => GPIOA_tb
 );
 
 clk_gen: process begin
-    wait for 20 ns;
+    wait for 7 ns;
     clk <= not clk;
     clk_core_tb <= clk;
 end process;
+
+tb_proc: process begin
+    wait for 1 us;
+    rst_core_tb <= '0';
+    wait for 1 uS;
+    trig_core_tb <= '1';
+    wait for 15 ns;
+    trig_core_tb <= '0';
+    wait for 500 ms;
+    
+end process tb_proc;
 
 end Behavioral;

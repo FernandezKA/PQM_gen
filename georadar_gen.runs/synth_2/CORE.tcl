@@ -29,7 +29,7 @@ set_property default_lib xil_defaultlib [current_project]
 set_property target_language VHDL [current_project]
 set_property ip_output_repo c:/dev/FPGA/PQM_gen/georadar_gen.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
-add_files c:/dev/FPGA/PQM_gen/SIM/BRAM_Init.coe
+add_files C:/dev/FPGA/PQM_gen/SIM/BRAM_Init.coe
 read_vhdl -library xil_defaultlib {
   C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/main_pkg.vhd
   C:/dev/FPGA/PQM_gen/georadar_gen.srcs/sources_1/imports/PQM_gen/SRC/amp_ctrl.vhd
