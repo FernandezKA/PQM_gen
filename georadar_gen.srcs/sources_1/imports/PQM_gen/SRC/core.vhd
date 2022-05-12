@@ -300,6 +300,7 @@ BEGIN
     cmd_parser : PROCESS (clk_core) BEGIN
         IF rising_edge(clk_core) THEN
             --reset strobs
+            gpio_int <= gpio_int AND (NOT "00000110");
             IF CORE_CS = WORKED THEN
                 --gpio_int <= gpio_int AND (NOT "00000110");
                 IF tim1_cen = '0' AND tim1_en_str = '0' THEN -- lock execute when timer for delay is active 
