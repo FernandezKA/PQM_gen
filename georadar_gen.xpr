@@ -33,20 +33,20 @@
     <Option Name="EnableBDX" Val="FALSE"/>
     <Option Name="DSAVendor" Val="xilinx"/>
     <Option Name="DSANumComputeUnits" Val="60"/>
-    <Option Name="WTXSimLaunchSim" Val="89"/>
+    <Option Name="WTXSimLaunchSim" Val="125"/>
     <Option Name="WTModelSimLaunchSim" Val="0"/>
     <Option Name="WTQuestaLaunchSim" Val="0"/>
     <Option Name="WTIesLaunchSim" Val="0"/>
     <Option Name="WTVcsLaunchSim" Val="0"/>
     <Option Name="WTRivieraLaunchSim" Val="0"/>
     <Option Name="WTActivehdlLaunchSim" Val="0"/>
-    <Option Name="WTXSimExportSim" Val="44"/>
-    <Option Name="WTModelSimExportSim" Val="44"/>
-    <Option Name="WTQuestaExportSim" Val="44"/>
-    <Option Name="WTIesExportSim" Val="44"/>
-    <Option Name="WTVcsExportSim" Val="44"/>
-    <Option Name="WTRivieraExportSim" Val="44"/>
-    <Option Name="WTActivehdlExportSim" Val="44"/>
+    <Option Name="WTXSimExportSim" Val="55"/>
+    <Option Name="WTModelSimExportSim" Val="55"/>
+    <Option Name="WTQuestaExportSim" Val="55"/>
+    <Option Name="WTIesExportSim" Val="55"/>
+    <Option Name="WTVcsExportSim" Val="55"/>
+    <Option Name="WTRivieraExportSim" Val="55"/>
+    <Option Name="WTActivehdlExportSim" Val="55"/>
     <Option Name="GenerateIPUpgradeLog" Val="TRUE"/>
     <Option Name="XSimRadix" Val="hex"/>
     <Option Name="XSimTimeUnit" Val="ns"/>
@@ -149,6 +149,42 @@
         </FileInfo>
       </File>
       <File Path="$PPRDIR/SIM/BRAM_Init.coe">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../georadar_gen/SIM/init.coe">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../../Cpp/Gen_cmd_config/simple_pulse.coe">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../../Cpp/Gen_cmd_config/pulse_with_env.coe">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../../Cpp/Gen_cmd_config/inf_sine.coe">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../../Cpp/Gen_cmd_config/inf_pulse.coe">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../../Cpp/Gen_cmd_config/fast_pulse.coe">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>

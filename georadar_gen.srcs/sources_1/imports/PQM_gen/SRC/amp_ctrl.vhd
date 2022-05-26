@@ -22,6 +22,7 @@ ENTITY AMP_CTRL IS
 END ENTITY AMP_CTRL;
 
 ARCHITECTURE Behavioral OF AMP_CTRL is
+    signal xored_in : Tdac_bus := (others => (others => '0'));
     signal result : Tdac_bus := (others => (others => '0'));
     
     COMPONENT mult_16_14
@@ -43,11 +44,11 @@ BEGIN
         b => Amp_in(i),
         p => result(i));
     end generate;
-
+    
 amp_proc: process(clk_amp_ctrl) begin 
     if rising_edge(clk_amp_ctrl) then 
         if en_amp_ctrl = '0' then 
-            Amp_out <= Amp_in;
+            Amp_out <= result;
         else 
             Amp_out <= result;
         end if;
