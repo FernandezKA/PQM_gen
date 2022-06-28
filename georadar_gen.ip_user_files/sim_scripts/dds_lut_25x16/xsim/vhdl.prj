@@ -1,4 +1,0 @@
-vhdl xil_defaultlib  \
-"../../../../georadar_gen.srcs/dds_lut_25x16/ip/dds_lut_25x16/sim/dds_lut_25x16.vhd" \
-
-nosort

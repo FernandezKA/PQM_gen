@@ -1,4 +1,0 @@
-vhdl xil_defaultlib  \
-"../../../../georadar_gen.srcs/dds8_mod_fi_partial/ip/dds8_mod_fi_partial/sim/dds8_mod_fi_partial.vhd" \
-
-nosort

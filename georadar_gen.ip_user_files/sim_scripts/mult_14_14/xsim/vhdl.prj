@@ -1,4 +1,0 @@
-vhdl xil_defaultlib  \
-"../../../../georadar_gen.srcs/mult_14_14/ip/mult_14_14/sim/mult_14_14.vhd" \
-
-nosort
